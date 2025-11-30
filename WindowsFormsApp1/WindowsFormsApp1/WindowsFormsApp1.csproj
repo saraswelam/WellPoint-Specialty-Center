@@ -144,6 +144,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\admins.cs" />
+    <Compile Include="Models\appointments.cs" />
+    <Compile Include="Models\clinics.cs" />
+    <Compile Include="Models\doctors.cs" />
+    <Compile Include="Models\Patients.cs" />
+    <Compile Include="Models\payments.cs" />
+    <Compile Include="Models\reviews.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -174,7 +181,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\MongoDBServices.cs" />
