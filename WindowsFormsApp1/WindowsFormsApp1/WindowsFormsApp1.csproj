@@ -144,6 +144,102 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Admin\AdminDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AdminDashboardForm.Designer.cs">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\AllAppointmentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AllAppointmentsForm.Designer.cs">
+      <DependentUpon>AllAppointmentsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\AddDoctorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AddDoctorForm.Designer.cs">
+      <DependentUpon>AddDoctorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\ViewPaymentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ViewPaymentsForm.Designer.cs">
+      <DependentUpon>ViewPaymentsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\ViewReviewsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ViewReviewsForm.Designer.cs">
+      <DependentUpon>ViewReviewsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\ManageDoctorsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\ManageDoctorsForm.Designer.cs">
+      <DependentUpon>ManageDoctorsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Auth\SignUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Auth\SignUpForm.Designer.cs">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Auth\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Auth\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Doctor\DoctorDashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Doctor\DoctorDashboardForm.Designer.cs">
+      <DependentUpon>DoctorDashboardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Doctor\DoctorScheduleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Doctor\DoctorScheduleForm.Designer.cs">
+      <DependentUpon>DoctorScheduleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Doctor\DoctorAppointmentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Doctor\DoctorAppointmentsForm.Designer.cs">
+      <DependentUpon>DoctorAppointmentsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Patient\ViewDrPofileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Patient\ViewDrPofileForm.Designer.cs">
+      <DependentUpon>ViewDrPofileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Patient\PaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Patient\PaymentForm.Designer.cs">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Patient\PatientWriteReviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Patient\PatientWriteReviewForm.Designer.cs">
+      <DependentUpon>PatientWriteReviewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Patient\PatientAppointmentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Patient\PatientAppointmentsForm.Designer.cs">
+      <DependentUpon>PatientAppointmentsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Patient\PatientHomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Patient\PatientHomeForm.Designer.cs">
+      <DependentUpon>PatientHomeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\admins.cs" />
     <Compile Include="Models\appointments.cs" />
     <Compile Include="Models\clinics.cs" />
@@ -155,6 +251,54 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\AdminDashboardForm.resx">
+      <DependentUpon>AdminDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\AllAppointmentsForm.resx">
+      <DependentUpon>AllAppointmentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\AddDoctorForm.resx">
+      <DependentUpon>AddDoctorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ViewPaymentsForm.resx">
+      <DependentUpon>ViewPaymentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ViewReviewsForm.resx">
+      <DependentUpon>ViewReviewsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\ManageDoctorsForm.resx">
+      <DependentUpon>ManageDoctorsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Auth\SignUpForm.resx">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Auth\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Doctor\DoctorDashboardForm.resx">
+      <DependentUpon>DoctorDashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Doctor\DoctorScheduleForm.resx">
+      <DependentUpon>DoctorScheduleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Doctor\DoctorAppointmentsForm.resx">
+      <DependentUpon>DoctorAppointmentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Patient\ViewDrPofileForm.resx">
+      <DependentUpon>ViewDrPofileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Patient\PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Patient\PatientWriteReviewForm.resx">
+      <DependentUpon>PatientWriteReviewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Patient\PatientAppointmentsForm.resx">
+      <DependentUpon>PatientAppointmentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Patient\PatientHomeForm.resx">
+      <DependentUpon>PatientHomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -179,9 +323,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="Services\MongoDBServices.cs" />
   </ItemGroup>
