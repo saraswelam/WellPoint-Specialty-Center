@@ -1,61 +1,82 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System;
 using System.Collections.Generic;
 
-namespace ClinicalBookingApp.Models // <--- REMOVED .Models
+public class Patient
 {
-    public class Patient
-    {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+    [BsonId]
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string Id { get; set; }
 
-        [BsonElement("firstName")]
-        public string FirstName { get; set; }
+    [BsonElement("first_name")]
+    public string FirstName { get; set; }
 
-        [BsonElement("lastName")]
-        public string LastName { get; set; }
+    [BsonElement("last_name")]
+    public string LastName { get; set; }
 
-        [BsonElement("dob")]
-        public DateTime DateOfBirth { get; set; }
+    [BsonElement("age")]
+    public int Age { get; set; }
 
-        [BsonElement("gender")]
-        public string Gender { get; set; }
+    [BsonElement("gender")]
+    public string Gender { get; set; }
 
-        [BsonElement("contact")]
-        public ContactInfo Contact { get; set; }
+    [BsonElement("appointment_id")]
+    public string AppointmentId { get; set; }
 
-        [BsonElement("insurance")]
-        public InsuranceInfo Insurance { get; set; }
+    [BsonElement("medical_history")]
+    public MedicalHistory MedicalHistory { get; set; }
 
-        [BsonElement("medicalHistory")]
-        public List<MedicalRecord> MedicalHistory { get; set; }
-    }
+    [BsonElement("insurance")]
+    public Insurance Insurance { get; set; }
 
-    public class ContactInfo
-    {
-        [BsonElement("phone")]
-        public string Phone { get; set; }
+    [BsonElement("contact_info")]
+    public ContactInfo ContactInfo { get; set; }
+}
 
-        [BsonElement("email")]
-        public string Email { get; set; }
+public class MedicalHistory
+{
+    [BsonElement("allergies")]
+    public List<string> Allergies { get; set; }
 
-        [BsonElement("address")]
-        public string Address { get; set; }
-    }
+    [BsonElement("past_surgeries")]
+    public List<string> PastSurgeries { get; set; }
 
-    public class InsuranceInfo
-    {
-        [BsonElement("provider")]
-        public string Provider { get; set; }
+    [BsonElement("conditions")]
+    public List<string> Conditions { get; set; }
+}
 
-        [BsonElement("policyNumber")]
-        public string PolicyNumber { get; set; }
-    }
+public class Insurance
+{
+    [BsonElement("company")]
+    public string Company { get; set; }
 
-    public class MedicalRecord 
-    {
-        public string Details { get; set; }
-    }
+    [BsonElement("expiry_date")]
+    public string ExpiryDate { get; set; }
+}
+
+public class ContactInfo
+{
+    [BsonElement("phone")]
+    public string Phone { get; set; }
+
+    [BsonElement("email")]
+    public string Email { get; set; }
+
+    [BsonElement("emergency_contact")]
+    public string EmergencyContact { get; set; }
+
+    [BsonElement("address")]
+    public Address Address { get; set; }
+}
+
+public class Address
+{
+    [BsonElement("area")]
+    public string Area { get; set; }
+
+    [BsonElement("city")]
+    public string City { get; set; }
+
+    [BsonElement("street")]
+    public string Street { get; set; }
 }

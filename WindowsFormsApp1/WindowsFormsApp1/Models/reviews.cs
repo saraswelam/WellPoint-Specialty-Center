@@ -1,6 +1,5 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System;
 
 public class Review
 {
@@ -8,16 +7,15 @@ public class Review
     [BsonRepresentation(BsonType.ObjectId)]
     public string Id { get; set; }
 
-    // References
+    [BsonElement("dr_id")]
     public string DoctorId { get; set; }
+
+    [BsonElement("patient_id")]
     public string PatientId { get; set; }
-    public string AppointmentId { get; set; }
 
-    public int Rating { get; set; } // 1-5
+    [BsonElement("rating")]
+    public int Rating { get; set; }
+
+    [BsonElement("comment")]
     public string Comment { get; set; }
-
-    [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
-    public DateTime ReviewDate { get; set; } = DateTime.Now;
-
-    public bool IsApproved { get; set; } = true;
 }

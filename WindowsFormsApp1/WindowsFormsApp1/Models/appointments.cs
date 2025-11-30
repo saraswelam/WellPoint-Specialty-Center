@@ -1,6 +1,5 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System;
 
 public class Appointment
 {
@@ -8,19 +7,21 @@ public class Appointment
     [BsonRepresentation(BsonType.ObjectId)]
     public string Id { get; set; }
 
-    // References to other collections
+    [BsonElement("patient_id")]
     public string PatientId { get; set; }
+
+    [BsonElement("dr_id")]
     public string DoctorId { get; set; }
+
+    [BsonElement("clinic_id")]
     public string ClinicId { get; set; }
 
-    public DateTime AppointmentDate { get; set; }
-    public TimeSpan AppointmentTime { get; set; }
-    public string AppointmentType { get; set; } // "Checkup", "Consultation", "Surgery"
-    public string Status { get; set; } // "Scheduled", "Completed", "Cancelled", "NoShow"
+    [BsonElement("app_date")]
+    public string AppointmentDate { get; set; }
 
-    public string Notes { get; set; }
-    public int DurationMinutes { get; set; } = 30;
+    [BsonElement("app_time")]
+    public string AppointmentTime { get; set; }
 
-    [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    [BsonElement("status")]
+    public string Status { get; set; }
 }

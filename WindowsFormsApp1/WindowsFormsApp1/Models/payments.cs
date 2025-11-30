@@ -1,6 +1,5 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System;
 
 public class Payment
 {
@@ -8,23 +7,18 @@ public class Payment
     [BsonRepresentation(BsonType.ObjectId)]
     public string Id { get; set; }
 
-    // Reference to appointment
+    [BsonElement("app_id")]
     public string AppointmentId { get; set; }
 
-    public decimal Amount { get; set; }
-    public string PaymentMethod { get; set; } // "Credit Card", "Cash", "Insurance"
-    public string Status { get; set; } // "Pending", "Completed", "Failed", "Refunded"
-    public string TransactionId { get; set; }
+    [BsonElement("amount")]
+    public double Amount { get; set; }
 
-    [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
-    public DateTime PaymentDate { get; set; } = DateTime.Now;
+    [BsonElement("status")]
+    public string Status { get; set; }
 
-    public BillingInfo BillingInfo { get; set; }
-}
+    [BsonElement("payment_date")]
+    public string PaymentDate { get; set; }
 
-public class BillingInfo
-{
-    public string BillingName { get; set; }
-    public string BillingAddress { get; set; }
-    public string TaxId { get; set; }
+    [BsonElement("method")]
+    public string Method { get; set; }
 }

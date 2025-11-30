@@ -1,6 +1,5 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System.Collections.Generic;
 
 public class Clinic
 {
@@ -8,33 +7,36 @@ public class Clinic
     [BsonRepresentation(BsonType.ObjectId)]
     public string Id { get; set; }
 
-    public string Name { get; set; }
-    public string Address { get; set; }
-    public string City { get; set; }
-    public string Phone { get; set; }
-    public string Email { get; set; }
+    [BsonElement("clinic_name")]
+    public string ClinicName { get; set; }
 
-    // Embedded departments
-    public List<Department> Departments { get; set; } = new List<Department>();
+    [BsonElement("working_hours")]
+    public string WorkingHours { get; set; }
 
-    // Operating hours
-    public OperatingHours Hours { get; set; }
+    [BsonElement("department")]
+    public Department Department { get; set; }
+
+    [BsonElement("clinic_info")]
+    public ClinicInfo ClinicInfo { get; set; }
 }
 
 public class Department
 {
-    public string Id { get; set; } = ObjectId.GenerateNewId().ToString();
-    public string Name { get; set; }
-    public string HeadDoctorId { get; set; }
+    [BsonElement("dep_name")]
+    public string DepartmentName { get; set; }
+
+    [BsonElement("description")]
+    public string Description { get; set; }
 }
 
-public class OperatingHours
+public class ClinicInfo
 {
-    public string Monday { get; set; }
-    public string Tuesday { get; set; }
-    public string Wednesday { get; set; }
-    public string Thursday { get; set; }
-    public string Friday { get; set; }
-    public string Saturday { get; set; }
-    public string Sunday { get; set; }
+    [BsonElement("phone")]
+    public string Phone { get; set; }
+
+    [BsonElement("location")]
+    public string Location { get; set; }
+
+    [BsonElement("email")]
+    public string Email { get; set; }
 }

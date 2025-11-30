@@ -1,7 +1,5 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System;
-using System.Collections.Generic;
 
 public class Admin
 {
@@ -9,17 +7,24 @@ public class Admin
     [BsonRepresentation(BsonType.ObjectId)]
     public string Id { get; set; }
 
-    public string Username { get; set; }
-    public string Password { get; set; } // Should be hashed in real application
-    public string Name { get; set; }
+    [BsonElement("first_name")]
+    public string FirstName { get; set; }
+
+    [BsonElement("last_name")]
+    public string LastName { get; set; }
+
+    [BsonElement("email")]
     public string Email { get; set; }
-    public string Role { get; set; } // "SuperAdmin", "ClinicManager", "Staff"
 
-    // Reference to clinic if managing specific clinic
+    [BsonElement("phone")]
+    public string Phone { get; set; }
+
+    [BsonElement("username")]
+    public string Username { get; set; }
+
+    [BsonElement("password")]
+    public string Password { get; set; }
+
+    [BsonElement("clinic_id")]
     public string ClinicId { get; set; }
-
-    public List<string> Permissions { get; set; } = new List<string>();
-
-    [BsonDateTimeOptions(Kind = DateTimeKind.Local)]
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
 }
