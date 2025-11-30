@@ -148,7 +148,7 @@
     <Compile Include="Models\appointments.cs" />
     <Compile Include="Models\clinics.cs" />
     <Compile Include="Models\doctors.cs" />
-    <Compile Include="Models\Patients.cs" />
+    <Compile Include="Models\patients.cs" />
     <Compile Include="Models\payments.cs" />
     <Compile Include="Models\reviews.cs" />
     <Compile Include="Program.cs" />

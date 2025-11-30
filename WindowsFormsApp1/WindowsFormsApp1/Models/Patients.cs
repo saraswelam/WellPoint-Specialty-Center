@@ -14,6 +14,10 @@ public class Patient
     [BsonElement("last_name")]
     public string LastName { get; set; }
 
+  
+    [BsonElement("password")]
+    public string Password { get; set; }
+
     [BsonElement("age")]
     public int Age { get; set; }
 
