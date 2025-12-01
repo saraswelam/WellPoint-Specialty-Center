@@ -1,4 +1,5 @@
 ﻿using ClinicalBookingSystem.Services;
+using MongoDB.Bson;
 using System;
 using System.Drawing;
 using System.Linq;
@@ -119,7 +120,7 @@ namespace WindowsFormsApp1.Forms.Patient
             Panel card = new Panel()
             {
                 Width = 300,
-                Height = 170,
+                Height = 160,
                 Margin = new Padding(10),
                 BackColor = Color.WhiteSmoke,
                 BorderStyle = BorderStyle.FixedSingle
@@ -133,28 +134,48 @@ namespace WindowsFormsApp1.Forms.Patient
                 AutoSize = true
             };
 
-            Label lblSpec = new Label()
+            // get clinic department (first one) safely
+            string departmentText = "Department: N/A";
+            if (!string.IsNullOrWhiteSpace(doctor.ClinicId))
             {
-                Text = $"Department: {doctor.Specialization}",
+                ObjectId clinicOid;
+                if (ObjectId.TryParse(doctor.ClinicId, out clinicOid))
+                {
+                    var clinic = _doctorService.GetClinicById(clinicOid);
+                    if (clinic != null && clinic.Departments != null && clinic.Departments.Count > 0)
+                    {
+                        departmentText = $"Department: {clinic.Departments[0].DepartmentName}";
+                    }
+                }
+            }
+            Label lblDept = new Label()
+            {
+                Text = departmentText,
                 Location = new Point(10, 40),
                 AutoSize = true
             };
 
-            // ⭐ Calculate rating
+            // rating
             double rating = _doctorService.GetDoctorRating(doctor.Id);
-            string stars = rating == 0 ? "No ratings yet" : $"{rating:F1} ⭐";
-
+            string ratingText = rating <= 0 ? "Rating: No ratings yet" : $"Rating: {rating:F1}/5";
             Label lblRating = new Label()
             {
-                Text = $"Rating: {stars}",
-                Location = new Point(10, 70),
+                Text = ratingText,
+                Location = new Point(10, 65),
+                AutoSize = true
+            };
+
+            Label lblFee = new Label()
+            {
+                Text = $"Consultation Fee: {doctor.ConsultationFee ?? 0} EGP",
+                Location = new Point(10, 90),
                 AutoSize = true
             };
 
             Button btnView = new Button()
             {
                 Text = "View Profile",
-                Location = new Point(10, 110),
+                Location = new Point(10, 115),
                 Width = 120
             };
 
@@ -164,14 +185,15 @@ namespace WindowsFormsApp1.Forms.Patient
                 profileForm.ShowDialog();
             };
 
-            // Add UI elements
             card.Controls.Add(lblName);
-            card.Controls.Add(lblSpec);
+            card.Controls.Add(lblDept);
             card.Controls.Add(lblRating);
+            card.Controls.Add(lblFee);
             card.Controls.Add(btnView);
 
             return card;
         }
+
         private void panelDoctorsList_Paint(object sender, PaintEventArgs e)
         {
 
