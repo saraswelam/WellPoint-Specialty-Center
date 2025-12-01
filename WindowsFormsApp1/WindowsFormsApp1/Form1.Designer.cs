@@ -1,6 +1,6 @@
 ﻿namespace ClinicalBookingSystem
 {
-    partial class Form1
+    partial class LoginForm
     {
     }
 }
