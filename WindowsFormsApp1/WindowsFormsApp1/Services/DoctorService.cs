@@ -28,6 +28,12 @@ namespace ClinicalBookingSystem.Services
             return _doctors.Find(_ => true).ToList();
         }
 
+        public Doctor GetDoctorById(ObjectId doctorId)
+        {
+            return _doctors.Find(d => d.Id == doctorId.ToString() || d.Id == doctorId.ToString()).FirstOrDefault();
+        }
+
+
         // All specializations distinct
         public List<string> GetSpecializations()
         {
@@ -80,6 +86,12 @@ namespace ClinicalBookingSystem.Services
             return reviews.Average(r => r.Rating);
         }
 
+        public List<Review> GetRecentReviews(string doctorId, int take = 2)
+        {
+            if (string.IsNullOrWhiteSpace(doctorId)) return new List<Review>();
+            var filter = Builders<Review>.Filter.Eq("dr_id", ObjectId.Parse(doctorId));
+            return _reviews.Find(filter).SortByDescending(r => r.Id).Limit(take).ToList();
+        }
 
         // Search doctors with text (first or last), specialization and clinic filter (clinicId string OR "All")
         public List<Doctor> SearchDoctors(string search, string specialization, string clinicId)

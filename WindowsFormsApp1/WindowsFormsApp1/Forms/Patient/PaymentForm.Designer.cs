@@ -1,47 +1,44 @@
-﻿namespace WindowsFormsApp1.Forms.Patient
+﻿// Forms/Patient/PaymentForm.Designer.cs
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp1.Forms.Patient
 {
     partial class PaymentForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        private Label lblDoctor;
+        private Label lblAppt;
+        private Label lblFee;
+        private ComboBox cmbMethod;
+        private Button btnPayNow;
+
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
+            if (disposing && (components != null)) components.Dispose();
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // PaymentForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "PaymentForm";
-            this.Text = "Form1";
-            this.ResumeLayout(false);
+            this.lblDoctor = new Label { Location = new Point(16, 16), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold) };
+            this.lblAppt = new Label { Location = new Point(16, 44), AutoSize = true };
+            this.lblFee = new Label { Location = new Point(16, 72), AutoSize = true };
+            this.cmbMethod = new ComboBox { Location = new Point(16, 110), Width = 220 };
+            cmbMethod.Items.AddRange(new string[] { "credit card", "cash", "insurance" });
+            cmbMethod.SelectedIndex = 0;
+            this.btnPayNow = new Button { Text = "Pay Now / Confirm", Location = new Point(16, 150), Width = 220, Height = 34, BackColor = Color.FromArgb(41, 128, 185), ForeColor = Color.White };
 
+            this.btnPayNow.Click += new System.EventHandler(this.btnPayNow_Click);
+
+            this.ClientSize = new Size(380, 220);
+            this.Controls.Add(lblDoctor);
+            this.Controls.Add(lblAppt);
+            this.Controls.Add(lblFee);
+            this.Controls.Add(cmbMethod);
+            this.Controls.Add(btnPayNow);
+            this.Text = "Payment";
         }
-
-        #endregion
     }
 }

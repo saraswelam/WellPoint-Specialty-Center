@@ -18,6 +18,7 @@ namespace WindowsFormsApp1.Forms.Patient
         {
             InitializeComponent();
             _doctorService = new DoctorService();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void PatientHomePageForm_Load(object sender, EventArgs e)
@@ -119,65 +120,82 @@ namespace WindowsFormsApp1.Forms.Patient
         {
             Panel card = new Panel()
             {
-                Width = 300,
-                Height = 160,
-                Margin = new Padding(10),
-                BackColor = Color.WhiteSmoke,
-                BorderStyle = BorderStyle.FixedSingle
+                Width = 350,
+                Height = 150,
+                Margin = new Padding(20),
+                BackColor = Color.White,
+                BorderStyle = BorderStyle.FixedSingle,
+                Padding = new Padding(15)
+            };
+
+            card.BackColor = Color.FromArgb(245, 247, 250);
+            card.BorderStyle = BorderStyle.None;
+
+            // Shadow-like border
+            card.Paint += (s, e) =>
+            {
+                ControlPaint.DrawBorder(e.Graphics, card.ClientRectangle,
+                    Color.LightGray, 1, ButtonBorderStyle.Solid,
+                    Color.LightGray, 1, ButtonBorderStyle.Solid,
+                    Color.LightGray, 1, ButtonBorderStyle.Solid,
+                    Color.LightGray, 1, ButtonBorderStyle.Solid);
             };
 
             Label lblName = new Label()
             {
                 Text = $"{doctor.FirstName} {doctor.LastName}",
-                Font = new Font("Arial", 12, FontStyle.Bold),
+                Font = new Font("Segoe UI", 13, FontStyle.Bold),
                 Location = new Point(10, 10),
-                AutoSize = true
+                AutoSize = true,
+                ForeColor = Color.FromArgb(30, 30, 30)
             };
 
-            // get clinic department (first one) safely
+            // Department
             string departmentText = "Department: N/A";
-            if (!string.IsNullOrWhiteSpace(doctor.ClinicId))
+            if (!string.IsNullOrWhiteSpace(doctor.ClinicId) &&
+                ObjectId.TryParse(doctor.ClinicId, out ObjectId clinicOid))
             {
-                ObjectId clinicOid;
-                if (ObjectId.TryParse(doctor.ClinicId, out clinicOid))
+                var clinic = _doctorService.GetClinicById(clinicOid);
+                if (clinic != null && clinic.Departments?.Any() == true)
                 {
-                    var clinic = _doctorService.GetClinicById(clinicOid);
-                    if (clinic != null && clinic.Departments != null && clinic.Departments.Count > 0)
-                    {
-                        departmentText = $"Department: {clinic.Departments[0].DepartmentName}";
-                    }
+                    departmentText = $"Department: {clinic.Departments[0].DepartmentName}";
                 }
             }
+
             Label lblDept = new Label()
             {
                 Text = departmentText,
-                Location = new Point(10, 40),
-                AutoSize = true
+                Font = new Font("Segoe UI", 10, FontStyle.Regular),
+                Location = new Point(10, 45),
+                AutoSize = true,
+                ForeColor = Color.FromArgb(80, 80, 80)
             };
 
-            // rating
+            // Rating
             double rating = _doctorService.GetDoctorRating(doctor.Id);
-            string ratingText = rating <= 0 ? "Rating: No ratings yet" : $"Rating: {rating:F1}/5";
+            string ratingText = rating <= 0 ? "Rating: No ratings yet" : $"Rating: ⭐ {rating:F1}/5";
+
             Label lblRating = new Label()
             {
                 Text = ratingText,
-                Location = new Point(10, 65),
-                AutoSize = true
+                Font = new Font("Segoe UI", 10, FontStyle.Regular),
+                Location = new Point(10, 70),
+                AutoSize = true,
+                ForeColor = Color.FromArgb(90, 90, 90)
             };
 
-            Label lblFee = new Label()
-            {
-                Text = $"Consultation Fee: {doctor.ConsultationFee ?? 0} EGP",
-                Location = new Point(10, 90),
-                AutoSize = true
-            };
-
+            // VIEW PROFILE BUTTON
             Button btnView = new Button()
             {
                 Text = "View Profile",
-                Location = new Point(10, 115),
-                Width = 120
+                Location = new Point(10, 100),
+                Width = 120,
+                Height = 32,
+                BackColor = Color.FromArgb(52, 152, 219),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat
             };
+            btnView.FlatAppearance.BorderSize = 0;
 
             btnView.Click += (s, e) =>
             {
@@ -185,14 +203,15 @@ namespace WindowsFormsApp1.Forms.Patient
                 profileForm.ShowDialog();
             };
 
+            // Add controls
             card.Controls.Add(lblName);
             card.Controls.Add(lblDept);
             card.Controls.Add(lblRating);
-            card.Controls.Add(lblFee);
             card.Controls.Add(btnView);
 
             return card;
         }
+
 
         private void panelDoctorsList_Paint(object sender, PaintEventArgs e)
         {
