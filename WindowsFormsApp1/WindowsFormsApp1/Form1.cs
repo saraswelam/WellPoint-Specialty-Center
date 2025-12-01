@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace ClinicalBookingSystem
 {
-    public partial class LoginForm: Form
+    public partial class Form1: Form
     {
-        public LoginForm()
+        public Form1()
         {
             InitializeComponent();
         }
@@ -54,6 +54,18 @@ namespace ClinicalBookingSystem
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Form1
+            // 
+            this.ClientSize = new System.Drawing.Size(282, 253);
+            this.Name = "Form1";
+            this.ResumeLayout(false);
+
         }
     }
 }
