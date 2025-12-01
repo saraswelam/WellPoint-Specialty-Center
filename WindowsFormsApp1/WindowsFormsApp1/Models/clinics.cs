@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System.Collections.Generic;
 
 public class Clinic
 {
@@ -13,8 +14,10 @@ public class Clinic
     [BsonElement("working_hours")]
     public string WorkingHours { get; set; }
 
-    [BsonElement("department")]
-    public Department Department { get; set; }
+    // ✔ Now an array
+    [BsonElement("departments")]
+    public List<Department> Departments { get; set; }
+
 
     [BsonElement("clinic_info")]
     public ClinicInfo ClinicInfo { get; set; }

@@ -8,15 +8,15 @@ public class Patient
     [BsonRepresentation(BsonType.ObjectId)]
     public string Id { get; set; }
 
+    [BsonRepresentation(BsonType.ObjectId)]
+    [BsonElement("user_id")]
+    public string UserId { get; set; }
+
     [BsonElement("first_name")]
     public string FirstName { get; set; }
 
     [BsonElement("last_name")]
     public string LastName { get; set; }
-
-  
-    [BsonElement("password")]
-    public string Password { get; set; }
 
     [BsonElement("age")]
     public int Age { get; set; }
@@ -36,6 +36,7 @@ public class Patient
     [BsonElement("contact_info")]
     public ContactInfo ContactInfo { get; set; }
 }
+
 
 public class MedicalHistory
 {

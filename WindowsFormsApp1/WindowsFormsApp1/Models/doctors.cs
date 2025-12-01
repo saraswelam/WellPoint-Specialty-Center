@@ -8,6 +8,15 @@ public class Doctor
     [BsonRepresentation(BsonType.ObjectId)]
     public string Id { get; set; }
 
+    [BsonRepresentation(BsonType.ObjectId)]
+    [BsonElement("user_id")]
+    public string UserId { get; set; }
+
+    // ✔ Added reference to clinic
+    [BsonRepresentation(BsonType.ObjectId)]
+    [BsonElement("clinic_id")]
+    public string ClinicId { get; set; }
+
     [BsonElement("first_name")]
     public string FirstName { get; set; }
 
@@ -16,9 +25,6 @@ public class Doctor
 
     [BsonElement("phone_number")]
     public string PhoneNumber { get; set; }
-
-    [BsonElement("email")]
-    public string Email { get; set; }
 
     [BsonElement("consultation_fee")]
     public double? ConsultationFee { get; set; }
@@ -65,9 +71,11 @@ public class DoctorSlot
     [BsonElement("isBooked")]
     public bool IsBooked { get; set; }
 
+    [BsonRepresentation(BsonType.ObjectId)]
     [BsonElement("app_id")]
     public string AppointmentId { get; set; }
 
+    [BsonRepresentation(BsonType.ObjectId)]
     [BsonElement("patient_id")]
     public string PatientId { get; set; }
 

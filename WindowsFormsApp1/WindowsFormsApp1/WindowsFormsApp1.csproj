@@ -242,6 +242,7 @@
     </Compile>
     <Compile Include="Models\admins.cs" />
     <Compile Include="Models\appointments.cs" />
+    <Compile Include="Models\user.cs" />
     <Compile Include="Models\clinics.cs" />
     <Compile Include="Models\doctors.cs" />
     <Compile Include="Models\patients.cs" />
@@ -325,6 +326,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\MongoDBServices.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
