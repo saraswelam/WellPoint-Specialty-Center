@@ -327,6 +327,7 @@
   <ItemGroup />
   <ItemGroup>
     <Compile Include="Services\AppointmentService.cs" />
+    <Compile Include="Services\ReviewService.cs" />
     <Compile Include="Services\PasswordHasher.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\MongoDBServices.cs" />

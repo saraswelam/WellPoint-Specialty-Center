@@ -1,5 +1,4 @@
-﻿// Forms/Patient/PaymentForm.Designer.cs
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp1.Forms.Patient
@@ -8,37 +7,108 @@ namespace WindowsFormsApp1.Forms.Patient
     {
         private System.ComponentModel.IContainer components = null;
 
+        private Label lblTitle;
         private Label lblDoctor;
         private Label lblAppt;
         private Label lblFee;
+
+        private Label lblMethod;
         private ComboBox cmbMethod;
+
         private Button btnPayNow;
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null)) components.Dispose();
+            if (disposing && components != null)
+                components.Dispose();
+
             base.Dispose(disposing);
         }
 
         private void InitializeComponent()
         {
-            this.lblDoctor = new Label { Location = new Point(16, 16), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold) };
-            this.lblAppt = new Label { Location = new Point(16, 44), AutoSize = true };
-            this.lblFee = new Label { Location = new Point(16, 72), AutoSize = true };
-            this.cmbMethod = new ComboBox { Location = new Point(16, 110), Width = 220 };
-            cmbMethod.Items.AddRange(new string[] { "credit card", "cash", "insurance" });
+            components = new System.ComponentModel.Container();
+            this.Text = "Payment";
+            this.StartPosition = FormStartPosition.CenterParent;
+            this.ClientSize = new Size(460, 380);
+            this.BackColor = Color.WhiteSmoke;
+
+            // ===========================
+            // Title
+            // ===========================
+            lblTitle = new Label();
+            lblTitle.Text = "Confirm Appointment";
+            lblTitle.Font = new Font("Segoe UI", 16, FontStyle.Bold);
+            lblTitle.AutoSize = true;
+            lblTitle.Location = new Point(90, 20);
+
+            // ===========================
+            // Doctor label
+            // ===========================
+            lblDoctor = new Label();
+            lblDoctor.Font = new Font("Segoe UI", 12);
+            lblDoctor.AutoSize = true;
+            lblDoctor.Location = new Point(30, 80);
+
+            // ===========================
+            // Appointment summary
+            // ===========================
+            lblAppt = new Label();
+            lblAppt.Font = new Font("Segoe UI", 12);
+            lblAppt.AutoSize = true;
+            lblAppt.Location = new Point(30, 115);
+
+            // ===========================
+            // Fee Label
+            // ===========================
+            lblFee = new Label();
+            lblFee.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            lblFee.AutoSize = true;
+            lblFee.Location = new Point(30, 150);
+
+            // ===========================
+            // Payment method selector
+            // ===========================
+            lblMethod = new Label();
+            lblMethod.Text = "Payment Method:";
+            lblMethod.Font = new Font("Segoe UI", 12);
+            lblMethod.AutoSize = true;
+            lblMethod.Location = new Point(30, 195);
+
+            cmbMethod = new ComboBox();
+            cmbMethod.Font = new Font("Segoe UI", 11);
+            cmbMethod.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMethod.Items.AddRange(new object[] { "cash", "credit card", "insurance" });
             cmbMethod.SelectedIndex = 0;
-            this.btnPayNow = new Button { Text = "Pay Now / Confirm", Location = new Point(16, 150), Width = 220, Height = 34, BackColor = Color.FromArgb(41, 128, 185), ForeColor = Color.White };
+            cmbMethod.Location = new Point(180, 195);
+            cmbMethod.Size = new Size(180, 30);
 
-            this.btnPayNow.Click += new System.EventHandler(this.btnPayNow_Click);
+            // ===========================
+            // Pay button
+            // ===========================
+            btnPayNow = new Button();
+            btnPayNow.Text = "Pay & Book";
+            btnPayNow.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            btnPayNow.Size = new Size(200, 45);
+            btnPayNow.Location = new Point(120, 260);
+            btnPayNow.BackColor = Color.FromArgb(41, 128, 185);
+            btnPayNow.ForeColor = Color.White;
+            btnPayNow.FlatStyle = FlatStyle.Flat;
+            btnPayNow.FlatAppearance.BorderSize = 0;
+            btnPayNow.Click += new System.EventHandler(this.btnPayNow_Click);
 
-            this.ClientSize = new Size(380, 220);
+            // ===========================
+            // Add Controls
+            // ===========================
+            this.Controls.Add(lblTitle);
             this.Controls.Add(lblDoctor);
             this.Controls.Add(lblAppt);
             this.Controls.Add(lblFee);
+            this.Controls.Add(lblMethod);
             this.Controls.Add(cmbMethod);
             this.Controls.Add(btnPayNow);
-            this.Text = "Payment";
+
+            this.Load += new System.EventHandler(this.PaymentForm_Load);
         }
     }
 }

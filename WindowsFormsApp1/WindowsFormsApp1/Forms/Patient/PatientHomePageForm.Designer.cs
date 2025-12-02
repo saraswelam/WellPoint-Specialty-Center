@@ -62,18 +62,21 @@ namespace WindowsFormsApp1.Forms.Patient
             this.btnMyAppointments.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnMyAppointments.Location = new System.Drawing.Point(330, 18);
             this.btnMyAppointments.Name = "btnMyAppointments";
-            this.btnMyAppointments.Size = new System.Drawing.Size(150, 32);
+            this.btnMyAppointments.Size = new System.Drawing.Size(185, 39);
             this.btnMyAppointments.TabIndex = 1;
             this.btnMyAppointments.Text = "My Appointments";
+            this.btnMyAppointments.Click += new System.EventHandler(this.btnAppointments_Click);
+
             // 
             // btnWriteReview
             // 
             this.btnWriteReview.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnWriteReview.Location = new System.Drawing.Point(490, 18);
+            this.btnWriteReview.Location = new System.Drawing.Point(537, 18);
             this.btnWriteReview.Name = "btnWriteReview";
-            this.btnWriteReview.Size = new System.Drawing.Size(140, 32);
+            this.btnWriteReview.Size = new System.Drawing.Size(165, 39);
             this.btnWriteReview.TabIndex = 2;
             this.btnWriteReview.Text = "Write Review";
+            this.btnWriteReview.Click += new System.EventHandler(this.btnWriteReview_Click);
             // 
             // btnLogout
             // 
@@ -81,9 +84,9 @@ namespace WindowsFormsApp1.Forms.Patient
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(640, 18);
+            this.btnLogout.Location = new System.Drawing.Point(1600, 20);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(110, 32);
+            this.btnLogout.Size = new System.Drawing.Size(165, 32);
             this.btnLogout.TabIndex = 3;
             this.btnLogout.Text = "Logout";
             this.btnLogout.UseVisualStyleBackColor = false;

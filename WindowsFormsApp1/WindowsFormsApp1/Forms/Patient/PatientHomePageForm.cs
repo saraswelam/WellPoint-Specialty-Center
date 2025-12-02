@@ -13,11 +13,13 @@ namespace WindowsFormsApp1.Forms.Patient
     public partial class PatientHomePageForm : Form
     {
         private readonly DoctorService _doctorService;
+        private readonly Models.Patient _patient;
 
         public PatientHomePageForm(Models.Patient patient)
         {
             InitializeComponent();
             _doctorService = new DoctorService();
+            _patient = patient;
             this.WindowState = FormWindowState.Maximized;
         }
 
@@ -199,7 +201,7 @@ namespace WindowsFormsApp1.Forms.Patient
 
             btnView.Click += (s, e) =>
             {
-                ViewDrProfileForm profileForm = new ViewDrProfileForm(doctor);
+                ViewDrProfileForm profileForm = new ViewDrProfileForm(doctor , _patient);
                 profileForm.ShowDialog();
             };
 
@@ -227,6 +229,20 @@ namespace WindowsFormsApp1.Forms.Patient
         {
 
         }
+
+        private void btnAppointments_Click(object sender, EventArgs e)
+        {
+            var f = new PatientAppointmentsForm(_patient);
+            f.ShowDialog();
+        }
+
+        private void btnWriteReview_Click(object sender, EventArgs e)
+        {
+            var f = new PatientWriteReviewsForm(_patient);
+            f.ShowDialog();
+        }
+
+        
     }
 
 }

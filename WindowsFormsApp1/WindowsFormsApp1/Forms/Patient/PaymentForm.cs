@@ -19,11 +19,26 @@ namespace WindowsFormsApp1.Forms.Patient
 
         public bool BookingSucceeded { get; private set; } = false;
 
-        public PaymentForm(string patientId, string doctorId, string clinicId, string appointmentDate, string appointmentTime, double fee)
+        public PaymentForm(string patientId, string doctorId, string clinicId,
+                   string appointmentDate, string appointmentTime, double fee)
         {
             InitializeComponent();
             _appointmentService = new AppointmentService();
 
+            // Validate inputs
+            if (string.IsNullOrEmpty(patientId) ||
+                string.IsNullOrEmpty(doctorId) ||
+                string.IsNullOrEmpty(clinicId) ||
+                string.IsNullOrEmpty(appointmentDate) ||
+                string.IsNullOrEmpty(appointmentTime))
+            {
+                MessageBox.Show("PaymentForm received invalid (NULL) booking data.",
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            // Assign AFTER validation
             _patientId = patientId;
             _doctorId = doctorId;
             _clinicId = clinicId;
@@ -31,11 +46,12 @@ namespace WindowsFormsApp1.Forms.Patient
             _appointmentTime = appointmentTime;
             _fee = fee;
 
-            // Fill UI
+            // Load UI labels safely
             lblDoctor.Text = $"Doctor: {GetDoctorDisplayName()}";
             lblAppt.Text = $"When: {_appointmentDate} at {_appointmentTime}";
             lblFee.Text = $"Amount: {_fee:F0} EGP";
         }
+
 
         private string GetDoctorDisplayName()
         {
@@ -48,7 +64,8 @@ namespace WindowsFormsApp1.Forms.Patient
         private void btnPayNow_Click(object sender, EventArgs e)
         {
             // Basic validation (if card selected, check fields)
-            var method = cmbMethod.SelectedItem?.ToString() ?? "cash";
+            var method = (cmbMethod.SelectedItem?.ToString() ?? "cash").ToLower();
+
             // For demo, we won't process card; we just create the appointment+payment record (status pending/completed).
             var success = _appointmentService.BookAppointment(_patientId, _doctorId, _clinicId, _appointmentDate, _appointmentTime, _fee, method, out ObjectId apptId, out string error);
 
@@ -64,5 +81,11 @@ namespace WindowsFormsApp1.Forms.Patient
             BookingSucceeded = true;
             this.Close();
         }
+
+        private void PaymentForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

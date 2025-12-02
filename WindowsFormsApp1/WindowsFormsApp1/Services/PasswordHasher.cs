@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 
 
-namespace WindowsFormsApp1.Services
+namespace ClinicalBookingSystem.Services
 {
     public static class PasswordHasher
     {

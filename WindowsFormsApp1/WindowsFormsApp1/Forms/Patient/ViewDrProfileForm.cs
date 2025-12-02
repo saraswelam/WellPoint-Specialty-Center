@@ -18,18 +18,24 @@ namespace WindowsFormsApp1.Forms.Patient
         private readonly DoctorModel _doctor;
         private readonly DoctorService _doctorService;
         private readonly AppointmentService _appointmentService;
+        private readonly Models.Patient _patient;
 
         private string selectedDate = null;
         private string selectedTime = null;
         //private Models.Doctor doctor;
 
-        public ViewDrProfileForm(DoctorModel doctor)
+
+
+        public ViewDrProfileForm(DoctorModel doctor, Models.Patient patient)
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
             _doctor = doctor;
+            _patient = patient;       // ✅ save logged in patient
             _doctorService = new DoctorService();
             _appointmentService = new AppointmentService();
         }
+
 
         // ============================================================
         // FORM LOAD
@@ -245,7 +251,7 @@ namespace WindowsFormsApp1.Forms.Patient
                 return;
             }
 
-            string patientId = GetCurrentPatientId();
+            string patientId = _patient.Id;
             if (patientId == null)
             {
                 MessageBox.Show("Patient is not logged in.",
@@ -282,25 +288,26 @@ namespace WindowsFormsApp1.Forms.Patient
 
         private void ReloadDoctorData()
         {
-            // Fetch updated doctor from DB
             var oid = ObjectId.Parse(_doctor.Id);
-            var updatedDoctor = _doctorService.GetDoctorById(oid);
+            var updated = _doctorService.GetDoctorById(oid);
 
-            if (updatedDoctor == null)
+            if (updated == null)
                 return;
 
-            // Replace in-memory doctor
-            _doctor.Slots = updatedDoctor.Slots;
+            _doctor.FirstName = updated.FirstName;
+            _doctor.LastName = updated.LastName;
+            _doctor.PhoneNumber = updated.PhoneNumber;
+            _doctor.Specialization = updated.Specialization;
+            _doctor.Certification = updated.Certification;
+            _doctor.ClinicId = updated.ClinicId;            // FIXED
+            _doctor.ConsultationFee = updated.ConsultationFee;
+            _doctor.Slots = updated.Slots;
         }
 
 
-        // ============================================================
-        // TODO: Replace with your login session user id
-        // ============================================================
-        private string GetCurrentPatientId()
+        private void panelRight_Paint(object sender, PaintEventArgs e)
         {
-            // TODO: Replace with real logged-in patient ID
-            return "000000000000000000000001";
+
         }
     }
 }

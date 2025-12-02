@@ -1,5 +1,4 @@
-﻿// Forms/Patient/ViewDrProfileForm.Designer.cs
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using System.Drawing;
 
 namespace WindowsFormsApp1.Forms.Patient
@@ -27,7 +26,6 @@ namespace WindowsFormsApp1.Forms.Patient
         private FlowLayoutPanel flpReviews;
         private Label lblReviewsTitle;
 
-        // Booking UI
         private Panel bookingPanel;
         private MonthCalendar monthCalendar;
         private FlowLayoutPanel flpTimeSlots;
@@ -41,196 +39,183 @@ namespace WindowsFormsApp1.Forms.Patient
             base.Dispose(disposing);
         }
 
+        // =============================================
+        // INITIALIZE COMPONENT
+        // =============================================
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
 
-            // TOP HEADER
-            this.panelHeader = new Panel
+            // ================================
+            // MAIN FORM
+            // ================================
+            this.ClientSize = new Size(1200, 700);
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.Text = "Doctor Profile";
+            this.BackColor = Color.WhiteSmoke;
+
+            // ================================
+            // HEADER
+            // ================================
+            panelHeader = new Panel
             {
                 Dock = DockStyle.Top,
-                Height = 56,
-                BackColor = Color.FromArgb(52, 152, 219)
+                Height = 60,
+                BackColor = Color.FromArgb(52, 152, 219),
+                Padding = new Padding(15, 10, 0, 10)
             };
 
-            this.lblHeader = new Label
+            lblHeader = new Label
             {
                 Text = "Doctor Profile",
+                Font = new Font("Segoe UI", 20, FontStyle.Bold),
                 ForeColor = Color.White,
-                Font = new Font("Segoe UI", 14, FontStyle.Bold),
-                AutoSize = false,
-                Dock = DockStyle.Fill,
-                TextAlign = ContentAlignment.MiddleLeft,
-                Padding = new Padding(12, 0, 0, 0)
+                AutoSize = true
             };
 
             panelHeader.Controls.Add(lblHeader);
+            this.Controls.Add(panelHeader);
 
-            // MAIN PANEL
-            this.panelMain = new Panel
+            // ================================
+            // MAIN TABLE
+            // ================================
+            var mainTable = new TableLayoutPanel
             {
                 Dock = DockStyle.Fill,
-                BackColor = Color.WhiteSmoke
+                ColumnCount = 2,
+                RowCount = 1
             };
 
-            // LEFT: INFO PANEL
-            this.panelInfo = new Panel
+            mainTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 450));   // Left fixed panel
+            mainTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));    // Right flexible panel
+
+            this.Controls.Add(mainTable);
+
+            // ================================
+            // LEFT – DOCTOR INFO (Auto Layout)
+            // ================================
+            var leftPanel = new FlowLayoutPanel
             {
-                Dock = DockStyle.Left,
-                Width = 360,
-                Padding = new Padding(16),
-                BackColor = Color.White
+                Dock = DockStyle.Fill,
+                BackColor = Color.White,
+                FlowDirection = FlowDirection.TopDown,
+                WrapContents = false,
+                AutoScroll = true,
+                Padding = new Padding(20),
             };
 
-            lblDrName = new Label
-            {
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
-                Location = new Point(12, 8),
-                AutoSize = true
-            };
-
-            lblSpecialization = new Label
-            {
-                Font = new Font("Segoe UI", 10),
-                Location = new Point(12, 40),
-                AutoSize = true
-            };
-
-            lblClinic = new Label
-            {
-                Font = new Font("Segoe UI", 9),
-                Location = new Point(12, 70),
-                AutoSize = true
-            };
-
-            lblDepartment = new Label
-            {
-                Font = new Font("Segoe UI", 9),
-                Location = new Point(12, 92),
-                AutoSize = true
-            };
-
-            lblFee = new Label
-            {
-                Font = new Font("Segoe UI", 9),
-                Location = new Point(12, 114),
-                AutoSize = true
-            };
-
-            lblRating = new Label
-            {
-                Font = new Font("Segoe UI", 9, FontStyle.Bold),
-                Location = new Point(12, 136),
-                AutoSize = true
-            };
+            lblDrName = new Label { Font = new Font("Segoe UI", 18, FontStyle.Bold), AutoSize = true };
+            lblSpecialization = new Label { Font = new Font("Segoe UI", 12), AutoSize = true };
+            lblClinic = new Label { Font = new Font("Segoe UI", 12), AutoSize = true };
+            lblDepartment = new Label { Font = new Font("Segoe UI", 12), AutoSize = true };
+            lblPhone = new Label { Font = new Font("Segoe UI", 12), AutoSize = true };
+            lblFee = new Label { Font = new Font("Segoe UI", 12), AutoSize = true };
+            lblRating = new Label { Font = new Font("Segoe UI", 12), AutoSize = true };
 
             lblCerts = new Label
             {
-                Font = new Font("Segoe UI", 9),
-                Location = new Point(12, 160),
+                Font = new Font("Segoe UI", 11),
                 AutoSize = true,
-                MaximumSize = new Size(320, 0)
+                MaximumSize = new Size(400, 0)
             };
 
-            lblPhone = new Label
-            {
-                Font = new Font("Segoe UI", 9),
-                Location = new Point(12, 188),
-                AutoSize = true
-            };
+            leftPanel.Controls.Add(lblDrName);
+            leftPanel.Controls.Add(lblSpecialization);
+            leftPanel.Controls.Add(lblClinic);
+            leftPanel.Controls.Add(lblDepartment);
+            leftPanel.Controls.Add(lblPhone);
+            leftPanel.Controls.Add(lblFee);
+            leftPanel.Controls.Add(lblRating);
+            leftPanel.Controls.Add(lblCerts);
 
-            panelInfo.Controls.Add(lblDrName);
-            panelInfo.Controls.Add(lblSpecialization);
-            panelInfo.Controls.Add(lblClinic);
-            panelInfo.Controls.Add(lblDepartment);
-            panelInfo.Controls.Add(lblFee);
-            panelInfo.Controls.Add(lblRating);
-            panelInfo.Controls.Add(lblCerts);
-            panelInfo.Controls.Add(lblPhone);
+            mainTable.Controls.Add(leftPanel, 0, 0);
 
-            // RIGHT PANEL (Reviews + Booking)
-            panelRight = new Panel
+            // ================================
+            // RIGHT SIDE (Reviews + Booking)
+            // ================================
+            var rightPanel = new FlowLayoutPanel
             {
                 Dock = DockStyle.Fill,
-                Padding = new Padding(16)
+                FlowDirection = FlowDirection.TopDown,
+                AutoScroll = true,
+                BackColor = Color.White,
+                Padding = new Padding(20),
+                WrapContents = false
             };
 
+            mainTable.Controls.Add(rightPanel, 1, 0);
+
+            // ================================
+            // REVIEWS
+            // ================================
             lblReviewsTitle = new Label
             {
                 Text = "Recent Reviews",
-                Font = new Font("Segoe UI", 10, FontStyle.Bold),
-                Dock = DockStyle.Top,
-                AutoSize = true
+                Font = new Font("Segoe UI", 16, FontStyle.Bold),
+                AutoSize = true,
+                Margin = new Padding(0, 0, 0, 10)
             };
 
             flpReviews = new FlowLayoutPanel
             {
-                Dock = DockStyle.Top,
-                Height = 160,
+                AutoSize = false,
+                Height = 200,
+                Width = 500,
                 AutoScroll = true,
+                BackColor = Color.WhiteSmoke,
+                Margin = new Padding(0, 0, 0, 20)
+            };
+
+            rightPanel.Controls.Add(lblReviewsTitle);
+            rightPanel.Controls.Add(flpReviews);
+
+            // ================================
+            // BOOKING PANEL (Responsive)
+            // ================================
+            bookingPanel = new FlowLayoutPanel
+            {
                 FlowDirection = FlowDirection.TopDown,
-                WrapContents = false
+                AutoSize = true,
+                Width = 500,
+                BackColor = Color.WhiteSmoke,
+                Padding = new Padding(15),
+                WrapContents = false,
             };
 
-            // BOOKING PANEL
-            bookingPanel = new Panel
-            {
-                Dock = DockStyle.Fill,
-                Padding = new Padding(8),
-                BackColor = Color.WhiteSmoke
-            };
+            monthCalendar = new MonthCalendar { Margin = new Padding(0, 0, 0, 10) };
 
-            // Calendar
-            monthCalendar = new MonthCalendar
-            {
-                MaxSelectionCount = 1,
-                Dock = DockStyle.Top,
-                Margin = new Padding(0, 0, 0, 12)
-            };
-
-            // Time slots listing (radio buttons)
             flpTimeSlots = new FlowLayoutPanel
             {
-                Dock = DockStyle.Top,
-                Height = 160,
+                AutoSize = false,
+                Height = 150,
+                Width = 460,
+                BackColor = Color.White,
                 AutoScroll = true,
-                FlowDirection = FlowDirection.TopDown,
-                WrapContents = false,
-                Padding = new Padding(4)
+                Margin = new Padding(0, 0, 0, 10)
             };
 
             btnProceedPayment = new Button
             {
                 Text = "Proceed to Payment",
-                Height = 40,
-                Dock = DockStyle.Bottom,
+                Height = 45,
+                Width = 220,
                 BackColor = Color.FromArgb(41, 128, 185),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat
             };
 
-            btnProceedPayment.FlatAppearance.BorderSize = 0;
-
-            // Add booking components
-            bookingPanel.Controls.Add(btnProceedPayment);
-            bookingPanel.Controls.Add(flpTimeSlots);
             bookingPanel.Controls.Add(monthCalendar);
+            bookingPanel.Controls.Add(flpTimeSlots);
+            bookingPanel.Controls.Add(btnProceedPayment);
 
-            // Add all to right panel
-            panelRight.Controls.Add(bookingPanel);
-            panelRight.Controls.Add(flpReviews);
-            panelRight.Controls.Add(lblReviewsTitle);
+            rightPanel.Controls.Add(bookingPanel);
 
-            // Compose main
-            panelMain.Controls.Add(panelRight);
-            panelMain.Controls.Add(panelInfo);
+            // Load event
+            this.Load += ViewDrProfileForm_Load;
 
-            // Form
-            this.ClientSize = new Size(1100, 680);
-            this.Controls.Add(panelMain);
-            this.Controls.Add(panelHeader);
-            this.Text = "Doctor Profile";
-            this.Load += new System.EventHandler(this.ViewDrProfileForm_Load);
+            this.ResumeLayout(false);
         }
+
     }
 }
