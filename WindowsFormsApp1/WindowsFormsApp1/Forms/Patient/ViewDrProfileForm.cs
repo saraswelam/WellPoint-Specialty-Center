@@ -1,4 +1,4 @@
-﻿// Forms/Patient/ViewDrProfileForm.cs
+﻿
 using ClinicalBookingSystem.Services;
 using MongoDB.Bson;
 using System;
@@ -6,8 +6,10 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
+
+
 // Fix namespace conflict
-using DoctorModel = Doctor;
+using DoctorModel = WindowsFormsApp1.Models.Doctor;
 
 namespace WindowsFormsApp1.Forms.Patient
 {
@@ -19,6 +21,7 @@ namespace WindowsFormsApp1.Forms.Patient
 
         private string selectedDate = null;
         private string selectedTime = null;
+        //private Models.Doctor doctor;
 
         public ViewDrProfileForm(DoctorModel doctor)
         {
@@ -33,6 +36,7 @@ namespace WindowsFormsApp1.Forms.Patient
         // ============================================================
         private void ViewDrProfileForm_Load(object sender, EventArgs e)
         {
+
             ReloadDoctorData();
             ApplyPalette();
             DisplayDoctorInfo();

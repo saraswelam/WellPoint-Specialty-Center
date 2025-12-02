@@ -66,6 +66,7 @@
             this.AllergiesTextBox = new System.Windows.Forms.TextBox();
             this.PastSurgeriesLabel = new System.Windows.Forms.Label();
             this.PastSurgeriesTextbox = new System.Windows.Forms.TextBox();
+            this.ConfirmButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -131,6 +132,7 @@
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(176, 22);
             this.FirstNameTextBox.TabIndex = 5;
+            this.FirstNameTextBox.TextChanged += new System.EventHandler(this.FirstNameTextBox_TextChanged);
             // 
             // FirstNameLabel
             // 
@@ -159,6 +161,7 @@
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(176, 22);
             this.LastNameTextBox.TabIndex = 8;
+            this.LastNameTextBox.TextChanged += new System.EventHandler(this.LastNameTextBox_TextChanged);
             // 
             // PasswordLabel
             // 
@@ -177,6 +180,7 @@
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(176, 22);
             this.PasswordTextBox.TabIndex = 10;
+            this.PasswordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
             // 
             // DateOfBirthLabel
             // 
@@ -194,6 +198,7 @@
             this.DateOfBirthBox.Name = "DateOfBirthBox";
             this.DateOfBirthBox.Size = new System.Drawing.Size(232, 22);
             this.DateOfBirthBox.TabIndex = 12;
+            this.DateOfBirthBox.ValueChanged += new System.EventHandler(this.DateOfBirthBox_ValueChanged);
             // 
             // GenderLabel
             // 
@@ -229,6 +234,7 @@
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(176, 22);
             this.PhoneTextBox.TabIndex = 16;
+            this.PhoneTextBox.TextChanged += new System.EventHandler(this.PhoneTextBox_TextChanged);
             // 
             // EmailLabel
             // 
@@ -246,6 +252,7 @@
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(176, 22);
             this.EmailTextBox.TabIndex = 18;
+            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // EmergencyContactLabel
             // 
@@ -264,6 +271,7 @@
             this.EmergencyContactTextBox.Name = "EmergencyContactTextBox";
             this.EmergencyContactTextBox.Size = new System.Drawing.Size(176, 22);
             this.EmergencyContactTextBox.TabIndex = 20;
+            this.EmergencyContactTextBox.TextChanged += new System.EventHandler(this.EmergencyContactTextBox_TextChanged);
             // 
             // AddressLabel
             // 
@@ -294,6 +302,7 @@
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(176, 22);
             this.CityTextBox.TabIndex = 23;
+            this.CityTextBox.TextChanged += new System.EventHandler(this.CityTextBox_TextChanged);
             // 
             // StreetLabel
             // 
@@ -322,6 +331,7 @@
             this.StreetTextBox.Name = "StreetTextBox";
             this.StreetTextBox.Size = new System.Drawing.Size(176, 22);
             this.StreetTextBox.TabIndex = 26;
+            this.StreetTextBox.TextChanged += new System.EventHandler(this.StreetTextBox_TextChanged);
             // 
             // AreaTextBox
             // 
@@ -329,6 +339,7 @@
             this.AreaTextBox.Name = "AreaTextBox";
             this.AreaTextBox.Size = new System.Drawing.Size(176, 22);
             this.AreaTextBox.TabIndex = 27;
+            this.AreaTextBox.TextChanged += new System.EventHandler(this.AreaTextBox_TextChanged);
             // 
             // CompanyNameLabel
             // 
@@ -346,9 +357,9 @@
             this.ExpiryDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExpiryDateLabel.Location = new System.Drawing.Point(21, 537);
             this.ExpiryDateLabel.Name = "ExpiryDateLabel";
-            this.ExpiryDateLabel.Size = new System.Drawing.Size(141, 16);
+            this.ExpiryDateLabel.Size = new System.Drawing.Size(87, 16);
             this.ExpiryDateLabel.TabIndex = 29;
-            this.ExpiryDateLabel.Text = "Emergency Contact";
+            this.ExpiryDateLabel.Text = "Expiry Date";
             // 
             // CompanyNameTextbox
             // 
@@ -356,6 +367,7 @@
             this.CompanyNameTextbox.Name = "CompanyNameTextbox";
             this.CompanyNameTextbox.Size = new System.Drawing.Size(176, 22);
             this.CompanyNameTextbox.TabIndex = 30;
+            this.CompanyNameTextbox.TextChanged += new System.EventHandler(this.CompanyNameTextbox_TextChanged);
             // 
             // ExpiryDateBox
             // 
@@ -363,6 +375,7 @@
             this.ExpiryDateBox.Name = "ExpiryDateBox";
             this.ExpiryDateBox.Size = new System.Drawing.Size(232, 22);
             this.ExpiryDateBox.TabIndex = 31;
+            this.ExpiryDateBox.ValueChanged += new System.EventHandler(this.ExpiryDateBox_ValueChanged);
             // 
             // ConditionsLabel
             // 
@@ -380,6 +393,7 @@
             this.ConditionsTextBox.Name = "ConditionsTextBox";
             this.ConditionsTextBox.Size = new System.Drawing.Size(176, 22);
             this.ConditionsTextBox.TabIndex = 33;
+            this.ConditionsTextBox.TextChanged += new System.EventHandler(this.ConditionsTextBox_TextChanged);
             // 
             // AllergiesLabel
             // 
@@ -397,12 +411,13 @@
             this.AllergiesTextBox.Name = "AllergiesTextBox";
             this.AllergiesTextBox.Size = new System.Drawing.Size(176, 22);
             this.AllergiesTextBox.TabIndex = 35;
+            this.AllergiesTextBox.TextChanged += new System.EventHandler(this.AllergiesTextBox_TextChanged);
             // 
             // PastSurgeriesLabel
             // 
             this.PastSurgeriesLabel.AutoSize = true;
             this.PastSurgeriesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PastSurgeriesLabel.Location = new System.Drawing.Point(401, 604);
+            this.PastSurgeriesLabel.Location = new System.Drawing.Point(26, 670);
             this.PastSurgeriesLabel.Name = "PastSurgeriesLabel";
             this.PastSurgeriesLabel.Size = new System.Drawing.Size(144, 16);
             this.PastSurgeriesLabel.TabIndex = 36;
@@ -410,17 +425,32 @@
             // 
             // PastSurgeriesTextbox
             // 
-            this.PastSurgeriesTextbox.Location = new System.Drawing.Point(587, 601);
+            this.PastSurgeriesTextbox.Location = new System.Drawing.Point(180, 670);
             this.PastSurgeriesTextbox.Name = "PastSurgeriesTextbox";
             this.PastSurgeriesTextbox.Size = new System.Drawing.Size(176, 22);
             this.PastSurgeriesTextbox.TabIndex = 37;
+            this.PastSurgeriesTextbox.TextChanged += new System.EventHandler(this.PastSurgeriesTextbox_TextChanged);
+            // 
+            // ConfirmButton
+            // 
+            this.ConfirmButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmButton.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.ConfirmButton.Location = new System.Drawing.Point(695, 664);
+            this.ConfirmButton.Name = "ConfirmButton";
+            this.ConfirmButton.Size = new System.Drawing.Size(137, 42);
+            this.ConfirmButton.TabIndex = 38;
+            this.ConfirmButton.Text = "Confirm";
+            this.ConfirmButton.UseVisualStyleBackColor = false;
+            this.ConfirmButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // SignupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(911, 658);
+            this.ClientSize = new System.Drawing.Size(911, 718);
+            this.Controls.Add(this.ConfirmButton);
             this.Controls.Add(this.PastSurgeriesTextbox);
             this.Controls.Add(this.PastSurgeriesLabel);
             this.Controls.Add(this.AllergiesTextBox);
@@ -507,5 +537,6 @@
         private System.Windows.Forms.TextBox AllergiesTextBox;
         private System.Windows.Forms.Label PastSurgeriesLabel;
         private System.Windows.Forms.TextBox PastSurgeriesTextbox;
+        private System.Windows.Forms.Button ConfirmButton;
     }
 }

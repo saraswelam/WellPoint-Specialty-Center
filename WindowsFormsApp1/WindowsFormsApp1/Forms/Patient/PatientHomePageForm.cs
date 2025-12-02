@@ -6,7 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 
 // Fix namespace conflict
-using DoctorModel = Doctor;
+using DoctorModel = WindowsFormsApp1.Models.Doctor;
 
 namespace WindowsFormsApp1.Forms.Patient
 {
@@ -14,7 +14,7 @@ namespace WindowsFormsApp1.Forms.Patient
     {
         private readonly DoctorService _doctorService;
 
-        public PatientHomePageForm()
+        public PatientHomePageForm(Models.Patient patient)
         {
             InitializeComponent();
             _doctorService = new DoctorService();
@@ -214,6 +214,16 @@ namespace WindowsFormsApp1.Forms.Patient
 
 
         private void panelDoctorsList_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelFilters_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelDoctorsList_Paint_1(object sender, PaintEventArgs e)
         {
 
         }

@@ -12,7 +12,7 @@ namespace WindowsFormsApp1.Forms.Admin
 {
     public partial class AdminDashboardForm : Form
     {
-        public AdminDashboardForm()
+        public AdminDashboardForm(Models.Admin admin)
         {
             InitializeComponent();
         }

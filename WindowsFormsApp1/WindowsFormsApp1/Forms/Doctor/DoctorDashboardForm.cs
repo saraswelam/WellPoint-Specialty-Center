@@ -12,7 +12,7 @@ namespace WindowsFormsApp1.Forms.Doctor
 {
     public partial class DoctorDashboardForm : Form
     {
-        public DoctorDashboardForm()
+        public DoctorDashboardForm(Models.Doctor doctor)
         {
             InitializeComponent();
         }
