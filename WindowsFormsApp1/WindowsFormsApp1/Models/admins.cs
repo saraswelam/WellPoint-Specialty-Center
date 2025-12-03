@@ -3,6 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace WindowsFormsApp1.Models
 {
+
     public class Admin
     {
         [BsonId]
@@ -23,7 +24,8 @@ namespace WindowsFormsApp1.Models
         public string Phone { get; set; }
 
         [BsonElement("clinic_id")]
-        [BsonRepresentation(BsonType.ObjectId)]   // <-- REQUIRED FIX
+
+        [BsonRepresentation(BsonType.ObjectId)]   
         public string ClinicId { get; set; }
     }
 }
