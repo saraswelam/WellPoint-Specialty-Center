@@ -162,6 +162,12 @@
     <Compile Include="Forms\Admin\AllAppointmentsForm.Designer.cs">
       <DependentUpon>AllAppointmentsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Admin\GenerateReportsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\GenerateReportsForm.Designer.cs">
+      <DependentUpon>GenerateReportsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\ViewReviewsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     <EmbeddedResource Include="Forms\Admin\AllAppointmentsForm.resx">
       <DependentUpon>AllAppointmentsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\GenerateReportsForm.resx">
+      <DependentUpon>GenerateReportsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\ManageDoctorsForm.resx">
       <DependentUpon>ManageDoctorsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -309,6 +318,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -324,13 +334,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\ReviewService.cs" />
     <Compile Include="Services\PasswordHasher.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\MongoDBServices.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download 4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

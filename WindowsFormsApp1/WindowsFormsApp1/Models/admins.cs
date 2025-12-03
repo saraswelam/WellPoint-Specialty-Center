@@ -23,6 +23,7 @@ namespace WindowsFormsApp1.Models
         public string Phone { get; set; }
 
         [BsonElement("clinic_id")]
+        [BsonRepresentation(BsonType.ObjectId)]   // <-- REQUIRED FIX
         public string ClinicId { get; set; }
     }
 }

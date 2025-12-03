@@ -203,3 +203,4 @@ D:\db proj\WellPoint-Specialty-Center\WindowsFormsApp1\WindowsFormsApp1\obj\Debu
 D:\db proj\WellPoint-Specialty-Center\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Forms.Patient.PatientWriteReviewsForm.resources
 D:\db proj\WellPoint-Specialty-Center\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Forms.Patient.PaymentForm.resources
 D:\db proj\WellPoint-Specialty-Center\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Forms.Patient.ViewDrProfileForm.resources
+D:\uni\YEAR_3\sem_5\adv db\project\WellPoint-Specialty-Center\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Forms.Admin.GenerateReportsForm.resources
