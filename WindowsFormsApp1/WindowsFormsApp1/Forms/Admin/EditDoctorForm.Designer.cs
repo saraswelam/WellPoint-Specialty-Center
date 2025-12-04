@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1.Forms.Admin
 {
-    partial class AddDoctorForm
+    partial class EditDoctorForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // AddDoctorForm
+            // EditDoctorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(860, 549);
-            this.Name = "AddDoctorForm";
-            this.Text = "Add Doctor";
-            this.Load += new System.EventHandler(this.AddDoctorForm_Load);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "EditDoctorForm";
+            this.Text = "Edit Doctor";
             this.ResumeLayout(false);
 
         }

@@ -9,6 +9,7 @@ namespace WindowsFormsApp1.Models
         public string Id { get; set; }
 
         [BsonElement("app_id")]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string AppointmentId { get; set; }
 
         [BsonElement("amount")]

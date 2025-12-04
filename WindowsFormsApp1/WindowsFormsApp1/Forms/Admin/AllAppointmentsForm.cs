@@ -16,5 +16,32 @@ namespace WindowsFormsApp1.Forms.Admin
         {
             InitializeComponent();
         }
+
+       
+
+        private void AppointmentsGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void SearchLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FilterLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FilterComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

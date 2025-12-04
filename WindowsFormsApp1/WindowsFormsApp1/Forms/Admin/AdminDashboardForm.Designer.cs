@@ -22,13 +22,11 @@
             this.ViewReviewsButton = new System.Windows.Forms.Button();
             this.GenerateReportsButton = new System.Windows.Forms.Button();
             this.TopPanel = new System.Windows.Forms.Panel();
-            this.LogoPictureBox = new System.Windows.Forms.PictureBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.LogoutButton = new System.Windows.Forms.Button();
             this.MainContentPanel = new System.Windows.Forms.Panel();
             this.AdminButtonsPanel.SuspendLayout();
             this.TopPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // AdminButtonsPanel
@@ -108,7 +106,6 @@
             // TopPanel
             // 
             this.TopPanel.BackColor = System.Drawing.Color.RosyBrown;
-            this.TopPanel.Controls.Add(this.LogoPictureBox);
             this.TopPanel.Controls.Add(this.NameLabel);
             this.TopPanel.Controls.Add(this.LogoutButton);
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -117,23 +114,13 @@
             this.TopPanel.Size = new System.Drawing.Size(655, 90);
             this.TopPanel.TabIndex = 1;
             // 
-            // LogoPictureBox
-            // 
-            this.LogoPictureBox.Image = global::WindowsFormsApp1.Properties.Resources.download_4;
-            this.LogoPictureBox.Location = new System.Drawing.Point(365, 7);
-            this.LogoPictureBox.Name = "LogoPictureBox";
-            this.LogoPictureBox.Size = new System.Drawing.Size(100, 73);
-            this.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.LogoPictureBox.TabIndex = 0;
-            this.LogoPictureBox.TabStop = false;
-            // 
             // NameLabel
             // 
             this.NameLabel.AutoSize = true;
             this.NameLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.NameLabel.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Bold);
             this.NameLabel.ForeColor = System.Drawing.Color.Black;
-            this.NameLabel.Location = new System.Drawing.Point(20, 30);
+            this.NameLabel.Location = new System.Drawing.Point(98, 30);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(279, 27);
             this.NameLabel.TabIndex = 1;
@@ -175,7 +162,6 @@
             this.AdminButtonsPanel.ResumeLayout(false);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.LogoPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -192,7 +178,6 @@
         private System.Windows.Forms.Panel TopPanel;
         private System.Windows.Forms.Button LogoutButton;
         private System.Windows.Forms.Label NameLabel;
-        private System.Windows.Forms.PictureBox LogoPictureBox;
 
         private System.Windows.Forms.Panel MainContentPanel;
     }

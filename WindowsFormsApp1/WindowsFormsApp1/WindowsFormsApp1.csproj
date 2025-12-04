@@ -162,6 +162,12 @@
     <Compile Include="Forms\Admin\AllAppointmentsForm.Designer.cs">
       <DependentUpon>AllAppointmentsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Admin\EditDoctorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\EditDoctorForm.Designer.cs">
+      <DependentUpon>EditDoctorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\GenerateReportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,6 +274,9 @@
     <EmbeddedResource Include="Forms\Admin\AllAppointmentsForm.resx">
       <DependentUpon>AllAppointmentsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\EditDoctorForm.resx">
+      <DependentUpon>EditDoctorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\GenerateReportsForm.resx">
       <DependentUpon>GenerateReportsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,19 +321,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -335,23 +344,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\download.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Services\AppointmentService.cs" />
     <Compile Include="Services\ReviewService.cs" />
-    <Compile Include="Services\PasswordHasher.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\MongoDBServices.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\download2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\download 3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\download 4.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
