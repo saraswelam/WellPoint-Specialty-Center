@@ -16,5 +16,10 @@ namespace WindowsFormsApp1.Forms.Doctor
         {
             InitializeComponent();
         }
+
+        private void DoctorDashboardForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

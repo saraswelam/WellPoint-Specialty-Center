@@ -3,19 +3,39 @@
   "WorkspaceRootPath": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|d:\\uni\\year_3\\sem_5\\adv db\\project\\wellpoint-specialty-center\\windowsformsapp1\\windowsformsapp1\\forms\\admin\\admindashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|d:\\uni\\year_3\\sem_5\\adv db\\project\\wellpoint-specialty-center\\windowsformsapp1\\windowsformsapp1\\forms\\auth\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\forms\\auth\\loginform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\windowsformsapp1\\forms\\auth\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\forms\\auth\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\windowsformsapp1\\forms\\auth\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\forms\\auth\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\windowsformsapp1\\forms\\admin\\adddoctorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\forms\\admin\\adddoctorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\windowsformsapp1\\forms\\admin\\adddoctorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\forms\\admin\\adddoctorform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\windowsformsapp1\\forms\\admin\\admindashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\forms\\admin\\admindashboardform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|d:\\uni\\year_3\\sem_5\\adv db\\project\\wellpoint-specialty-center\\windowsformsapp1\\windowsformsapp1\\forms\\admin\\viewreviewsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\windowsformsapp1\\forms\\admin\\viewreviewsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\forms\\admin\\viewreviewsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|d:\\uni\\year_3\\sem_5\\adv db\\project\\wellpoint-specialty-center\\windowsformsapp1\\windowsformsapp1\\forms\\admin\\viewpaymentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\windowsformsapp1\\forms\\admin\\viewpaymentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\forms\\admin\\viewpaymentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|d:\\uni\\year_3\\sem_5\\adv db\\project\\wellpoint-specialty-center\\windowsformsapp1\\windowsformsapp1\\forms\\admin\\allappointmentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\windowsformsapp1\\forms\\admin\\allappointmentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\forms\\admin\\allappointmentsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -23,7 +43,7 @@
       "RelativeMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\models\\doctors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|d:\\uni\\year_3\\sem_5\\adv db\\project\\wellpoint-specialty-center\\windowsformsapp1\\windowsformsapp1\\models\\patients.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\windowsformsapp1\\models\\patients.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\models\\patients.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -53,44 +73,103 @@
               "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginForm.cs [Design]",
+              "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Auth\\LoginForm.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\Forms\\Auth\\LoginForm.cs",
+              "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Auth\\LoginForm.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApp1\\Forms\\Auth\\LoginForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T10:51:32.787Z",
+              "EditorCaption": " [Design]"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "SignupForm.cs",
+              "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Auth\\SignupForm.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\Forms\\Auth\\SignupForm.cs",
+              "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Auth\\SignupForm.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\Forms\\Auth\\SignupForm.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAD4v2oAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T10:45:36.143Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SignupForm.cs [Design]",
+              "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Auth\\SignupForm.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\Forms\\Auth\\SignupForm.cs",
+              "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Auth\\SignupForm.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApp1\\Forms\\Auth\\SignupForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T10:45:34.987Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddDoctorForm.cs",
+              "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\AddDoctorForm.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\Forms\\Admin\\AddDoctorForm.cs",
+              "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\AddDoctorForm.cs",
+              "RelativeToolTip": "WindowsFormsApp1\\Forms\\Admin\\AddDoctorForm.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAtwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T10:31:59.148Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddDoctorForm.cs [Design]",
+              "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\AddDoctorForm.cs",
+              "RelativeDocumentMoniker": "WindowsFormsApp1\\Forms\\Admin\\AddDoctorForm.cs",
+              "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\AddDoctorForm.cs [Design]",
+              "RelativeToolTip": "WindowsFormsApp1\\Forms\\Admin\\AddDoctorForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-06T10:31:57.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "ViewPaymentsForm.cs [Design]",
               "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\ViewPaymentsForm.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Forms\\Admin\\ViewPaymentsForm.cs",
               "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\ViewPaymentsForm.cs [Design]",
               "RelativeToolTip": "WindowsFormsApp1\\Forms\\Admin\\ViewPaymentsForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T17:36:17.29Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-12-04T17:36:17.29Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "AdminDashboardForm.cs [Design]",
               "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\AdminDashboardForm.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Forms\\Admin\\AdminDashboardForm.cs",
               "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\AdminDashboardForm.cs [Design]",
               "RelativeToolTip": "WindowsFormsApp1\\Forms\\Admin\\AdminDashboardForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T15:28:09.221Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-12-04T15:28:09.221Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "ViewReviewsForm.cs [Design]",
               "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\ViewReviewsForm.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Forms\\Admin\\ViewReviewsForm.cs",
               "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\ViewReviewsForm.cs [Design]",
               "RelativeToolTip": "WindowsFormsApp1\\Forms\\Admin\\ViewReviewsForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T17:15:56.287Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-12-04T17:15:56.287Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "patients.cs",
               "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Models\\Patients.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Models\\Patients.cs",
@@ -98,12 +177,11 @@
               "RelativeToolTip": "WindowsFormsApp1\\Models\\Patients.cs",
               "ViewState": "AgIAAEMAAAAAAAAAAAAkwFkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T16:58:50.021Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T16:58:50.021Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "doctors.cs",
               "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Models\\doctors.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Models\\doctors.cs",
@@ -111,20 +189,18 @@
               "RelativeToolTip": "WindowsFormsApp1\\Models\\doctors.cs",
               "ViewState": "AgIAAD8AAAAAAAAAAAA7wFYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T14:49:40.154Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-04T14:49:40.154Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "AllAppointmentsForm.cs [Design]",
               "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\AllAppointmentsForm.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Forms\\Admin\\AllAppointmentsForm.cs",
               "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\AllAppointmentsForm.cs [Design]",
               "RelativeToolTip": "WindowsFormsApp1\\Forms\\Admin\\AllAppointmentsForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-04T16:32:54.125Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-12-04T16:32:54.125Z"
             }
           ]
         }
