@@ -80,16 +80,23 @@ namespace WindowsFormsApp1.Forms.Patient
             // 
             // btnLogout
             // 
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Location = new System.Drawing.Point(1600, 20);
-            this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(165, 32);
-            this.btnLogout.TabIndex = 3;
+            // btnLogout
+            this.btnLogout.BackColor = Color.FromArgb(231, 76, 60);
+            this.btnLogout.FlatStyle = FlatStyle.Flat;
+            this.btnLogout.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            this.btnLogout.ForeColor = Color.White;
+            this.btnLogout.Size = new Size(120, 36);
             this.btnLogout.Text = "Logout";
-            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+
+            // Position it on the right side of panelHeader
+            this.btnLogout.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
+            this.btnLogout.Location = new Point(1250, 17);
+
+
+            // Click event
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+
             // 
             // panelFilters
             // 

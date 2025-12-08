@@ -1,6 +1,7 @@
 ﻿using ClinicalBookingSystem.Services;
 using MongoDB.Bson;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -17,81 +18,119 @@ namespace WindowsFormsApp1.Forms.Patient
         public PatientWriteReviewsForm(Models.Patient patient)
         {
             InitializeComponent();
+
             _patient = patient;
             _appointmentService = new AppointmentService();
             _doctorService = new DoctorService();
             _reviewService = new ReviewService();
+
             this.WindowState = FormWindowState.Maximized;
+            this.BackColor = Color.WhiteSmoke;
         }
 
+        // THIS is the handler wired in InitializeComponent
         private void PatientWriteReviewsForm_Load(object sender, EventArgs e)
         {
             LoadCompletedAppointments();
         }
 
+        // --------------------------------------------------
+        // Load ONLY completed appointments for this patient
+        // --------------------------------------------------
         private void LoadCompletedAppointments()
         {
-            cmbDoctors.Items.Clear();
+            cmbAppointments.Items.Clear();
 
             var appts = _appointmentService.GetCompletedAppointmentsByPatient(_patient.Id);
 
-            foreach (var a in appts)
+            if (appts == null || appts.Count == 0)
             {
-                // Extract doctor id from BsonDocument
-                ObjectId doctorId = a["dr_id"].AsObjectId;
+                MessageBox.Show(
+                    "You have no completed appointments to review.",
+                    "No Completed Appointments",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
 
-                var doc = _doctorService.GetDoctorById(doctorId);
-
-                if (doc == null) continue;
-
-                cmbDoctors.Items.Add(new ComboItem
-                {
-                    Text = $"{doc.FirstName} {doc.LastName}",
-                    Value = doc.Id
-                });
-            }
-        }
-
-
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            if (cmbDoctors.SelectedIndex == -1)
-            {
-                MessageBox.Show("Select a doctor.");
                 return;
             }
 
+            foreach (var appt in appts)
+            {
+                var doctorId = appt["dr_id"].AsObjectId;
+                var doctor = _doctorService.GetDoctorById(doctorId);
+                if (doctor == null) continue;
+
+                string text = $"{doctor.FirstName} {doctor.LastName} — {appt["app_date"]} at {appt["app_time"]}";
+
+                cmbAppointments.Items.Add(new AppointmentComboItem
+                {
+                    Text = text,
+                    AppointmentId = appt["_id"].ToString(),
+                    DoctorId = doctor.Id
+                });
+            }
+
+            if (cmbAppointments.Items.Count > 0)
+                cmbAppointments.SelectedIndex = 0;
+        }
+
+        // --------------------------------------------------
+        // Submit review
+        // --------------------------------------------------
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (cmbAppointments.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an appointment to review.");
+                return;
+            }
+
+            var selected = (AppointmentComboItem)cmbAppointments.SelectedItem;
             int rating = (int)numRating.Value;
+            string comment = txtReview.Text?.Trim() ?? "";
 
             if (rating < 1 || rating > 5)
             {
-                MessageBox.Show("Rating must be 1–5.");
+                MessageBox.Show("Rating must be between 1 and 5.");
                 return;
             }
 
-            var selectedDoc = (ComboItem)cmbDoctors.SelectedItem;
-
             bool success = _reviewService.AddReview(
-                doctorId: selectedDoc.Value,
+                doctorId: selected.DoctorId,
                 patientId: _patient.Id,
                 rating: rating,
-                comment: txtReview.Text
-            );
+                comment: comment);
 
             if (success)
-                MessageBox.Show("Review submitted!");
+            {
+                MessageBox.Show("Thank you! Your review has been submitted.",
+                                "Review Submitted",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Could not save your review. Please try again.",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
-        public class ComboItem
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        // item used in ComboBox
+        private class AppointmentComboItem
         {
             public string Text { get; set; }
-            public string Value { get; set; }
+            public string AppointmentId { get; set; }
+            public string DoctorId { get; set; }
+
             public override string ToString() => Text;
-        }
-
-        private void PatientWriteReviewsForm_Load_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

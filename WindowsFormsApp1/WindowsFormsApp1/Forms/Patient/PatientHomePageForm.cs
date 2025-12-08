@@ -4,6 +4,8 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsFormsApp1.Forms.Auth;
+
 
 // Fix namespace conflict
 using DoctorModel = WindowsFormsApp1.Models.Doctor;
@@ -29,6 +31,15 @@ namespace WindowsFormsApp1.Forms.Patient
 
             LoadFilters();
             LoadDoctors();
+
+            // Reposition logout button on load
+            btnLogout.Left = panelHeader.Width - btnLogout.Width - 20;
+
+            // Reposition on resize
+            panelHeader.Resize += (s, ev) =>
+            {
+                btnLogout.Left = panelHeader.Width - btnLogout.Width - 20;
+            };
 
             // Filters
             cmbSpecialization.SelectedIndexChanged += (s, a) => LoadDoctors();
@@ -235,6 +246,21 @@ namespace WindowsFormsApp1.Forms.Patient
             var f = new PatientAppointmentsForm(_patient);
             f.ShowDialog();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("Are you sure you want to logout?",
+                                          "Confirm Logout",
+                                          MessageBoxButtons.YesNo,
+                                          MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                this.Hide();
+                new LoginForm().Show();   // or your actual login form
+            }
+        }
+
 
         private void btnWriteReview_Click(object sender, EventArgs e)
         {

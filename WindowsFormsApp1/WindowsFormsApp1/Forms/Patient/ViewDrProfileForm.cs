@@ -304,8 +304,19 @@ namespace WindowsFormsApp1.Forms.Patient
             _doctor.Slots = updated.Slots;
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
 
         private void panelRight_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flpReviews_Paint(object sender, PaintEventArgs e)
         {
 
         }

@@ -21,5 +21,9 @@ namespace WindowsFormsApp1.Models
 
         [BsonElement("comment")]
         public string Comment { get; set; }
+
+        [BsonElement("created_at")]
+        public string CreatedAt { get; set; }
+
     }
 }

@@ -30,7 +30,7 @@ namespace ClinicalBookingSystem.Services
 
                 BsonDocument review = new BsonDocument
             {
-                { "doctor_id", docId },
+                { "dr_id", docId },
                 { "patient_id", patId },
                 { "rating", rating },
                 { "comment", comment ?? "" },

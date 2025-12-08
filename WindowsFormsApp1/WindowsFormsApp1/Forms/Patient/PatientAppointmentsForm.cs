@@ -170,10 +170,18 @@ namespace WindowsFormsApp1.Forms.Patient
             int nHeightEllipse
         );
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
         private void panelAppointments_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+       
     }
 }
 

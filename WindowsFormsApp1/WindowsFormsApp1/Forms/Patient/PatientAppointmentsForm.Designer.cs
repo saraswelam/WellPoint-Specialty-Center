@@ -7,8 +7,9 @@ namespace WindowsFormsApp1.Forms.Patient
     {
         private System.ComponentModel.IContainer components = null;
         private FlowLayoutPanel panelAppointments;
-        private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Label lblTitle;
+        private Button btnBack;
+        private Label lblTitle;
+        private Panel headerPanel;
 
         protected override void Dispose(bool disposing)
         {
@@ -19,47 +20,75 @@ namespace WindowsFormsApp1.Forms.Patient
 
         private void InitializeComponent()
         {
-            this.panelAppointments = new System.Windows.Forms.FlowLayoutPanel();
+            this.headerPanel = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.panelAppointments = new System.Windows.Forms.FlowLayoutPanel();
+            this.headerPanel.SuspendLayout();
             this.SuspendLayout();
-
+            // 
+            // headerPanel
+            // 
+            this.headerPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.headerPanel.Controls.Add(this.btnBack);
+            this.headerPanel.Controls.Add(this.lblTitle);
+            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.headerPanel.Location = new System.Drawing.Point(0, 0);
+            this.headerPanel.Name = "headerPanel";
+            this.headerPanel.Size = new System.Drawing.Size(1300, 80);
+            this.headerPanel.TabIndex = 0;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.White;
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnBack.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btnBack.Location = new System.Drawing.Point(20, 22);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(90, 35);
+            this.btnBack.TabIndex = 1;
+            this.btnBack.Text = "← Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 22F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(130, 17);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(500, 45);
+            this.lblTitle.TabIndex = 2;
+            this.lblTitle.Text = "My Appointments";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panelAppointments
+            // 
             this.panelAppointments.AutoScroll = true;
             this.panelAppointments.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panelAppointments.Location = new System.Drawing.Point(40, 90);
+            this.panelAppointments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAppointments.Location = new System.Drawing.Point(0, 80);
             this.panelAppointments.Name = "panelAppointments";
-            this.panelAppointments.Size = new System.Drawing.Size(1200, 750);
-            this.panelAppointments.TabIndex = 0;
-
-            // btnBack
-            this.btnBack.Text = "← Back";
-            this.btnBack.Font = new Font("Segoe UI", 11);
-            this.btnBack.Location = new Point(20, 20);
-            this.btnBack.Size = new Size(100, 35);
-            this.btnBack.BackColor = Color.SteelBlue;
-            this.btnBack.ForeColor = Color.White;
-            this.btnBack.FlatStyle = FlatStyle.Flat;
-            this.btnBack.FlatAppearance.BorderSize = 0;
-            this.btnBack.Click += (s, e) => this.Close();
-
-            // lblTitle
-            this.lblTitle.Text = "My Appointments";
-            this.lblTitle.Font = new Font("Segoe UI", 20, FontStyle.Bold);
-            this.lblTitle.Location = new Point(150, 18);
-            this.lblTitle.AutoSize = true;
-
-            // Form
+            this.panelAppointments.Padding = new Padding(30);
+            this.panelAppointments.Size = new System.Drawing.Size(1300, 820);
+            this.panelAppointments.TabIndex = 1;
+            // 
+            // PatientAppointmentsForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1300, 900);
             this.Controls.Add(this.panelAppointments);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.headerPanel);
             this.Name = "PatientAppointmentsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "My Appointments";
             this.Load += new System.EventHandler(this.PatientAppointmentsForm_Load);
-
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.headerPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
+
         }
 
     }
