@@ -59,44 +59,43 @@ namespace WindowsFormsApp1.Forms.Patient
             // 
             // btnMyAppointments
             // 
+            this.btnMyAppointments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnMyAppointments.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnMyAppointments.Location = new System.Drawing.Point(330, 18);
             this.btnMyAppointments.Name = "btnMyAppointments";
             this.btnMyAppointments.Size = new System.Drawing.Size(185, 39);
             this.btnMyAppointments.TabIndex = 1;
             this.btnMyAppointments.Text = "My Appointments";
+            this.btnMyAppointments.UseVisualStyleBackColor = false;
             this.btnMyAppointments.Click += new System.EventHandler(this.btnAppointments_Click);
-
             // 
             // btnWriteReview
             // 
+            this.btnWriteReview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnWriteReview.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnWriteReview.Location = new System.Drawing.Point(537, 18);
             this.btnWriteReview.Name = "btnWriteReview";
             this.btnWriteReview.Size = new System.Drawing.Size(165, 39);
             this.btnWriteReview.TabIndex = 2;
             this.btnWriteReview.Text = "Write Review";
+            this.btnWriteReview.UseVisualStyleBackColor = false;
             this.btnWriteReview.Click += new System.EventHandler(this.btnWriteReview_Click);
             // 
             // btnLogout
             // 
-            // btnLogout
-            this.btnLogout.BackColor = Color.FromArgb(231, 76, 60);
-            this.btnLogout.FlatStyle = FlatStyle.Flat;
-            this.btnLogout.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
-            this.btnLogout.ForeColor = Color.White;
-            this.btnLogout.Size = new Size(120, 36);
-            this.btnLogout.Text = "Logout";
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             this.btnLogout.FlatAppearance.BorderSize = 0;
-
-            // Position it on the right side of panelHeader
-            this.btnLogout.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
-            this.btnLogout.Location = new Point(1250, 17);
-
-
-            // Click event
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
+            this.btnLogout.Location = new System.Drawing.Point(1250, 17);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(120, 36);
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
-
             // 
             // panelFilters
             // 
@@ -152,7 +151,7 @@ namespace WindowsFormsApp1.Forms.Patient
             // panelDoctorsList
             // 
             this.panelDoctorsList.AutoScroll = true;
-            this.panelDoctorsList.BackColor = System.Drawing.Color.White;
+            this.panelDoctorsList.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelDoctorsList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDoctorsList.Location = new System.Drawing.Point(260, 70);
             this.panelDoctorsList.Name = "panelDoctorsList";
