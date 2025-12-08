@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1.Forms.Doctor
 {
-    partial class DoctorDashboardForm
+    partial class EditProfileForm
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -17,17 +17,16 @@
         {
             this.SuspendLayout();
             // 
-            // DoctorDashboardForm
+            // EditProfileForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "DoctorDashboardForm";
-            this.Text = "Doctor Dashboard";
-            this.Load += new System.EventHandler(this.DoctorDashboardForm_Load);
+            this.ClientSize = new System.Drawing.Size(500, 800);
+            this.Name = "EditProfileForm";
+            this.Text = "Edit Profile";
+            this.Load += new System.EventHandler(this.editprofile_Load);
             this.ResumeLayout(false);
-
         }
     }
 }

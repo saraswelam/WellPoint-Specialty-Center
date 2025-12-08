@@ -210,17 +210,17 @@
     <Compile Include="Forms\Doctor\DoctorDashboardForm.Designer.cs">
       <DependentUpon>DoctorDashboardForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Doctor\DoctorScheduleForm.cs">
+    <Compile Include="Forms\Doctor\DoctorProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Doctor\DoctorScheduleForm.Designer.cs">
-      <DependentUpon>DoctorScheduleForm.cs</DependentUpon>
+    <Compile Include="Forms\Doctor\DoctorProfileForm.Designer.cs">
+      <DependentUpon>DoctorProfileForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Doctor\DoctorAppointmentsForm.cs">
+    <Compile Include="Forms\Doctor\EditProfileForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Doctor\DoctorAppointmentsForm.Designer.cs">
-      <DependentUpon>DoctorAppointmentsForm.cs</DependentUpon>
+    <Compile Include="Forms\Doctor\EditProfileForm.Designer.cs">
+      <DependentUpon>EditProfileForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Patient\ViewDrProfileForm.cs">
       <SubType>Form</SubType>
@@ -295,14 +295,14 @@
     <EmbeddedResource Include="Forms\Auth\SignupForm.resx">
       <DependentUpon>SignupForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Doctor\DoctorAppointmentsForm.resx">
-      <DependentUpon>DoctorAppointmentsForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Doctor\DoctorDashboardForm.resx">
       <DependentUpon>DoctorDashboardForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Doctor\DoctorScheduleForm.resx">
-      <DependentUpon>DoctorScheduleForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Doctor\DoctorProfileForm.resx">
+      <DependentUpon>DoctorProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Doctor\EditProfileForm.resx">
+      <DependentUpon>EditProfileForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Patient\PatientAppointmentsForm.resx">
       <DependentUpon>PatientAppointmentsForm.cs</DependentUpon>

@@ -1,4 +1,5 @@
-﻿using ClinicalBookingSystem.Services;
+﻿
+using ClinicalBookingSystem.Services;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
@@ -9,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1.Forms.Doctor
 {
-    public partial class DoctorProfile : Form
+    public partial class DoctorProfileForm : Form
     {
         private Models.Doctor _doctor;
         private MongoDBService _dbService;
@@ -22,7 +23,7 @@ namespace WindowsFormsApp1.Forms.Doctor
         private DataGridView gridSchedule;
         private Button btnEdit;
 
-        public DoctorProfile(Models.Doctor doctor)
+        public DoctorProfileForm(Models.Doctor doctor)
         {
             InitializeComponent();
             _doctor = doctor;
@@ -218,7 +219,7 @@ namespace WindowsFormsApp1.Forms.Doctor
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            editprofile editForm = new editprofile(_doctor);
+            EditProfileForm editForm = new EditProfileForm(_doctor);
             editForm.Show();
             this.Close();
         }

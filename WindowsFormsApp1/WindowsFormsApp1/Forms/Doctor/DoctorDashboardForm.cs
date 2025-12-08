@@ -3,10 +3,8 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Linq;
-// MongoDB Namespaces
 using MongoDB.Bson;
 using MongoDB.Driver;
-// Import your Service Namespace
 using ClinicalBookingSystem.Services;
 
 namespace WindowsFormsApp1.Forms.Doctor
@@ -33,42 +31,34 @@ namespace WindowsFormsApp1.Forms.Doctor
 
         private void SetupCustomUI()
         {
-            // 1. Form Settings
             this.Text = "Doctor Homepage";
             this.Size = new Size(900, 600);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.WhiteSmoke;
 
-            // 2. Profile Button (Top Left)
+            // Profile Button
             btnProfile = new Button();
-
-            // --- FEATURE 1: Set Initials and Colors ---
-            string firstLetter = "";
-            if (!string.IsNullOrEmpty(_currentDoctor.FirstName))
-            {
-                firstLetter = _currentDoctor.FirstName.Substring(0, 1).ToUpper();
-            }
+            string firstLetter = !string.IsNullOrEmpty(_currentDoctor.FirstName)
+                                ? _currentDoctor.FirstName.Substring(0, 1).ToUpper()
+                                : "";
 
             btnProfile.Text = firstLetter;
-            btnProfile.Font = new Font("Arial", 22, FontStyle.Bold); // Big font for the letter
-            btnProfile.ForeColor = Color.White;                      // White text
-            btnProfile.BackColor = Color.SteelBlue;                  // Nice Blue Background
-            // ------------------------------------------
-
+            btnProfile.Font = new Font("Arial", 22, FontStyle.Bold);
+            btnProfile.ForeColor = Color.White;
+            btnProfile.BackColor = Color.SteelBlue;
             btnProfile.Size = new Size(60, 60);
             btnProfile.Location = new Point(30, 30);
             btnProfile.FlatStyle = FlatStyle.Flat;
-            btnProfile.FlatAppearance.BorderSize = 0; // Remove border for cleaner look
+            btnProfile.FlatAppearance.BorderSize = 0;
 
-            // Make it circular
-            System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
+            var path = new System.Drawing.Drawing2D.GraphicsPath();
             path.AddEllipse(0, 0, btnProfile.Width, btnProfile.Height);
             btnProfile.Region = new Region(path);
 
             btnProfile.Click += BtnProfile_Click;
             this.Controls.Add(btnProfile);
 
-            // 3. Welcome Title
+            // Welcome Label
             lblTitle = new Label();
             lblTitle.Text = $"Welcome, Dr. {_currentDoctor.FirstName} {_currentDoctor.LastName}";
             lblTitle.AutoSize = true;
@@ -77,7 +67,7 @@ namespace WindowsFormsApp1.Forms.Doctor
             lblTitle.Location = new Point(110, 45);
             this.Controls.Add(lblTitle);
 
-            // 4. Gadwal (DataGridView)
+            // Appointments Table
             dgvAppointments = new DataGridView();
             dgvAppointments.Size = new Size(700, 350);
 
@@ -100,6 +90,12 @@ namespace WindowsFormsApp1.Forms.Doctor
             this.Controls.Add(dgvAppointments);
         }
 
+        // ✔ Only ONE Load event handler
+        private void DoctorDashboardForm_Load(object sender, EventArgs e)
+        {
+            // You can add logic here if needed
+        }
+
         private void LoadAppointmentsFromMongoDB()
         {
             try
@@ -120,9 +116,9 @@ namespace WindowsFormsApp1.Forms.Doctor
 
                 foreach (var app in appointmentList)
                 {
-                    string date = app.Contains("app_date") ? app["app_date"].AsString : "N/A";
-                    string time = app.Contains("app_time") ? app["app_time"].AsString : "N/A";
-                    string status = app.Contains("status") ? app["status"].AsString : "N/A";
+                    string date = app.GetValue("app_date", "N/A").AsString;
+                    string time = app.GetValue("app_time", "N/A").AsString;
+                    string status = app.GetValue("status", "N/A").AsString;
 
                     string patientName = "Unknown";
 
@@ -134,8 +130,8 @@ namespace WindowsFormsApp1.Forms.Doctor
 
                         if (patientDoc != null)
                         {
-                            string fname = patientDoc.Contains("first_name") ? patientDoc["first_name"].AsString : "";
-                            string lname = patientDoc.Contains("last_name") ? patientDoc["last_name"].AsString : "";
+                            string fname = patientDoc.GetValue("first_name", "").AsString;
+                            string lname = patientDoc.GetValue("last_name", "").AsString;
                             patientName = $"{fname} {lname}";
                         }
                     }
@@ -153,24 +149,9 @@ namespace WindowsFormsApp1.Forms.Doctor
 
         private void BtnProfile_Click(object sender, EventArgs e)
         {
-            // --- FEATURE 2: Navigate to DoctorProfile ---
-
-            // This assumes DoctorProfile has a constructor that accepts a Doctor model
-            DoctorProfile profileForm = new DoctorProfile(_currentDoctor);
+            DoctorProfileForm profileForm = new DoctorProfileForm(_currentDoctor);
             profileForm.Show();
-
-            // Optional: Close current dashboard if you don't want multiple windows
             this.Hide();
-        }
-
-        private void DoctorDashboardForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void DoctorDashboardForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
