@@ -30,11 +30,6 @@ packages/
 *.nuget.props
 *.nuget.targets
 
-# Auto-generated files
-*.Designer.cs
-*.g.cs
-*.g.i.cs
-
 # Publish output
 publish/
 *.pubxml
