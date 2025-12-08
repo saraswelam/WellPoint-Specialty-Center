@@ -2,153 +2,8 @@
 {
     partial class LoginForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
-        private void InitializeComponent()
-        {
-            this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.PasswordTextBox = new System.Windows.Forms.TextBox();
-            this.LoginButton = new System.Windows.Forms.Button();
-            this.EmailLabel = new System.Windows.Forms.Label();
-            this.PasswordLabel = new System.Windows.Forms.Label();
-            this.LoginToyourAccountLabel = new System.Windows.Forms.Label();
-            this.SignUpLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.WellPointSpecialtyCenterLabel = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // EmailTextBox
-            // 
-            this.EmailTextBox.Location = new System.Drawing.Point(228, 192);
-            this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(292, 22);
-            this.EmailTextBox.TabIndex = 0;
-            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
-            // 
-            // PasswordTextBox
-            // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(228, 298);
-            this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.Size = new System.Drawing.Size(292, 22);
-            this.PasswordTextBox.TabIndex = 1;
-            this.PasswordTextBox.UseSystemPasswordChar = true;
-            this.PasswordTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // LoginButton
-            // 
-            this.LoginButton.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.LoginButton.Font = new System.Drawing.Font("Sitka Small", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginButton.Location = new System.Drawing.Point(288, 405);
-            this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(160, 49);
-            this.LoginButton.TabIndex = 2;
-            this.LoginButton.Text = "LOGIN";
-            this.LoginButton.UseVisualStyleBackColor = false;
-            this.LoginButton.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // EmailLabel
-            // 
-            this.EmailLabel.AutoSize = true;
-            this.EmailLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.EmailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.EmailLabel.Location = new System.Drawing.Point(75, 192);
-            this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(60, 25);
-            this.EmailLabel.TabIndex = 3;
-            this.EmailLabel.Text = "Email";
-            this.EmailLabel.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // PasswordLabel
-            // 
-            this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.PasswordLabel.Location = new System.Drawing.Point(75, 295);
-            this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(98, 25);
-            this.PasswordLabel.TabIndex = 4;
-            this.PasswordLabel.Text = "Password";
-            // 
-            // LoginToyourAccountLabel
-            // 
-            this.LoginToyourAccountLabel.AutoSize = true;
-            this.LoginToyourAccountLabel.BackColor = System.Drawing.Color.DarkGray;
-            this.LoginToyourAccountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.LoginToyourAccountLabel.Location = new System.Drawing.Point(222, 70);
-            this.LoginToyourAccountLabel.Name = "LoginToyourAccountLabel";
-            this.LoginToyourAccountLabel.Size = new System.Drawing.Size(276, 31);
-            this.LoginToyourAccountLabel.TabIndex = 5;
-            this.LoginToyourAccountLabel.Text = "Login to your Account";
-            this.LoginToyourAccountLabel.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // SignUpLinkLabel
-            // 
-            this.SignUpLinkLabel.AutoSize = true;
-            this.SignUpLinkLabel.Location = new System.Drawing.Point(238, 513);
-            this.SignUpLinkLabel.Name = "SignUpLinkLabel";
-            this.SignUpLinkLabel.Size = new System.Drawing.Size(260, 16);
-            this.SignUpLinkLabel.TabIndex = 6;
-            this.SignUpLinkLabel.TabStop = true;
-            this.SignUpLinkLabel.Text = "Don\'t have an account?click here to signup";
-            this.SignUpLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // WellPointSpecialtyCenterLabel
-            // 
-            this.WellPointSpecialtyCenterLabel.AutoSize = true;
-            this.WellPointSpecialtyCenterLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.WellPointSpecialtyCenterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.WellPointSpecialtyCenterLabel.Location = new System.Drawing.Point(155, 9);
-            this.WellPointSpecialtyCenterLabel.Name = "WellPointSpecialtyCenterLabel";
-            this.WellPointSpecialtyCenterLabel.Size = new System.Drawing.Size(421, 39);
-            this.WellPointSpecialtyCenterLabel.TabIndex = 7;
-            this.WellPointSpecialtyCenterLabel.Text = "WellPoint Specialty Center";
-            this.WellPointSpecialtyCenterLabel.Click += new System.EventHandler(this.WellPointSpecialtyCenterLabel_Click);
-            // 
-            // LoginForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(742, 649);
-            this.Controls.Add(this.EmailTextBox);
-            this.Controls.Add(this.PasswordTextBox);
-            this.Controls.Add(this.EmailLabel);
-            this.Controls.Add(this.PasswordLabel);
-            this.Controls.Add(this.LoginToyourAccountLabel);
-            this.Controls.Add(this.LoginButton);
-            this.Controls.Add(this.WellPointSpecialtyCenterLabel);
-            this.Controls.Add(this.SignUpLinkLabel);
-            this.Name = "LoginForm";
-            this.Text = "LoginPage";
-            this.Load += new System.EventHandler(this.LoginForm_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
-        }
-
-        #endregion
-
+        private System.Windows.Forms.Panel panelContainer;
         private System.Windows.Forms.TextBox EmailTextBox;
         private System.Windows.Forms.TextBox PasswordTextBox;
         private System.Windows.Forms.Button LoginButton;
@@ -157,5 +12,119 @@
         private System.Windows.Forms.Label LoginToyourAccountLabel;
         private System.Windows.Forms.LinkLabel SignUpLinkLabel;
         private System.Windows.Forms.Label WellPointSpecialtyCenterLabel;
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+                components.Dispose();
+            base.Dispose(disposing);
+        }
+
+        private void InitializeComponent()
+        {
+            this.panelContainer = new System.Windows.Forms.Panel();
+            this.EmailTextBox = new System.Windows.Forms.TextBox();
+            this.PasswordTextBox = new System.Windows.Forms.TextBox();
+            this.LoginButton = new System.Windows.Forms.Button();
+            this.EmailLabel = new System.Windows.Forms.Label();
+            this.PasswordLabel = new System.Windows.Forms.Label();
+            this.LoginToyourAccountLabel = new System.Windows.Forms.Label();
+            this.SignUpLinkLabel = new System.Windows.Forms.LinkLabel();
+            this.WellPointSpecialtyCenterLabel = new System.Windows.Forms.Label();
+            this.panelContainer.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // LoginForm
+            // 
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ClientSize = new System.Drawing.Size(1200, 800);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Controls.Add(this.panelContainer);
+            this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.Text = "LoginPage";
+            // 
+            // panelContainer
+            // 
+            this.panelContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelContainer.Size = new System.Drawing.Size(500, 500);
+            this.panelContainer.Location = new System.Drawing.Point(
+                (this.ClientSize.Width - 500) / 2,
+                (this.ClientSize.Height - 500) / 2);
+            this.panelContainer.BackColor = System.Drawing.Color.White;
+            this.panelContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContainer.Controls.Add(this.EmailTextBox);
+            this.panelContainer.Controls.Add(this.PasswordTextBox);
+            this.panelContainer.Controls.Add(this.LoginButton);
+            this.panelContainer.Controls.Add(this.EmailLabel);
+            this.panelContainer.Controls.Add(this.PasswordLabel);
+            this.panelContainer.Controls.Add(this.LoginToyourAccountLabel);
+            this.panelContainer.Controls.Add(this.SignUpLinkLabel);
+            this.panelContainer.Controls.Add(this.WellPointSpecialtyCenterLabel);
+            // 
+            // EmailLabel
+            // 
+            this.EmailLabel.Text = "Email";
+            this.EmailLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.EmailLabel.Location = new System.Drawing.Point(50, 140);
+            this.EmailLabel.AutoSize = true;
+            // 
+            // EmailTextBox
+            // 
+            this.EmailTextBox.Location = new System.Drawing.Point(50, 170);
+            this.EmailTextBox.Size = new System.Drawing.Size(380, 28);
+            this.EmailTextBox.Font = new System.Drawing.Font("Segoe UI", 11F);
+            // 
+            // PasswordLabel
+            // 
+            this.PasswordLabel.Text = "Password";
+            this.PasswordLabel.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.PasswordLabel.Location = new System.Drawing.Point(50, 230);
+            this.PasswordLabel.AutoSize = true;
+            // 
+            // PasswordTextBox
+            // 
+            this.PasswordTextBox.Location = new System.Drawing.Point(50, 260);
+            this.PasswordTextBox.Size = new System.Drawing.Size(380, 28);
+            this.PasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.PasswordTextBox.UseSystemPasswordChar = true;
+            // 
+            // LoginButton
+            // 
+            this.LoginButton.Text = "LOGIN";
+            this.LoginButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.LoginButton.BackColor = System.Drawing.Color.SteelBlue;
+            this.LoginButton.ForeColor = System.Drawing.Color.White;
+            this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginButton.Size = new System.Drawing.Size(380, 45);
+            this.LoginButton.Location = new System.Drawing.Point(50, 330);
+            this.LoginButton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // LoginToyourAccountLabel
+            // 
+            this.LoginToyourAccountLabel.Text = "Login to your Account";
+            this.LoginToyourAccountLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.LoginToyourAccountLabel.Location = new System.Drawing.Point(120, 70);
+            this.LoginToyourAccountLabel.AutoSize = true;
+            // 
+            // WellPointSpecialtyCenterLabel
+            // 
+            this.WellPointSpecialtyCenterLabel.Text = "WellPoint Specialty Center";
+            this.WellPointSpecialtyCenterLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.WellPointSpecialtyCenterLabel.AutoSize = true;
+            this.WellPointSpecialtyCenterLabel.Location = new System.Drawing.Point(70, 10);
+            // 
+            // SignUpLinkLabel
+            // 
+            this.SignUpLinkLabel.Text = "Don't have an account? Click to signup";
+            this.SignUpLinkLabel.Location = new System.Drawing.Point(145, 400);
+            this.SignUpLinkLabel.AutoSize = true;
+            this.SignUpLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // Finalize Layout
+            // 
+            this.ResumeLayout(false);
+            this.panelContainer.ResumeLayout(false);
+            this.panelContainer.PerformLayout();
+        }
     }
 }

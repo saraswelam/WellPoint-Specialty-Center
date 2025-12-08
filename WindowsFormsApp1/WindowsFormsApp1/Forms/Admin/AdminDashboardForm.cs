@@ -183,5 +183,10 @@ namespace WindowsFormsApp1.Forms.Admin
         {
 
         }
+
+        private void MainContentPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

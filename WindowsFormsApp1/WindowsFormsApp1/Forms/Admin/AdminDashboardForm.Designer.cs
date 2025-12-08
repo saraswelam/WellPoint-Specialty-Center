@@ -15,6 +15,7 @@
 
         private void InitializeComponent()
         {
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.AdminButtonsPanel = new System.Windows.Forms.Panel();
             this.ManageDoctorsButton = new System.Windows.Forms.Button();
             this.AllAppointmentsButton = new System.Windows.Forms.Button();
@@ -147,6 +148,7 @@
             this.MainContentPanel.Name = "MainContentPanel";
             this.MainContentPanel.Size = new System.Drawing.Size(655, 610);
             this.MainContentPanel.TabIndex = 0;
+            this.MainContentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainContentPanel_Paint);
             // 
             // AdminDashboardForm
             // 
