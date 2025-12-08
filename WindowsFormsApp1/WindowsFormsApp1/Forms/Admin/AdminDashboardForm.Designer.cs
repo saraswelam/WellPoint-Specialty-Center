@@ -15,7 +15,6 @@
 
         private void InitializeComponent()
         {
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.AdminButtonsPanel = new System.Windows.Forms.Panel();
             this.ManageDoctorsButton = new System.Windows.Forms.Button();
             this.AllAppointmentsButton = new System.Windows.Forms.Button();
@@ -129,7 +128,7 @@
             // 
             // LogoutButton
             // 
-            this.LogoutButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.LogoutButton.BackColor = System.Drawing.Color.Red;
             this.LogoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.LogoutButton.ForeColor = System.Drawing.Color.Black;
             this.LogoutButton.Location = new System.Drawing.Point(486, 10);
@@ -160,6 +159,7 @@
             this.Controls.Add(this.AdminButtonsPanel);
             this.Name = "AdminDashboardForm";
             this.Text = "Admin Dashboard";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.AdminDashboardForm_Load);
             this.AdminButtonsPanel.ResumeLayout(false);
             this.TopPanel.ResumeLayout(false);
