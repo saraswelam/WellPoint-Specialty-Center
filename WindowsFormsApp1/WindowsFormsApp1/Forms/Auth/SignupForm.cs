@@ -207,5 +207,10 @@ namespace WindowsFormsApp1.Forms.Auth
         private void AllergiesTextBox_TextChanged(object sender, EventArgs e) { }
 
         private void PastSurgeriesTextbox_TextChanged(object sender, EventArgs e) { }
+
+        private void CityTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

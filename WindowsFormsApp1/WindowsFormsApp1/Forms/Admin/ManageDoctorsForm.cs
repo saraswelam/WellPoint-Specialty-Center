@@ -69,26 +69,19 @@ namespace WindowsFormsApp1.Forms.Admin
             FilterSpecializationComboBox.SelectedIndex = 0;
         }
 
-        // -------------------------------------------------------------
-        // SEARCH BAR
-        // -------------------------------------------------------------
+        
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
             ApplyFilters();
         }
 
-        // -------------------------------------------------------------
-        // SPECIALIZATION FILTER
-        // -------------------------------------------------------------
+        
         private void FilterSpecializationComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ApplyFilters();
         }
 
-        // -------------------------------------------------------------
-        // APPLY SEARCH + FILTERS
-        // (MATCHES MODEL)
-        // -------------------------------------------------------------
+        
         private void ApplyFilters()
         {
             string search = SearchTextBox.Text.Trim().ToLower();
@@ -105,7 +98,8 @@ namespace WindowsFormsApp1.Forms.Admin
                      d.FirstName.ToLower().Contains(search) ||
                      d.LastName.ToLower().Contains(search)) &&
                     (spec == "All" || d.Specialization == spec)
-                )
+                    )
+                
                 .Select(d =>
                 {
                     var user = usersCollection.Find(u => u.Id == d.UserId).FirstOrDefault();
@@ -128,9 +122,7 @@ namespace WindowsFormsApp1.Forms.Admin
             dataGridView1.DataSource = filtered;
         }
 
-        // -------------------------------------------------------------
-        // GET SELECTED DOCTOR ID
-        // -------------------------------------------------------------
+        
         private bool TryGetSelectedDoctorId(out string doctorId)
         {
             doctorId = null;
@@ -142,9 +134,7 @@ namespace WindowsFormsApp1.Forms.Admin
             return true;
         }
 
-        // -------------------------------------------------------------
-        // ADD DOCTOR
-        // -------------------------------------------------------------
+       
         private void AddDoctorButton_Click(object sender, EventArgs e)
         {
             AddDoctorForm form = new AddDoctorForm();
@@ -157,9 +147,7 @@ namespace WindowsFormsApp1.Forms.Admin
             }
         }
 
-        // -------------------------------------------------------------
-        // EDIT DOCTOR
-        // -------------------------------------------------------------
+       
         private void EditDoctorButton_Click(object sender, EventArgs e)
         {
             if (!TryGetSelectedDoctorId(out string doctorId))
@@ -178,9 +166,7 @@ namespace WindowsFormsApp1.Forms.Admin
             }
         }
 
-        // -------------------------------------------------------------
-        // DELETE DOCTOR (MATCHES MODEL)
-        // -------------------------------------------------------------
+       
         private void DeleteDoctorButton_Click(object sender, EventArgs e)
         {
             if (!TryGetSelectedDoctorId(out string doctorId))
@@ -221,9 +207,7 @@ namespace WindowsFormsApp1.Forms.Admin
             LoadSpecializations();
         }
 
-        // -------------------------------------------------------------
-        // UNUSED
-        // -------------------------------------------------------------
+        
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
         private void BottomPanel_Paint(object sender, PaintEventArgs e) { }
         private void MainContentPanel_Paint(object sender, PaintEventArgs e) { }
@@ -231,9 +215,6 @@ namespace WindowsFormsApp1.Forms.Admin
         private void FilterLabel_Click(object sender, EventArgs e) { }
         private void SearchLabel_Click(object sender, EventArgs e) { }
 
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
     }
 }

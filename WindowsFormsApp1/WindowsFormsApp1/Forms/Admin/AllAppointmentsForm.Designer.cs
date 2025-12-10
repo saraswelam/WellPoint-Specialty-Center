@@ -1,4 +1,7 @@
-﻿namespace WindowsFormsApp1.Forms.Admin
+﻿using System;
+using System.Windows.Forms;
+
+namespace WindowsFormsApp1.Forms.Admin
 {
     partial class AllAppointmentsForm
     {
@@ -29,12 +32,12 @@
         private void InitializeComponent()
         {
             this.TopPanel = new System.Windows.Forms.Panel();
-            this.MainContentPanel = new System.Windows.Forms.Panel();
-            this.SearchLabel = new System.Windows.Forms.Label();
-            this.SearchTextBox = new System.Windows.Forms.TextBox();
-            this.FilterComboBox = new System.Windows.Forms.ComboBox();
-            this.AppointmentsGrid = new System.Windows.Forms.DataGridView();
             this.FilterLabel = new System.Windows.Forms.Label();
+            this.FilterComboBox = new System.Windows.Forms.ComboBox();
+            this.SearchTextBox = new System.Windows.Forms.TextBox();
+            this.SearchLabel = new System.Windows.Forms.Label();
+            this.MainContentPanel = new System.Windows.Forms.Panel();
+            this.AppointmentsGrid = new System.Windows.Forms.DataGridView();
             this.TopPanel.SuspendLayout();
             this.MainContentPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentsGrid)).BeginInit();
@@ -52,14 +55,34 @@
             this.TopPanel.Size = new System.Drawing.Size(800, 84);
             this.TopPanel.TabIndex = 0;
             // 
-            // MainContentPanel
+            // FilterLabel
             // 
-            this.MainContentPanel.Controls.Add(this.AppointmentsGrid);
-            this.MainContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainContentPanel.Location = new System.Drawing.Point(0, 84);
-            this.MainContentPanel.Name = "MainContentPanel";
-            this.MainContentPanel.Size = new System.Drawing.Size(800, 493);
-            this.MainContentPanel.TabIndex = 1;
+            this.FilterLabel.AutoSize = true;
+            this.FilterLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.FilterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FilterLabel.Location = new System.Drawing.Point(426, 28);
+            this.FilterLabel.Name = "FilterLabel";
+            this.FilterLabel.Size = new System.Drawing.Size(153, 25);
+            this.FilterLabel.TabIndex = 4;
+            this.FilterLabel.Text = "Filter by status";
+            this.FilterLabel.Click += new System.EventHandler(this.FilterLabel_Click);
+            // 
+            // FilterComboBox
+            // 
+            this.FilterComboBox.FormattingEnabled = true;
+            this.FilterComboBox.Location = new System.Drawing.Point(595, 29);
+            this.FilterComboBox.Name = "FilterComboBox";
+            this.FilterComboBox.Size = new System.Drawing.Size(121, 24);
+            this.FilterComboBox.TabIndex = 3;
+            this.FilterComboBox.SelectedIndexChanged += new System.EventHandler(this.FilterComboBox_SelectedIndexChanged);
+            // 
+            // SearchTextBox
+            // 
+            this.SearchTextBox.Location = new System.Drawing.Point(182, 32);
+            this.SearchTextBox.Name = "SearchTextBox";
+            this.SearchTextBox.Size = new System.Drawing.Size(197, 22);
+            this.SearchTextBox.TabIndex = 2;
+            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // SearchLabel
             // 
@@ -73,22 +96,15 @@
             this.SearchLabel.Text = "Search";
             this.SearchLabel.Click += new System.EventHandler(this.SearchLabel_Click);
             // 
-            // SearchTextBox
+            // MainContentPanel
             // 
-            this.SearchTextBox.Location = new System.Drawing.Point(182, 32);
-            this.SearchTextBox.Name = "SearchTextBox";
-            this.SearchTextBox.Size = new System.Drawing.Size(197, 22);
-            this.SearchTextBox.TabIndex = 2;
-            this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
-            // 
-            // FilterComboBox
-            // 
-            this.FilterComboBox.FormattingEnabled = true;
-            this.FilterComboBox.Location = new System.Drawing.Point(595, 29);
-            this.FilterComboBox.Name = "FilterComboBox";
-            this.FilterComboBox.Size = new System.Drawing.Size(121, 24);
-            this.FilterComboBox.TabIndex = 3;
-            this.FilterComboBox.SelectedIndexChanged += new System.EventHandler(this.FilterComboBox_SelectedIndexChanged);
+            this.MainContentPanel.Controls.Add(this.AppointmentsGrid);
+            this.MainContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainContentPanel.Location = new System.Drawing.Point(0, 84);
+            this.MainContentPanel.Name = "MainContentPanel";
+            this.MainContentPanel.Size = new System.Drawing.Size(800, 493);
+            this.MainContentPanel.TabIndex = 1;
+            this.MainContentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainContentPanel_Paint);
             // 
             // AppointmentsGrid
             // 
@@ -105,18 +121,6 @@
             this.AppointmentsGrid.Size = new System.Drawing.Size(785, 466);
             this.AppointmentsGrid.TabIndex = 0;
             this.AppointmentsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentsGrid_CellContentClick);
-            // 
-            // FilterLabel
-            // 
-            this.FilterLabel.AutoSize = true;
-            this.FilterLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.FilterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FilterLabel.Location = new System.Drawing.Point(426, 28);
-            this.FilterLabel.Name = "FilterLabel";
-            this.FilterLabel.Size = new System.Drawing.Size(153, 25);
-            this.FilterLabel.TabIndex = 4;
-            this.FilterLabel.Text = "Filter by status";
-            this.FilterLabel.Click += new System.EventHandler(this.FilterLabel_Click);
             // 
             // AllAppointmentsForm
             // 
@@ -135,6 +139,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.AppointmentsGrid)).EndInit();
             this.ResumeLayout(false);
 
+        }
+
+        private void AppointmentsGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void MainContentPanel_Paint(object sender, PaintEventArgs e)
+        {
+          
+        }
+
+        private void SearchLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FilterLabel_Click(object sender, EventArgs e)
+        {
+           
         }
 
         #endregion

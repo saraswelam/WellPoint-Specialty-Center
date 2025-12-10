@@ -8,7 +8,7 @@ namespace ClinicalBookingSystem.Services
 
 		public MongoDBService()
 		{
-			var connectionString = "mongodb://localhost:27017"; // default server
+			var connectionString = "mongodb://localhost:27017";
 			var client = new MongoClient(connectionString);
 
 			_database = client.GetDatabase("ClinicalBookingSystem");

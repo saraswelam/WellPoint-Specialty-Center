@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
 namespace WindowsFormsApp1.Models
 {
@@ -41,6 +42,9 @@ namespace WindowsFormsApp1.Models
 
         [BsonElement("working_hours")]
         public WorkingHours WorkingHours { get; set; }
+
+       
+
 
         [BsonElement("slots")]
         public List<DoctorSlot> Slots { get; set; }

@@ -177,6 +177,7 @@ namespace WindowsFormsApp1.Forms.Auth
             this.panelContainer.Controls.Add(this.PastSurgeriesLabel);
             this.panelContainer.Controls.Add(this.PastSurgeriesTextbox);
             this.panelContainer.Controls.Add(this.ConfirmButton);
+            this.panelContainer.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelContainer.Location = new System.Drawing.Point(350, 20);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(20);
@@ -238,9 +239,10 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.FirstNameLabel.AutoSize = true;
             this.FirstNameLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.FirstNameLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FirstNameLabel.Location = new System.Drawing.Point(20, 110);
             this.FirstNameLabel.Name = "FirstNameLabel";
-            this.FirstNameLabel.Size = new System.Drawing.Size(72, 16);
+            this.FirstNameLabel.Size = new System.Drawing.Size(78, 15);
             this.FirstNameLabel.TabIndex = 5;
             this.FirstNameLabel.Text = "First Name";
             // 
@@ -248,16 +250,17 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.FirstNameTextBox.Location = new System.Drawing.Point(150, 110);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
-            this.FirstNameTextBox.Size = new System.Drawing.Size(200, 22);
+            this.FirstNameTextBox.Size = new System.Drawing.Size(200, 23);
             this.FirstNameTextBox.TabIndex = 6;
             // 
             // LastNameLabel
             // 
             this.LastNameLabel.AutoSize = true;
             this.LastNameLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.LastNameLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LastNameLabel.Location = new System.Drawing.Point(20, 150);
             this.LastNameLabel.Name = "LastNameLabel";
-            this.LastNameLabel.Size = new System.Drawing.Size(72, 16);
+            this.LastNameLabel.Size = new System.Drawing.Size(76, 15);
             this.LastNameLabel.TabIndex = 7;
             this.LastNameLabel.Text = "Last Name";
             // 
@@ -265,16 +268,17 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.LastNameTextBox.Location = new System.Drawing.Point(150, 150);
             this.LastNameTextBox.Name = "LastNameTextBox";
-            this.LastNameTextBox.Size = new System.Drawing.Size(200, 22);
+            this.LastNameTextBox.Size = new System.Drawing.Size(200, 23);
             this.LastNameTextBox.TabIndex = 8;
             // 
             // PasswordLabel
             // 
             this.PasswordLabel.AutoSize = true;
             this.PasswordLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PasswordLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordLabel.Location = new System.Drawing.Point(20, 190);
             this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(67, 16);
+            this.PasswordLabel.Size = new System.Drawing.Size(71, 15);
             this.PasswordLabel.TabIndex = 9;
             this.PasswordLabel.Text = "Password";
             // 
@@ -282,16 +286,17 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.PasswordTextBox.Location = new System.Drawing.Point(150, 190);
             this.PasswordTextBox.Name = "PasswordTextBox";
-            this.PasswordTextBox.Size = new System.Drawing.Size(200, 22);
+            this.PasswordTextBox.Size = new System.Drawing.Size(200, 23);
             this.PasswordTextBox.TabIndex = 10;
             // 
             // DateOfBirthLabel
             // 
             this.DateOfBirthLabel.AutoSize = true;
             this.DateOfBirthLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DateOfBirthLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DateOfBirthLabel.Location = new System.Drawing.Point(20, 230);
             this.DateOfBirthLabel.Name = "DateOfBirthLabel";
-            this.DateOfBirthLabel.Size = new System.Drawing.Size(79, 16);
+            this.DateOfBirthLabel.Size = new System.Drawing.Size(88, 15);
             this.DateOfBirthLabel.TabIndex = 11;
             this.DateOfBirthLabel.Text = "Date of Birth";
             // 
@@ -299,16 +304,17 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.DateOfBirthBox.Location = new System.Drawing.Point(150, 230);
             this.DateOfBirthBox.Name = "DateOfBirthBox";
-            this.DateOfBirthBox.Size = new System.Drawing.Size(200, 22);
+            this.DateOfBirthBox.Size = new System.Drawing.Size(200, 23);
             this.DateOfBirthBox.TabIndex = 12;
             // 
             // GenderLabel
             // 
             this.GenderLabel.AutoSize = true;
             this.GenderLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.GenderLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GenderLabel.Location = new System.Drawing.Point(400, 110);
             this.GenderLabel.Name = "GenderLabel";
-            this.GenderLabel.Size = new System.Drawing.Size(52, 16);
+            this.GenderLabel.Size = new System.Drawing.Size(55, 15);
             this.GenderLabel.TabIndex = 13;
             this.GenderLabel.Text = "Gender";
             // 
@@ -316,16 +322,17 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.GenderComboBox.Location = new System.Drawing.Point(500, 110);
             this.GenderComboBox.Name = "GenderComboBox";
-            this.GenderComboBox.Size = new System.Drawing.Size(150, 24);
+            this.GenderComboBox.Size = new System.Drawing.Size(150, 23);
             this.GenderComboBox.TabIndex = 14;
             // 
             // PhoneLabel
             // 
             this.PhoneLabel.AutoSize = true;
             this.PhoneLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PhoneLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PhoneLabel.Location = new System.Drawing.Point(20, 310);
             this.PhoneLabel.Name = "PhoneLabel";
-            this.PhoneLabel.Size = new System.Drawing.Size(46, 16);
+            this.PhoneLabel.Size = new System.Drawing.Size(48, 15);
             this.PhoneLabel.TabIndex = 15;
             this.PhoneLabel.Text = "Phone";
             // 
@@ -333,16 +340,17 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.PhoneTextBox.Location = new System.Drawing.Point(150, 310);
             this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(200, 22);
+            this.PhoneTextBox.Size = new System.Drawing.Size(200, 23);
             this.PhoneTextBox.TabIndex = 16;
             // 
             // EmailLabel
             // 
             this.EmailLabel.AutoSize = true;
             this.EmailLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.EmailLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailLabel.Location = new System.Drawing.Point(20, 350);
             this.EmailLabel.Name = "EmailLabel";
-            this.EmailLabel.Size = new System.Drawing.Size(41, 16);
+            this.EmailLabel.Size = new System.Drawing.Size(44, 15);
             this.EmailLabel.TabIndex = 17;
             this.EmailLabel.Text = "Email";
             // 
@@ -350,24 +358,25 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.EmailTextBox.Location = new System.Drawing.Point(150, 350);
             this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(200, 22);
+            this.EmailTextBox.Size = new System.Drawing.Size(200, 23);
             this.EmailTextBox.TabIndex = 18;
             // 
             // EmergencyContactLabel
             // 
             this.EmergencyContactLabel.AutoSize = true;
             this.EmergencyContactLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.EmergencyContactLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmergencyContactLabel.Location = new System.Drawing.Point(20, 390);
             this.EmergencyContactLabel.Name = "EmergencyContactLabel";
-            this.EmergencyContactLabel.Size = new System.Drawing.Size(124, 16);
+            this.EmergencyContactLabel.Size = new System.Drawing.Size(136, 15);
             this.EmergencyContactLabel.TabIndex = 19;
             this.EmergencyContactLabel.Text = "Emergency Contact";
             // 
             // EmergencyContactTextBox
             // 
-            this.EmergencyContactTextBox.Location = new System.Drawing.Point(200, 390);
+            this.EmergencyContactTextBox.Location = new System.Drawing.Point(170, 390);
             this.EmergencyContactTextBox.Name = "EmergencyContactTextBox";
-            this.EmergencyContactTextBox.Size = new System.Drawing.Size(200, 22);
+            this.EmergencyContactTextBox.Size = new System.Drawing.Size(200, 23);
             this.EmergencyContactTextBox.TabIndex = 20;
             // 
             // AddressLabel
@@ -384,9 +393,10 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.CityLabel.AutoSize = true;
             this.CityLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CityLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CityLabel.Location = new System.Drawing.Point(400, 310);
             this.CityLabel.Name = "CityLabel";
-            this.CityLabel.Size = new System.Drawing.Size(29, 16);
+            this.CityLabel.Size = new System.Drawing.Size(33, 15);
             this.CityLabel.TabIndex = 22;
             this.CityLabel.Text = "City";
             // 
@@ -394,16 +404,18 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.CityTextBox.Location = new System.Drawing.Point(500, 310);
             this.CityTextBox.Name = "CityTextBox";
-            this.CityTextBox.Size = new System.Drawing.Size(200, 22);
+            this.CityTextBox.Size = new System.Drawing.Size(200, 23);
             this.CityTextBox.TabIndex = 23;
+            this.CityTextBox.TextChanged += new System.EventHandler(this.CityTextBox_TextChanged_1);
             // 
             // AreaLabel
             // 
             this.AreaLabel.AutoSize = true;
             this.AreaLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AreaLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AreaLabel.Location = new System.Drawing.Point(400, 350);
             this.AreaLabel.Name = "AreaLabel";
-            this.AreaLabel.Size = new System.Drawing.Size(36, 16);
+            this.AreaLabel.Size = new System.Drawing.Size(38, 15);
             this.AreaLabel.TabIndex = 24;
             this.AreaLabel.Text = "Area";
             // 
@@ -411,16 +423,17 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.AreaTextBox.Location = new System.Drawing.Point(500, 350);
             this.AreaTextBox.Name = "AreaTextBox";
-            this.AreaTextBox.Size = new System.Drawing.Size(200, 22);
+            this.AreaTextBox.Size = new System.Drawing.Size(200, 23);
             this.AreaTextBox.TabIndex = 25;
             // 
             // StreetLabel
             // 
             this.StreetLabel.AutoSize = true;
             this.StreetLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.StreetLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.StreetLabel.Location = new System.Drawing.Point(400, 390);
             this.StreetLabel.Name = "StreetLabel";
-            this.StreetLabel.Size = new System.Drawing.Size(42, 16);
+            this.StreetLabel.Size = new System.Drawing.Size(48, 15);
             this.StreetLabel.TabIndex = 26;
             this.StreetLabel.Text = "Street";
             // 
@@ -428,16 +441,17 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.StreetTextBox.Location = new System.Drawing.Point(500, 390);
             this.StreetTextBox.Name = "StreetTextBox";
-            this.StreetTextBox.Size = new System.Drawing.Size(200, 22);
+            this.StreetTextBox.Size = new System.Drawing.Size(200, 23);
             this.StreetTextBox.TabIndex = 27;
             // 
             // CompanyNameLabel
             // 
             this.CompanyNameLabel.AutoSize = true;
             this.CompanyNameLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CompanyNameLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CompanyNameLabel.Location = new System.Drawing.Point(20, 480);
             this.CompanyNameLabel.Name = "CompanyNameLabel";
-            this.CompanyNameLabel.Size = new System.Drawing.Size(105, 16);
+            this.CompanyNameLabel.Size = new System.Drawing.Size(109, 15);
             this.CompanyNameLabel.TabIndex = 28;
             this.CompanyNameLabel.Text = "Company Name";
             // 
@@ -445,33 +459,35 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.CompanyNameTextbox.Location = new System.Drawing.Point(170, 480);
             this.CompanyNameTextbox.Name = "CompanyNameTextbox";
-            this.CompanyNameTextbox.Size = new System.Drawing.Size(200, 22);
+            this.CompanyNameTextbox.Size = new System.Drawing.Size(200, 23);
             this.CompanyNameTextbox.TabIndex = 29;
             // 
             // ExpiryDateLabel
             // 
             this.ExpiryDateLabel.AutoSize = true;
             this.ExpiryDateLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ExpiryDateLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExpiryDateLabel.Location = new System.Drawing.Point(20, 520);
             this.ExpiryDateLabel.Name = "ExpiryDateLabel";
-            this.ExpiryDateLabel.Size = new System.Drawing.Size(76, 16);
+            this.ExpiryDateLabel.Size = new System.Drawing.Size(82, 15);
             this.ExpiryDateLabel.TabIndex = 30;
             this.ExpiryDateLabel.Text = "Expiry Date";
             // 
             // ExpiryDateBox
             // 
-            this.ExpiryDateBox.Location = new System.Drawing.Point(170, 520);
+            this.ExpiryDateBox.Location = new System.Drawing.Point(170, 514);
             this.ExpiryDateBox.Name = "ExpiryDateBox";
-            this.ExpiryDateBox.Size = new System.Drawing.Size(200, 22);
+            this.ExpiryDateBox.Size = new System.Drawing.Size(200, 23);
             this.ExpiryDateBox.TabIndex = 31;
             // 
             // ConditionsLabel
             // 
             this.ConditionsLabel.AutoSize = true;
             this.ConditionsLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ConditionsLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConditionsLabel.Location = new System.Drawing.Point(20, 590);
             this.ConditionsLabel.Name = "ConditionsLabel";
-            this.ConditionsLabel.Size = new System.Drawing.Size(70, 16);
+            this.ConditionsLabel.Size = new System.Drawing.Size(77, 15);
             this.ConditionsLabel.TabIndex = 32;
             this.ConditionsLabel.Text = "Conditions";
             // 
@@ -479,16 +495,17 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.ConditionsTextBox.Location = new System.Drawing.Point(150, 590);
             this.ConditionsTextBox.Name = "ConditionsTextBox";
-            this.ConditionsTextBox.Size = new System.Drawing.Size(200, 22);
+            this.ConditionsTextBox.Size = new System.Drawing.Size(200, 23);
             this.ConditionsTextBox.TabIndex = 33;
             // 
             // AllergiesLabel
             // 
             this.AllergiesLabel.AutoSize = true;
             this.AllergiesLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.AllergiesLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AllergiesLabel.Location = new System.Drawing.Point(20, 630);
             this.AllergiesLabel.Name = "AllergiesLabel";
-            this.AllergiesLabel.Size = new System.Drawing.Size(60, 16);
+            this.AllergiesLabel.Size = new System.Drawing.Size(65, 15);
             this.AllergiesLabel.TabIndex = 34;
             this.AllergiesLabel.Text = "Allergies";
             // 
@@ -496,16 +513,17 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.AllergiesTextBox.Location = new System.Drawing.Point(150, 630);
             this.AllergiesTextBox.Name = "AllergiesTextBox";
-            this.AllergiesTextBox.Size = new System.Drawing.Size(200, 22);
+            this.AllergiesTextBox.Size = new System.Drawing.Size(200, 23);
             this.AllergiesTextBox.TabIndex = 35;
             // 
             // PastSurgeriesLabel
             // 
             this.PastSurgeriesLabel.AutoSize = true;
             this.PastSurgeriesLabel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PastSurgeriesLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PastSurgeriesLabel.Location = new System.Drawing.Point(20, 670);
             this.PastSurgeriesLabel.Name = "PastSurgeriesLabel";
-            this.PastSurgeriesLabel.Size = new System.Drawing.Size(95, 16);
+            this.PastSurgeriesLabel.Size = new System.Drawing.Size(103, 15);
             this.PastSurgeriesLabel.TabIndex = 36;
             this.PastSurgeriesLabel.Text = "Past Surgeries";
             // 
@@ -513,7 +531,7 @@ namespace WindowsFormsApp1.Forms.Auth
             // 
             this.PastSurgeriesTextbox.Location = new System.Drawing.Point(150, 670);
             this.PastSurgeriesTextbox.Name = "PastSurgeriesTextbox";
-            this.PastSurgeriesTextbox.Size = new System.Drawing.Size(200, 22);
+            this.PastSurgeriesTextbox.Size = new System.Drawing.Size(200, 23);
             this.PastSurgeriesTextbox.TabIndex = 37;
             // 
             // ConfirmButton

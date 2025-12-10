@@ -38,7 +38,7 @@ namespace WindowsFormsApp1.Forms.Doctor
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "DoctorProfileForm";
-            this.Text = "Form1";
+            this.Text = "Doctor Profile";
             this.Load += new System.EventHandler(this.DoctorProfile_Load);
             this.ResumeLayout(false);
 
