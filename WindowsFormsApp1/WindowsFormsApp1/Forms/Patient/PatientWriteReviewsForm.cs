@@ -28,15 +28,13 @@ namespace WindowsFormsApp1.Forms.Patient
             this.BackColor = Color.WhiteSmoke;
         }
 
-        // THIS is the handler wired in InitializeComponent
+        
         private void PatientWriteReviewsForm_Load(object sender, EventArgs e)
         {
             LoadCompletedAppointments();
         }
 
-        // --------------------------------------------------
-        // Load ONLY completed appointments for this patient
-        // --------------------------------------------------
+        
         private void LoadCompletedAppointments()
         {
             cmbAppointments.Items.Clear();
@@ -74,9 +72,7 @@ namespace WindowsFormsApp1.Forms.Patient
                 cmbAppointments.SelectedIndex = 0;
         }
 
-        // --------------------------------------------------
-        // Submit review
-        // --------------------------------------------------
+        
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (cmbAppointments.SelectedIndex == -1)
@@ -123,7 +119,7 @@ namespace WindowsFormsApp1.Forms.Patient
             this.Close();
         }
 
-        // item used in ComboBox
+      
         private class AppointmentComboItem
         {
             public string Text { get; set; }

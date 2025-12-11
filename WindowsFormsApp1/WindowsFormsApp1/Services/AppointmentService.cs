@@ -1,4 +1,4 @@
-﻿// Services/AppointmentService.cs
+﻿
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
@@ -54,7 +54,6 @@ namespace ClinicalBookingSystem.Services
             {
                 Console.WriteLine("DEBUG: CancelAppointment called with ID: " + appointmentId);
 
-                // 1) Load appointment
                 var appt = _appointments.Find(
                     Builders<BsonDocument>.Filter.Eq("_id", appointmentId)
                 ).FirstOrDefault();
@@ -71,7 +70,7 @@ namespace ClinicalBookingSystem.Services
                 string date = appt["app_date"].AsString;
                 string time = appt["app_time"].AsString;
 
-                // 2) Update appointment status
+                
                 var result1 = _appointments.UpdateOne(
                     Builders<BsonDocument>.Filter.Eq("_id", appointmentId),
                     Builders<BsonDocument>.Update.Set("status", "cancelled")
@@ -79,7 +78,7 @@ namespace ClinicalBookingSystem.Services
 
                 Console.WriteLine("DEBUG: Updated appointment status. ModifiedCount = " + result1.ModifiedCount);
 
-                // 3) Free the slot (PARTIAL match so it actually works)
+               
                 var slotFilter = Builders<BsonDocument>.Filter.And(
                     Builders<BsonDocument>.Filter.Eq("_id", doctorId),
                     Builders<BsonDocument>.Filter.ElemMatch<BsonValue>("slots",
@@ -101,7 +100,7 @@ namespace ClinicalBookingSystem.Services
 
                 Console.WriteLine("DEBUG: Slot update ModifiedCount = " + result2.ModifiedCount);
 
-                // SUCCESS if appointment updated
+                
                 return result1.ModifiedCount > 0;
             }
             catch (Exception ex)
@@ -114,9 +113,7 @@ namespace ClinicalBookingSystem.Services
 
 
 
-        /// <summary>
-        /// Book appointment: create appointment doc, update doctor's slot, update patient, optionally create payment
-        /// </summary>
+       
         public bool BookAppointment(string patientIdStr, string doctorIdStr, string clinicIdStr,
                                 string date, string time,
                                 double fee, string paymentMethod,
@@ -131,7 +128,7 @@ namespace ClinicalBookingSystem.Services
                 var doctorOid = ObjectId.Parse(doctorIdStr);
                 var clinicOid = ObjectId.Parse(clinicIdStr);
 
-                // 1) Insert Appointment
+                
                 var apDoc = new BsonDocument
         {
             { "patient_id", patientOid },
@@ -146,7 +143,7 @@ namespace ClinicalBookingSystem.Services
                 appointmentId = apDoc["_id"].AsObjectId;
 
 
-                // 2) Update Doctor Slot (CORRECTED)
+                
                 var slotFilter = Builders<BsonDocument>.Filter.And(
                     Builders<BsonDocument>.Filter.Eq("_id", doctorOid),
                     Builders<BsonDocument>.Filter.ElemMatch<BsonValue>("slots",
@@ -173,14 +170,14 @@ namespace ClinicalBookingSystem.Services
                 }
 
 
-                // 3) Update Patient
+                
                 _patients.UpdateOne(
                     Builders<BsonDocument>.Filter.Eq("_id", patientOid),
                     Builders<BsonDocument>.Update.Set("appointment_id", appointmentId.ToString())
                 );
 
 
-                // 4) Create Payment
+               
                 var payStatus = "pending";
 
                 var paymentDoc = new BsonDocument

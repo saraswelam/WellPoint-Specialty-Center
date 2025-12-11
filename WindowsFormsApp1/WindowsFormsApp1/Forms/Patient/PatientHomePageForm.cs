@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using WindowsFormsApp1.Forms.Auth;
 
 
-// Fix namespace conflict
+
 using DoctorModel = WindowsFormsApp1.Models.Doctor;
 
 namespace WindowsFormsApp1.Forms.Patient
@@ -32,24 +32,21 @@ namespace WindowsFormsApp1.Forms.Patient
             LoadFilters();
             LoadDoctors();
 
-            // Reposition logout button on load
+            
             btnLogout.Left = panelHeader.Width - btnLogout.Width - 20;
 
-            // Reposition on resize
             panelHeader.Resize += (s, ev) =>
             {
                 btnLogout.Left = panelHeader.Width - btnLogout.Width - 20;
             };
 
-            // Filters
+            
             cmbSpecialization.SelectedIndexChanged += (s, a) => LoadDoctors();
             cmbClinic.SelectedIndexChanged += (s, a) => LoadDoctors();
             txtSearch.TextChanged += (s, a) => LoadDoctors();
         }
 
-        // ---------------------------------------------------------
-        // PLACEHOLDER TEXT
-        // ---------------------------------------------------------
+       
         private void SetPlaceholder(TextBox box, string text)
         {
             box.Text = text;
@@ -74,19 +71,17 @@ namespace WindowsFormsApp1.Forms.Patient
             };
         }
 
-        // ---------------------------------------------------------
-        // LOAD FILTERS
-        // ---------------------------------------------------------
+       
         private void LoadFilters()
         {
-            // ---- Specializations ----
+           
             var specializations = _doctorService.GetSpecializations();
             cmbSpecialization.Items.Clear();
             cmbSpecialization.Items.Add("All");
             cmbSpecialization.Items.AddRange(specializations.ToArray());
             cmbSpecialization.SelectedIndex = 0;
 
-            // ---- Clinics ----
+            
             var clinics = _doctorService.GetClinics();
             cmbClinic.Items.Clear();
             cmbClinic.Items.Add("All");
@@ -104,9 +99,7 @@ namespace WindowsFormsApp1.Forms.Patient
             public override string ToString() => Text;
         }
 
-        // ---------------------------------------------------------
-        // LOAD DOCTORS (APPLY FILTERS)
-        // ---------------------------------------------------------
+        
         private void LoadDoctors()
         {
             panelDoctorsList.Controls.Clear();
@@ -119,16 +112,14 @@ namespace WindowsFormsApp1.Forms.Patient
                               ? item.Value
                               : "All";
 
-            // Query doctors
+           
             var doctors = _doctorService.SearchDoctors(search, specialization, clinicId);
 
             foreach (var doctor in doctors)
                 panelDoctorsList.Controls.Add(CreateDoctorCard(doctor));
         }
 
-        // ---------------------------------------------------------
-        // CREATE DOCTOR CARD  — includes average rating
-        // ---------------------------------------------------------
+       
         private Panel CreateDoctorCard(DoctorModel doctor)
         {
             Panel card = new Panel()
@@ -144,7 +135,7 @@ namespace WindowsFormsApp1.Forms.Patient
             card.BackColor = Color.FromArgb(245, 247, 250);
             card.BorderStyle = BorderStyle.None;
 
-            // Shadow-like border
+            
             card.Paint += (s, e) =>
             {
                 ControlPaint.DrawBorder(e.Graphics, card.ClientRectangle,
@@ -216,7 +207,7 @@ namespace WindowsFormsApp1.Forms.Patient
                 profileForm.ShowDialog();
             };
 
-            // Add controls
+           
             card.Controls.Add(lblName);
             card.Controls.Add(lblDept);
             card.Controls.Add(lblRating);
@@ -257,7 +248,7 @@ namespace WindowsFormsApp1.Forms.Patient
             if (confirm == DialogResult.Yes)
             {
                 this.Hide();
-                new LoginForm().Show();   // or your actual login form
+                new LoginForm().Show();   
             }
         }
 

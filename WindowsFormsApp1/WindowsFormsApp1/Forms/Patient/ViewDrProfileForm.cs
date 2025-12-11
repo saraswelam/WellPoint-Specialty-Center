@@ -8,7 +8,6 @@ using System.Windows.Forms;
 
 
 
-// Fix namespace conflict
 using DoctorModel = WindowsFormsApp1.Models.Doctor;
 
 namespace WindowsFormsApp1.Forms.Patient
@@ -22,7 +21,7 @@ namespace WindowsFormsApp1.Forms.Patient
 
         private string selectedDate = null;
         private string selectedTime = null;
-        //private Models.Doctor doctor;
+     
 
 
 
@@ -31,15 +30,13 @@ namespace WindowsFormsApp1.Forms.Patient
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             _doctor = doctor;
-            _patient = patient;       // ✅ save logged in patient
+            _patient = patient;       
             _doctorService = new DoctorService();
             _appointmentService = new AppointmentService();
         }
 
 
-        // ============================================================
-        // FORM LOAD
-        // ============================================================
+        
         private void ViewDrProfileForm_Load(object sender, EventArgs e)
         {
 
@@ -50,9 +47,7 @@ namespace WindowsFormsApp1.Forms.Patient
             SetupBookingPanel();
         }
 
-        // ============================================================
-        // APPLY BLUE PALETTE
-        // ============================================================
+        
         private void ApplyPalette()
         {
             this.BackColor = Color.WhiteSmoke;
@@ -63,9 +58,7 @@ namespace WindowsFormsApp1.Forms.Patient
             btnProceedPayment.ForeColor = Color.White;
         }
 
-        // ============================================================
-        // FILL DOCTOR INFO
-        // ============================================================
+     
         private void DisplayDoctorInfo()
         {
             lblDrName.Text = $"{_doctor.FirstName} {_doctor.LastName}";
@@ -77,9 +70,7 @@ namespace WindowsFormsApp1.Forms.Patient
             lblPhone.Text = $"Phone: {_doctor.PhoneNumber ?? "N/A"}";
             lblFee.Text = $"Consultation Fee: {_doctor.ConsultationFee ?? 0} EGP";
 
-            // -----------------------------------
-            // CLINIC + DEPARTMENT
-            // -----------------------------------
+         
             lblClinic.Text = "Clinic: N/A";
             lblDepartment.Text = "Department: N/A";
 
@@ -95,16 +86,12 @@ namespace WindowsFormsApp1.Forms.Patient
                 }
             }
 
-            // -----------------------------------
-            // DOCTOR AVERAGE RATING
-            // -----------------------------------
+            
             double rating = _doctorService.GetDoctorRating(_doctor.Id);
             lblRating.Text = rating <= 0 ? "Rating: No ratings yet" : $"Rating: {rating:F1}/5";
         }
 
-        // ============================================================
-        // LOAD LATEST REVIEWS
-        // ============================================================
+    
         private void LoadRecentReviews()
         {
             flpReviews.Controls.Clear();
@@ -154,9 +141,7 @@ namespace WindowsFormsApp1.Forms.Patient
             }
         }
 
-        // ============================================================
-        // BOOKING UI SETUP
-        // ============================================================
+       
         private void SetupBookingPanel()
         {
             monthCalendar.MinDate = DateTime.Today;
@@ -170,9 +155,7 @@ namespace WindowsFormsApp1.Forms.Patient
             btnProceedPayment.Click += BtnProceedPayment_Click;
         }
 
-        // ============================================================
-        // REFRESH TIME SLOTS (RADIO BUTTONS)
-        // ============================================================
+        
         private void RefreshTimeSlotsForDate(DateTime date)
         {
             flpTimeSlots.Controls.Clear();
@@ -210,7 +193,7 @@ namespace WindowsFormsApp1.Forms.Patient
                 return;
             }
 
-            // Create full-date-time radio buttons
+            
             foreach (var slot in slots)
             {
                 DateTime dt = DateTime.Parse($"{slot.Date} {slot.Time}");
@@ -237,9 +220,7 @@ namespace WindowsFormsApp1.Forms.Patient
             }
         }
 
-        // ============================================================
-        // PROCEED TO PAYMENT
-        // ============================================================
+    
         private void BtnProceedPayment_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(selectedDate) || string.IsNullOrWhiteSpace(selectedTime))
@@ -261,7 +242,7 @@ namespace WindowsFormsApp1.Forms.Patient
                 return;
             }
 
-            // Open payment form
+          
             var paymentForm = new PaymentForm(
                 patientId: patientId,
                 doctorId: _doctor.Id,
@@ -299,7 +280,7 @@ namespace WindowsFormsApp1.Forms.Patient
             _doctor.PhoneNumber = updated.PhoneNumber;
             _doctor.Specialization = updated.Specialization;
             _doctor.Certification = updated.Certification;
-            _doctor.ClinicId = updated.ClinicId;            // FIXED
+            _doctor.ClinicId = updated.ClinicId;           
             _doctor.ConsultationFee = updated.ConsultationFee;
             _doctor.Slots = updated.Slots;
         }

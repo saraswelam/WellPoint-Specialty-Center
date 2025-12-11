@@ -21,7 +21,7 @@ namespace WindowsFormsApp1.Forms.Auth
 
         private void SignupForm_Load(object sender, EventArgs e)
         {
-            // Gender options
+            
             GenderComboBox.Items.Clear();
             GenderComboBox.Items.Add("Male");
             GenderComboBox.Items.Add("Female");
@@ -70,7 +70,7 @@ namespace WindowsFormsApp1.Forms.Auth
                 return;
             }
 
-            // Email format validation
+            
             try
             {
                 var m = new System.Net.Mail.MailAddress(email);
@@ -87,7 +87,7 @@ namespace WindowsFormsApp1.Forms.Auth
                 return;
             }
 
-            // Unique email check
+            
             var users = _db.GetCollection<User>("users");
             if (users.Find(u => u.Email == email).FirstOrDefault() != null)
             {

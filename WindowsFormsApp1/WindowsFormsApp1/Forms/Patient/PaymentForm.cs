@@ -1,5 +1,4 @@
-﻿// Forms/Patient/PaymentForm.cs
-//using WindowsFormsApp1.Services;
+﻿
 using MongoDB.Bson;
 using System;
 using System.Windows.Forms;
@@ -26,7 +25,7 @@ namespace WindowsFormsApp1.Forms.Patient
             InitializeComponent();
             _appointmentService = new AppointmentService();
 
-            // Validate inputs
+          
             if (string.IsNullOrEmpty(patientId) ||
                 string.IsNullOrEmpty(doctorId) ||
                 string.IsNullOrEmpty(clinicId) ||
@@ -39,7 +38,7 @@ namespace WindowsFormsApp1.Forms.Patient
                 return;
             }
 
-            // Assign AFTER validation
+           
             _patientId = patientId;
             _doctorId = doctorId;
             _clinicId = clinicId;
@@ -64,10 +63,10 @@ namespace WindowsFormsApp1.Forms.Patient
 
         private void btnPayNow_Click(object sender, EventArgs e)
         {
-            // Basic validation (if card selected, check fields)
+            
             var method = (cmbMethod.SelectedItem?.ToString() ?? "cash").ToLower();
 
-            // For demo, we won't process card; we just create the appointment+payment record (status pending/completed).
+            
             var success = _appointmentService.BookAppointment(_patientId, _doctorId, _clinicId, _appointmentDate, _appointmentTime, _fee, method, out ObjectId apptId, out string error);
 
             if (!success)
@@ -77,7 +76,7 @@ namespace WindowsFormsApp1.Forms.Patient
                 return;
             }
 
-            // Optionally mark payment status completed if cash or simulated card
+          
             MessageBox.Show("Appointment booked. Payment recorded (status pending/completed depending on method).", "Booked", MessageBoxButtons.OK, MessageBoxIcon.Information);
             BookingSucceeded = true;
             this.Close();

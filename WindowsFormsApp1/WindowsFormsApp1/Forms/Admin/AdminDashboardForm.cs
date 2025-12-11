@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
- // if you need to reference other admin forms
-   // for Admin model (constructor param)
+
 
 namespace WindowsFormsApp1.Forms.Admin
 {
     public partial class AdminDashboardForm : Form
     {
-        // Fix: Use fully qualified type if 'Admin' is a class inside a namespace
+       
         private readonly WindowsFormsApp1.Models.Admin _admin;
 
-        // Keep track of the currently loaded child form
+       
         private Form _activeChildForm = null;
 
-        // Colors for highlighting active button (adjust to your UI palette)
-        private readonly Color _activeBackColor = Color.FromArgb(255, 192, 192); // light pink
-        private readonly Color _inactiveBackColor = Color.FromArgb(240, 240, 240); // default
+     
+        private readonly Color _activeBackColor = Color.FromArgb(255, 192, 192); 
+        private readonly Color _inactiveBackColor = Color.FromArgb(240, 240, 240); 
 
         public AdminDashboardForm(WindowsFormsApp1.Models.Admin admin)
         {
@@ -29,24 +28,22 @@ namespace WindowsFormsApp1.Forms.Admin
 
         private void AdminDashboardForm_Load(object sender, EventArgs e)
         {
-            // Optional: show a default view on load
-            // e.g. show ManageDoctors on start
+            
+
             try
             {
-                // If you want default page, call its handler or directly load the child form:
+                
                 ManageDoctorsButton.PerformClick();
             }
-            catch { /* ignore designer-time calls */ }
+            catch {  }
         }
 
-        // ---------------------------
-        // Generic loader for child forms
-        // ---------------------------
+        
         private void LoadChildForm(Form child, Button sourceButton)
         {
             try
             {
-                // close & dispose any active child
+                
                 if (_activeChildForm != null)
                 {
                     _activeChildForm.Close();
@@ -56,7 +53,7 @@ namespace WindowsFormsApp1.Forms.Admin
 
                 _activeChildForm = child;
 
-                // configure child form to appear inside panel
+                
                 child.TopLevel = false;
                 child.FormBorderStyle = FormBorderStyle.None;
                 child.Dock = DockStyle.Fill;
@@ -75,12 +72,10 @@ namespace WindowsFormsApp1.Forms.Admin
             }
         }
 
-        // ---------------------------
-        // Visual highlight for active menu button
-        // ---------------------------
+       
         private void HighlightButton(Button active)
         {
-            // gather sidebar buttons (update list if names differ)
+           
             var buttons = new List<Button> {
                 ManageDoctorsButton,
                 AllAppointmentsButton,
@@ -92,7 +87,7 @@ namespace WindowsFormsApp1.Forms.Admin
 
             foreach (var b in buttons)
             {
-                if (b == null) continue; // in case designer hasn't wired
+                if (b == null) continue; 
                 if (b == active)
                 {
                     b.BackColor = _activeBackColor;
@@ -108,26 +103,24 @@ namespace WindowsFormsApp1.Forms.Admin
             }
         }
 
-        // ---------------------------
-        // Button handlers
-        // ---------------------------
+        
 
         private void ManageDoctorsButton_Click(object sender, EventArgs e)
         {
-            // If your ManageDoctorsForm has constructor accepting Admin or services, pass them
-            var form = new ManageDoctorsForm(); // or new ManageDoctorsForm(_admin)
+            
+            var form = new ManageDoctorsForm(); 
             LoadChildForm(form, ManageDoctorsButton);
         }
 
         private void AllAppointmentsButton_Click(object sender, EventArgs e)
         {
-            var form = new AllAppointmentsForm(); // or pass services if required
+            var form = new AllAppointmentsForm(); 
             LoadChildForm(form, AllAppointmentsButton);
         }
 
         private void ViewPaymentsButton_Click(object sender, EventArgs e)
         {
-            var form = new ViewPaymentsForm(); // optionally pass admin or DB service
+            var form = new ViewPaymentsForm(); 
             LoadChildForm(form, ViewPaymentsButton);
         }
 
@@ -139,21 +132,21 @@ namespace WindowsFormsApp1.Forms.Admin
 
         private void GenerateReportsButton_Click(object sender, EventArgs e)
         {
-            // Load the Reports form (you called it GenerateReportsForm in project)
-            var form = new GenerateReportsForm(); // this will host your 4 pipelines UI
+            
+            var form = new GenerateReportsForm(); 
             LoadChildForm(form, GenerateReportsButton);
         }
 
         private void LogoutButton_Click(object sender, EventArgs e)
         {
-            // Close dashboard and return to login
+           
             try
             {
-                // Optionally confirm logout
+                
                 var res = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (res != DialogResult.Yes) return;
 
-                // Close and dispose child form first
+                
                 if (_activeChildForm != null)
                 {
                     _activeChildForm.Close();
@@ -161,11 +154,11 @@ namespace WindowsFormsApp1.Forms.Admin
                     _activeChildForm = null;
                 }
 
-                // Show login
+                
                 var login = new WindowsFormsApp1.Forms.Auth.LoginForm();
                 login.Show();
 
-                // Close dashboard
+                
                 this.Close();
             }
             catch (Exception ex)

@@ -105,7 +105,7 @@ namespace WindowsFormsApp1.Forms.Admin
             if (!ValidateForm())
                 return;
 
-            // Step 1: Create User
+            
             var userCol = _db.GetCollection<User>("users");
             var newUser = new User
             {
@@ -117,11 +117,11 @@ namespace WindowsFormsApp1.Forms.Admin
 
             userCol.InsertOne(newUser);
 
-            // Step 2: Collect form data
+            
             var days = AvailableDaysChecklist.CheckedItems.Cast<string>().ToList();
             var certifications = listBox1.Items.Cast<string>().ToList();
 
-            // Step 3: Create Doctor object
+            
             var doctorCol = _db.GetCollection<WindowsFormsApp1.Models.Doctor>("doctors");
 
             var newDoctor = new global::WindowsFormsApp1.Models.Doctor  

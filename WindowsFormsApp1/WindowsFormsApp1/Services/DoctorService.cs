@@ -19,11 +19,10 @@ namespace ClinicalBookingSystem.Services
 
             _doctors = db.GetCollection<Doctor>("doctors");
             _clinics = db.GetCollection<Clinic>("clinics");
-            // <- use lowercase 'reviews' matching your DB script
+           
             _reviews = db.GetCollection<Review>("reviews");
         }
 
-        // Return all doctors (simple)
         public List<Doctor> GetAllDoctors()
         {
             return _doctors.Find(_ => true).ToList();
@@ -35,7 +34,7 @@ namespace ClinicalBookingSystem.Services
         }
 
 
-        // All specializations distinct
+        
         public List<string> GetSpecializations()
         {
             return _doctors.AsQueryable()
@@ -46,20 +45,20 @@ namespace ClinicalBookingSystem.Services
                 .ToList();
         }
 
-        // All clinics
+       
         public List<Clinic> GetClinics()
         {
             return _clinics.Find(_ => true).ToList();
         }
 
-        // Get a single clinic by ObjectId
+       
         public Clinic GetClinicById(ObjectId id)
         {
             return _clinics.Find(c => c.Id == id.ToString() || c.Id == id.ToString()).FirstOrDefault();
-            // Note: Clinic.Id is string with BsonRepresentation on model; this ensures matching.
+          
         }
 
-        // Flatten departments list across clinics
+       
         public List<string> GetDepartments()
         {
             var clinics = GetClinics();
@@ -72,7 +71,6 @@ namespace ClinicalBookingSystem.Services
                 .ToList();
         }
 
-        // Get average rating for a doctor (doctorId is the string Id from Doctor model)
         public double GetDoctorRating(string doctorId)
         {
             if (!ObjectId.TryParse(doctorId, out ObjectId oid))
@@ -94,13 +92,11 @@ namespace ClinicalBookingSystem.Services
             return _reviews.Find(filter).SortByDescending(r => r.Id).Limit(take).ToList();
         }
 
-        // Search doctors with text (first or last), specialization and clinic filter (clinicId string OR "All")
         public List<Doctor> SearchDoctors(string search, string specialization, string clinicId)
         {
             var builder = Builders<Doctor>.Filter;
             var filter = builder.Empty;
 
-            // search across first_name or last_name (case-insensitive regex)
             if (!string.IsNullOrWhiteSpace(search))
             {
                 var regex = new BsonRegularExpression(search, "i");
@@ -115,7 +111,6 @@ namespace ClinicalBookingSystem.Services
             if (!string.IsNullOrWhiteSpace(specialization) && specialization != "All")
                 filter &= builder.Eq("specialization", specialization);
 
-            // clinic filter: clinic_id stored as ObjectId -> convert string to ObjectId
             if (!string.IsNullOrWhiteSpace(clinicId) && clinicId != "All")
             {
                 ObjectId clinicOid;
@@ -125,7 +120,6 @@ namespace ClinicalBookingSystem.Services
                 }
                 else
                 {
-                    // if the UI passed clinic name accidentally, try to match by clinic id string field
                     filter &= builder.Eq("clinic_id", clinicId);
                 }
             }

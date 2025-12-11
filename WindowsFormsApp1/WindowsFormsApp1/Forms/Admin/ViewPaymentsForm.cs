@@ -37,7 +37,7 @@ namespace WindowsFormsApp1.Forms.Admin
                 payments = payments.Where(p => p.Status == statusFilter).ToList();
             }
 
-            // Shape for DataGridView
+           
             var result = payments.Select(p => new
             {
                 PaymentId = p.Id,

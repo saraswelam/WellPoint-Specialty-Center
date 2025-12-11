@@ -18,7 +18,7 @@ namespace WindowsFormsApp1.Forms.Admin
             InitializeComponent();
             _db = new MongoDBService();
         }
-        // ================================================================
+        
         // Utility: Convert aggregation results into DataTable for grid
         
         private DataTable ConvertToTable(List<BsonDocument> docs)
@@ -28,11 +28,11 @@ namespace WindowsFormsApp1.Forms.Admin
             if (docs.Count == 0)
                 return dt;
 
-            // Build columns
+            
             foreach (var element in docs[0].Elements)
                 dt.Columns.Add(element.Name);
 
-            // Add rows
+            
             foreach (var doc in docs)
             {
                 DataRow row = dt.NewRow();

@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|d:\\uni\\year_3\\sem_5\\adv db\\project\\wellpoint-specialty-center\\windowsformsapp1\\windowsformsapp1\\forms\\admin\\generatereportsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\forms\\admin\\generatereportsform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|d:\\uni\\year_3\\sem_5\\adv db\\project\\wellpoint-specialty-center\\windowsformsapp1\\windowsformsapp1\\forms\\admin\\generatereportsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DF80DC17-66A3-435F-866D-B496750EA72A}|WindowsFormsApp1\\WindowsFormsApp1.csproj|solutionrelative:windowsformsapp1\\forms\\admin\\generatereportsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -47,44 +43,31 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GenerateReportsForm.Designer.cs",
-              "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.Designer.cs",
-              "RelativeDocumentMoniker": "WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.Designer.cs",
-              "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.Designer.cs*",
-              "RelativeToolTip": "WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.Designer.cs*",
-              "ViewState": "AgIAAJgAAAAAAAAAAAAqwKkAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-11T00:45:14.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "GenerateReportsForm.cs",
               "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.cs",
-              "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.cs",
-              "RelativeToolTip": "WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAYwBEAAAAiAAAAAAAAAA==",
+              "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.cs*",
+              "RelativeToolTip": "WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.cs*",
+              "ViewState": "AgIAAAgAAAAAAAAAAADwvxIAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-10T22:59:01.129Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "GenerateReportsForm.cs [Design]",
               "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.cs",
-              "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.cs [Design]",
-              "RelativeToolTip": "WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.cs [Design]",
+              "ToolTip": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.cs [Design]*",
+              "RelativeToolTip": "WindowsFormsApp1\\Forms\\Admin\\GenerateReportsForm.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-10T22:59:00.059Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "ManageDoctorsForm.cs",
               "DocumentMoniker": "D:\\uni\\YEAR_3\\sem_5\\adv db\\project\\WellPoint-Specialty-Center\\WindowsFormsApp1\\WindowsFormsApp1\\Forms\\Admin\\ManageDoctorsForm.cs",
               "RelativeDocumentMoniker": "WindowsFormsApp1\\Forms\\Admin\\ManageDoctorsForm.cs",

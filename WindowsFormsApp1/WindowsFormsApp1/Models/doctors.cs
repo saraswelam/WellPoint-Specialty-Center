@@ -14,7 +14,7 @@ namespace WindowsFormsApp1.Models
         [BsonElement("user_id")]
         public string UserId { get; set; }
 
-        // ✔ Added reference to clinic
+        
         [BsonRepresentation(BsonType.ObjectId)]
         [BsonElement("clinic_id")]
         public string ClinicId { get; set; }

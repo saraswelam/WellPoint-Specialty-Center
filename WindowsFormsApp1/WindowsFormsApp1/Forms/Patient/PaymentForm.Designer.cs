@@ -113,7 +113,7 @@ namespace WindowsFormsApp1.Forms.Patient
             // 
             // PaymentForm
             // 
-            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(656, 476);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblDoctor);

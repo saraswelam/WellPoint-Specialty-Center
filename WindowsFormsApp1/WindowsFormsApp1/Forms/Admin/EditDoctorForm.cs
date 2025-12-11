@@ -168,5 +168,10 @@ namespace WindowsFormsApp1.Forms.Admin
         private void AvailableDaysCheckList_SelectedIndexChanged(object sender, EventArgs e) { }
         private void StartDatePicker_ValueChanged(object sender, EventArgs e) { }
         private void EndDatePicker_ValueChanged(object sender, EventArgs e) { }
+
+        private void MainPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

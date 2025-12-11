@@ -15,7 +15,7 @@ namespace WindowsFormsApp1.Models
         [BsonElement("working_hours")]
         public string WorkingHours { get; set; }
 
-        // ✔ Now an array
+       
         [BsonElement("departments")]
         public List<Department> Departments { get; set; }
 
