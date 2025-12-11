@@ -52,7 +52,7 @@ namespace WindowsFormsApp1.Forms.Admin
             this.TopPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopPanel.Location = new System.Drawing.Point(0, 0);
             this.TopPanel.Name = "TopPanel";
-            this.TopPanel.Size = new System.Drawing.Size(800, 84);
+            this.TopPanel.Size = new System.Drawing.Size(1401, 84);
             this.TopPanel.TabIndex = 0;
             // 
             // FilterLabel
@@ -70,7 +70,7 @@ namespace WindowsFormsApp1.Forms.Admin
             // FilterComboBox
             // 
             this.FilterComboBox.FormattingEnabled = true;
-            this.FilterComboBox.Location = new System.Drawing.Point(595, 29);
+            this.FilterComboBox.Location = new System.Drawing.Point(699, 30);
             this.FilterComboBox.Name = "FilterComboBox";
             this.FilterComboBox.Size = new System.Drawing.Size(121, 24);
             this.FilterComboBox.TabIndex = 3;
@@ -102,7 +102,7 @@ namespace WindowsFormsApp1.Forms.Admin
             this.MainContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainContentPanel.Location = new System.Drawing.Point(0, 84);
             this.MainContentPanel.Name = "MainContentPanel";
-            this.MainContentPanel.Size = new System.Drawing.Size(800, 493);
+            this.MainContentPanel.Size = new System.Drawing.Size(1401, 687);
             this.MainContentPanel.TabIndex = 1;
             this.MainContentPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainContentPanel_Paint);
             // 
@@ -118,7 +118,7 @@ namespace WindowsFormsApp1.Forms.Admin
             this.AppointmentsGrid.RowHeadersWidth = 51;
             this.AppointmentsGrid.RowTemplate.Height = 24;
             this.AppointmentsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.AppointmentsGrid.Size = new System.Drawing.Size(785, 466);
+            this.AppointmentsGrid.Size = new System.Drawing.Size(1344, 640);
             this.AppointmentsGrid.TabIndex = 0;
             this.AppointmentsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AppointmentsGrid_CellContentClick);
             // 
@@ -127,7 +127,7 @@ namespace WindowsFormsApp1.Forms.Admin
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(800, 577);
+            this.ClientSize = new System.Drawing.Size(1401, 771);
             this.Controls.Add(this.MainContentPanel);
             this.Controls.Add(this.TopPanel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

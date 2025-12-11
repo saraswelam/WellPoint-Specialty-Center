@@ -13,6 +13,7 @@ namespace WindowsFormsApp1.Forms.Admin
     {
         private readonly MongoDBService _db;
         private readonly string _doctorId;
+        private Models.Admin _admin;
         private WindowsFormsApp1.Models.Doctor _doctorData;
 
         public EditDoctorForm(string doctorId)
@@ -172,6 +173,18 @@ namespace WindowsFormsApp1.Forms.Admin
         private void MainPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            // You must provide an Admin object to the AdminDashboardForm constructor.
+            // If you have access to the current Admin instance, pass it here.
+            // Example: AdminDashboardForm form = new AdminDashboardForm(currentAdmin);
+            // If not, you need to obtain or create an Admin object as appropriate for your application.
+
+            // Placeholder: Replace 'null' with the actual Admin instance.
+            AdminDashboardForm form = new AdminDashboardForm(_admin);
+            var result = form.ShowDialog();
         }
     }
 }

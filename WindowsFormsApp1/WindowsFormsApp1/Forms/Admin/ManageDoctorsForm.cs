@@ -193,6 +193,7 @@ namespace WindowsFormsApp1.Forms.Admin
                 return;
             }
 
+
             doctors.DeleteOne(d => d.Id == doctorId);
 
             var users = _db.GetCollection<User>("users");

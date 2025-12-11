@@ -118,6 +118,7 @@ namespace WindowsFormsApp1.Forms.Auth
             this.PastSurgeriesLabel = new System.Windows.Forms.Label();
             this.PastSurgeriesTextbox = new System.Windows.Forms.TextBox();
             this.ConfirmButton = new System.Windows.Forms.Button();
+            this.BackButton = new System.Windows.Forms.Button();
             this.panelScroll.SuspendLayout();
             this.panelContainer.SuspendLayout();
             this.SuspendLayout();
@@ -132,12 +133,14 @@ namespace WindowsFormsApp1.Forms.Auth
             this.panelScroll.Name = "panelScroll";
             this.panelScroll.Size = new System.Drawing.Size(1400, 900);
             this.panelScroll.TabIndex = 0;
+            this.panelScroll.Paint += new System.Windows.Forms.PaintEventHandler(this.panelScroll_Paint);
             // 
             // panelContainer
             // 
             this.panelContainer.AutoSize = true;
             this.panelContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panelContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelContainer.Controls.Add(this.BackButton);
             this.panelContainer.Controls.Add(this.label1);
             this.panelContainer.Controls.Add(this.PersonalDetailsLabel);
             this.panelContainer.Controls.Add(this.ContactInfoLabel);
@@ -178,7 +181,7 @@ namespace WindowsFormsApp1.Forms.Auth
             this.panelContainer.Controls.Add(this.PastSurgeriesTextbox);
             this.panelContainer.Controls.Add(this.ConfirmButton);
             this.panelContainer.Font = new System.Drawing.Font("Arial Rounded MT Bold", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelContainer.Location = new System.Drawing.Point(350, 20);
+            this.panelContainer.Location = new System.Drawing.Point(497, 103);
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Padding = new System.Windows.Forms.Padding(20);
             this.panelContainer.Size = new System.Drawing.Size(900, 770);
@@ -191,7 +194,7 @@ namespace WindowsFormsApp1.Forms.Auth
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(350, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 39);
+            this.label1.Size = new System.Drawing.Size(147, 38);
             this.label1.TabIndex = 0;
             this.label1.Text = "SIGNUP";
             // 
@@ -548,6 +551,21 @@ namespace WindowsFormsApp1.Forms.Auth
             this.ConfirmButton.UseVisualStyleBackColor = false;
             this.ConfirmButton.Click += new System.EventHandler(this.button1_Click);
             // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.Color.White;
+            this.BackButton.FlatAppearance.BorderSize = 0;
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.BackButton.ForeColor = System.Drawing.Color.SteelBlue;
+            this.BackButton.Location = new System.Drawing.Point(18, 13);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(90, 35);
+            this.BackButton.TabIndex = 39;
+            this.BackButton.Text = "← Back";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // SignupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -566,5 +584,7 @@ namespace WindowsFormsApp1.Forms.Auth
             this.ResumeLayout(false);
 
         }
+
+        private Button BackButton;
     }
 }

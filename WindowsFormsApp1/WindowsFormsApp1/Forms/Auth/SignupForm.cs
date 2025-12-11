@@ -1,11 +1,12 @@
-﻿using MongoDB.Bson;
+﻿using ClinicalBookingSystem.Services;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using WindowsFormsApp1.Forms.Admin;
 using WindowsFormsApp1.Models;
-using ClinicalBookingSystem.Services;
-using MongoDB.Driver;
 
 namespace WindowsFormsApp1.Forms.Auth
 {
@@ -211,6 +212,17 @@ namespace WindowsFormsApp1.Forms.Auth
         private void CityTextBox_TextChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void panelScroll_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            LoginForm form = new LoginForm();
+            var result = form.ShowDialog();
         }
     }
 }

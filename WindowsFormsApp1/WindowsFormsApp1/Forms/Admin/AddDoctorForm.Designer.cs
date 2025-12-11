@@ -47,6 +47,7 @@
             this.EndTimeDatePicker = new System.Windows.Forms.DateTimePicker();
             this.AddCertificationButton = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.BackButton = new System.Windows.Forms.Button();
             this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             this.BasicInfoLabel.AutoSize = true;
             this.BasicInfoLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BasicInfoLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Underline);
-            this.BasicInfoLabel.Location = new System.Drawing.Point(10, 10);
+            this.BasicInfoLabel.Location = new System.Drawing.Point(4, 81);
             this.BasicInfoLabel.Name = "BasicInfoLabel";
             this.BasicInfoLabel.Size = new System.Drawing.Size(150, 32);
             this.BasicInfoLabel.TabIndex = 0;
@@ -63,7 +64,7 @@
             // 
             // FirstNameTextBox
             // 
-            this.FirstNameTextBox.Location = new System.Drawing.Point(200, 60);
+            this.FirstNameTextBox.Location = new System.Drawing.Point(189, 125);
             this.FirstNameTextBox.Name = "FirstNameTextBox";
             this.FirstNameTextBox.Size = new System.Drawing.Size(180, 22);
             this.FirstNameTextBox.TabIndex = 2;
@@ -72,7 +73,7 @@
             // 
             this.FirstNameLabel.AutoSize = true;
             this.FirstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.FirstNameLabel.Location = new System.Drawing.Point(20, 60);
+            this.FirstNameLabel.Location = new System.Drawing.Point(12, 135);
             this.FirstNameLabel.Name = "FirstNameLabel";
             this.FirstNameLabel.Size = new System.Drawing.Size(107, 22);
             this.FirstNameLabel.TabIndex = 1;
@@ -82,7 +83,7 @@
             // 
             this.LastNameLabel.AutoSize = true;
             this.LastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.LastNameLabel.Location = new System.Drawing.Point(450, 60);
+            this.LastNameLabel.Location = new System.Drawing.Point(438, 125);
             this.LastNameLabel.Name = "LastNameLabel";
             this.LastNameLabel.Size = new System.Drawing.Size(105, 22);
             this.LastNameLabel.TabIndex = 3;
@@ -90,7 +91,7 @@
             // 
             // LastNameTextBox
             // 
-            this.LastNameTextBox.Location = new System.Drawing.Point(600, 60);
+            this.LastNameTextBox.Location = new System.Drawing.Point(589, 125);
             this.LastNameTextBox.Name = "LastNameTextBox";
             this.LastNameTextBox.Size = new System.Drawing.Size(200, 22);
             this.LastNameTextBox.TabIndex = 4;
@@ -99,7 +100,7 @@
             // 
             this.EmailLabel.AutoSize = true;
             this.EmailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.EmailLabel.Location = new System.Drawing.Point(20, 110);
+            this.EmailLabel.Location = new System.Drawing.Point(20, 180);
             this.EmailLabel.Name = "EmailLabel";
             this.EmailLabel.Size = new System.Drawing.Size(59, 22);
             this.EmailLabel.TabIndex = 5;
@@ -107,7 +108,7 @@
             // 
             // EmailTextBox
             // 
-            this.EmailTextBox.Location = new System.Drawing.Point(200, 110);
+            this.EmailTextBox.Location = new System.Drawing.Point(189, 180);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(180, 22);
             this.EmailTextBox.TabIndex = 6;
@@ -116,15 +117,16 @@
             // 
             this.PasswordLabel.AutoSize = true;
             this.PasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.PasswordLabel.Location = new System.Drawing.Point(450, 110);
+            this.PasswordLabel.Location = new System.Drawing.Point(438, 167);
             this.PasswordLabel.Name = "PasswordLabel";
             this.PasswordLabel.Size = new System.Drawing.Size(97, 22);
             this.PasswordLabel.TabIndex = 7;
             this.PasswordLabel.Text = "Password";
+            this.PasswordLabel.Click += new System.EventHandler(this.PasswordLabel_Click);
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Location = new System.Drawing.Point(600, 110);
+            this.PasswordTextBox.Location = new System.Drawing.Point(589, 167);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(200, 22);
             this.PasswordTextBox.TabIndex = 8;
@@ -134,7 +136,7 @@
             // 
             this.PhoneLabel.AutoSize = true;
             this.PhoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.PhoneLabel.Location = new System.Drawing.Point(20, 160);
+            this.PhoneLabel.Location = new System.Drawing.Point(12, 227);
             this.PhoneLabel.Name = "PhoneLabel";
             this.PhoneLabel.Size = new System.Drawing.Size(142, 22);
             this.PhoneLabel.TabIndex = 9;
@@ -142,7 +144,7 @@
             // 
             // PhoneTextBox
             // 
-            this.PhoneTextBox.Location = new System.Drawing.Point(200, 160);
+            this.PhoneTextBox.Location = new System.Drawing.Point(189, 227);
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(180, 22);
             this.PhoneTextBox.TabIndex = 10;
@@ -151,7 +153,7 @@
             // 
             this.ConsultationFeeLabel.AutoSize = true;
             this.ConsultationFeeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.ConsultationFeeLabel.Location = new System.Drawing.Point(450, 160);
+            this.ConsultationFeeLabel.Location = new System.Drawing.Point(438, 225);
             this.ConsultationFeeLabel.Name = "ConsultationFeeLabel";
             this.ConsultationFeeLabel.Size = new System.Drawing.Size(162, 22);
             this.ConsultationFeeLabel.TabIndex = 11;
@@ -159,16 +161,17 @@
             // 
             // ConsultationFeeTextBox
             // 
-            this.ConsultationFeeTextBox.Location = new System.Drawing.Point(600, 160);
+            this.ConsultationFeeTextBox.Location = new System.Drawing.Point(606, 225);
             this.ConsultationFeeTextBox.Name = "ConsultationFeeTextBox";
             this.ConsultationFeeTextBox.Size = new System.Drawing.Size(100, 22);
             this.ConsultationFeeTextBox.TabIndex = 12;
+            this.ConsultationFeeTextBox.TextChanged += new System.EventHandler(this.ConsultationFeeTextBox_TextChanged_1);
             // 
             // SpecializationLabel
             // 
             this.SpecializationLabel.AutoSize = true;
             this.SpecializationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.SpecializationLabel.Location = new System.Drawing.Point(20, 210);
+            this.SpecializationLabel.Location = new System.Drawing.Point(12, 278);
             this.SpecializationLabel.Name = "SpecializationLabel";
             this.SpecializationLabel.Size = new System.Drawing.Size(134, 22);
             this.SpecializationLabel.TabIndex = 13;
@@ -176,7 +179,7 @@
             // 
             // SpecializationComboBox
             // 
-            this.SpecializationComboBox.Location = new System.Drawing.Point(200, 210);
+            this.SpecializationComboBox.Location = new System.Drawing.Point(189, 276);
             this.SpecializationComboBox.Name = "SpecializationComboBox";
             this.SpecializationComboBox.Size = new System.Drawing.Size(180, 24);
             this.SpecializationComboBox.TabIndex = 14;
@@ -185,7 +188,7 @@
             // 
             this.ClinicLabel.AutoSize = true;
             this.ClinicLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.ClinicLabel.Location = new System.Drawing.Point(450, 210);
+            this.ClinicLabel.Location = new System.Drawing.Point(450, 274);
             this.ClinicLabel.Name = "ClinicLabel";
             this.ClinicLabel.Size = new System.Drawing.Size(60, 22);
             this.ClinicLabel.TabIndex = 15;
@@ -193,7 +196,7 @@
             // 
             // ClinicComboBox
             // 
-            this.ClinicComboBox.Location = new System.Drawing.Point(600, 210);
+            this.ClinicComboBox.Location = new System.Drawing.Point(589, 272);
             this.ClinicComboBox.Name = "ClinicComboBox";
             this.ClinicComboBox.Size = new System.Drawing.Size(200, 24);
             this.ClinicComboBox.TabIndex = 16;
@@ -202,7 +205,7 @@
             // 
             this.AddButton.BackColor = System.Drawing.Color.Violet;
             this.AddButton.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold);
-            this.AddButton.Location = new System.Drawing.Point(480, 600);
+            this.AddButton.Location = new System.Drawing.Point(898, 653);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(150, 45);
             this.AddButton.TabIndex = 28;
@@ -215,7 +218,7 @@
             this.CertificationsLabel.AutoSize = true;
             this.CertificationsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.CertificationsLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Underline);
-            this.CertificationsLabel.Location = new System.Drawing.Point(10, 260);
+            this.CertificationsLabel.Location = new System.Drawing.Point(10, 327);
             this.CertificationsLabel.Name = "CertificationsLabel";
             this.CertificationsLabel.Size = new System.Drawing.Size(200, 32);
             this.CertificationsLabel.TabIndex = 17;
@@ -223,7 +226,7 @@
             // 
             // CertificationsTextBox
             // 
-            this.CertificationsTextBox.Location = new System.Drawing.Point(20, 310);
+            this.CertificationsTextBox.Location = new System.Drawing.Point(16, 399);
             this.CertificationsTextBox.Name = "CertificationsTextBox";
             this.CertificationsTextBox.Size = new System.Drawing.Size(220, 22);
             this.CertificationsTextBox.TabIndex = 18;
@@ -231,7 +234,7 @@
             // listBox1
             // 
             this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(397, 260);
+            this.listBox1.Location = new System.Drawing.Point(480, 353);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(150, 68);
             this.listBox1.TabIndex = 20;
@@ -242,7 +245,7 @@
             this.AvailableDaysLabel.AutoSize = true;
             this.AvailableDaysLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.AvailableDaysLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Underline);
-            this.AvailableDaysLabel.Location = new System.Drawing.Point(10, 380);
+            this.AvailableDaysLabel.Location = new System.Drawing.Point(-1, 470);
             this.AvailableDaysLabel.Name = "AvailableDaysLabel";
             this.AvailableDaysLabel.Size = new System.Drawing.Size(217, 32);
             this.AvailableDaysLabel.TabIndex = 21;
@@ -250,7 +253,7 @@
             // 
             // AvailableDaysChecklist
             // 
-            this.AvailableDaysChecklist.Location = new System.Drawing.Point(20, 430);
+            this.AvailableDaysChecklist.Location = new System.Drawing.Point(16, 533);
             this.AvailableDaysChecklist.Name = "AvailableDaysChecklist";
             this.AvailableDaysChecklist.Size = new System.Drawing.Size(200, 106);
             this.AvailableDaysChecklist.TabIndex = 22;
@@ -260,7 +263,7 @@
             this.WorkingHoursLabel.AutoSize = true;
             this.WorkingHoursLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.WorkingHoursLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 16.2F, System.Drawing.FontStyle.Underline);
-            this.WorkingHoursLabel.Location = new System.Drawing.Point(350, 380);
+            this.WorkingHoursLabel.Location = new System.Drawing.Point(337, 470);
             this.WorkingHoursLabel.Name = "WorkingHoursLabel";
             this.WorkingHoursLabel.Size = new System.Drawing.Size(217, 32);
             this.WorkingHoursLabel.TabIndex = 23;
@@ -270,7 +273,7 @@
             // 
             this.StartTimeLabel.AutoSize = true;
             this.StartTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.StartTimeLabel.Location = new System.Drawing.Point(360, 430);
+            this.StartTimeLabel.Location = new System.Drawing.Point(339, 550);
             this.StartTimeLabel.Name = "StartTimeLabel";
             this.StartTimeLabel.Size = new System.Drawing.Size(103, 22);
             this.StartTimeLabel.TabIndex = 24;
@@ -280,7 +283,7 @@
             // 
             this.EndTimeLabel.AutoSize = true;
             this.EndTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold);
-            this.EndTimeLabel.Location = new System.Drawing.Point(360, 480);
+            this.EndTimeLabel.Location = new System.Drawing.Point(339, 617);
             this.EndTimeLabel.Name = "EndTimeLabel";
             this.EndTimeLabel.Size = new System.Drawing.Size(95, 22);
             this.EndTimeLabel.TabIndex = 26;
@@ -290,7 +293,7 @@
             // 
             this.StartTimeDatePicker.CustomFormat = "HH:mm";
             this.StartTimeDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.StartTimeDatePicker.Location = new System.Drawing.Point(480, 430);
+            this.StartTimeDatePicker.Location = new System.Drawing.Point(480, 550);
             this.StartTimeDatePicker.Name = "StartTimeDatePicker";
             this.StartTimeDatePicker.Size = new System.Drawing.Size(150, 22);
             this.StartTimeDatePicker.TabIndex = 25;
@@ -299,7 +302,7 @@
             // 
             this.EndTimeDatePicker.CustomFormat = "HH:mm";
             this.EndTimeDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.EndTimeDatePicker.Location = new System.Drawing.Point(480, 480);
+            this.EndTimeDatePicker.Location = new System.Drawing.Point(480, 617);
             this.EndTimeDatePicker.Name = "EndTimeDatePicker";
             this.EndTimeDatePicker.Size = new System.Drawing.Size(150, 22);
             this.EndTimeDatePicker.TabIndex = 27;
@@ -307,7 +310,7 @@
             // AddCertificationButton
             // 
             this.AddCertificationButton.BackColor = System.Drawing.Color.Violet;
-            this.AddCertificationButton.Location = new System.Drawing.Point(249, 308);
+            this.AddCertificationButton.Location = new System.Drawing.Point(249, 394);
             this.AddCertificationButton.Name = "AddCertificationButton";
             this.AddCertificationButton.Size = new System.Drawing.Size(131, 27);
             this.AddCertificationButton.TabIndex = 19;
@@ -319,6 +322,7 @@
             // 
             this.MainPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.MainPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.MainPanel.Controls.Add(this.BackButton);
             this.MainPanel.Controls.Add(this.BasicInfoLabel);
             this.MainPanel.Controls.Add(this.FirstNameLabel);
             this.MainPanel.Controls.Add(this.FirstNameTextBox);
@@ -352,6 +356,21 @@
             this.MainPanel.Name = "MainPanel";
             this.MainPanel.Size = new System.Drawing.Size(1100, 760);
             this.MainPanel.TabIndex = 0;
+            // 
+            // BackButton
+            // 
+            this.BackButton.BackColor = System.Drawing.Color.White;
+            this.BackButton.FlatAppearance.BorderSize = 0;
+            this.BackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BackButton.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.BackButton.ForeColor = System.Drawing.Color.SteelBlue;
+            this.BackButton.Location = new System.Drawing.Point(5, 13);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(90, 35);
+            this.BackButton.TabIndex = 41;
+            this.BackButton.Text = "← Back";
+            this.BackButton.UseVisualStyleBackColor = false;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
             // 
             // AddDoctorForm
             // 
@@ -401,5 +420,6 @@
         private System.Windows.Forms.DateTimePicker EndTimeDatePicker;
         private System.Windows.Forms.Button AddCertificationButton;
         private System.Windows.Forms.Panel MainPanel;
+        private System.Windows.Forms.Button BackButton;
     }
 }

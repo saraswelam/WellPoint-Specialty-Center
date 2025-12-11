@@ -14,7 +14,7 @@ using WindowsFormsApp1.Forms.Doctor;
 using WindowsFormsApp1.Forms.Patient;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using WindowsFormsApp1.Models; 
-//using WindowsFormsApp1.Services;
+
 
 namespace WindowsFormsApp1.Forms.Auth
 {
@@ -43,7 +43,7 @@ namespace WindowsFormsApp1.Forms.Auth
             string email = EmailTextBox.Text.Trim();
             string password = PasswordTextBox.Text.Trim();
 
-            // 1) Empty fields check
+           
             if (string.IsNullOrEmpty(email))
             {
                 MessageBox.Show("Email field cannot be empty.", "Validation Error");
@@ -57,21 +57,21 @@ namespace WindowsFormsApp1.Forms.Auth
             }
 
 
-            // 2) Email format validation
+            
             if (!IsValidEmail(email))
             {
                 MessageBox.Show("Please enter a valid email address.", "Validation Error");
                 return;
             }
 
-            // 3) Optional: Minimum password rules for login (not signup)
+            
             if (password.Length < 4)
             {
                 MessageBox.Show("Password must be at least 4 characters long.", "Validation Error");
                 return;
             }
 
-            // 4) Attempt to log in
+           
             var users = _db.GetCollection<User>("users");
             var user = users.Find(u => u.Email == email && u.Password == password).FirstOrDefault();
 
@@ -84,7 +84,7 @@ namespace WindowsFormsApp1.Forms.Auth
 
 
 
-            // 5) Redirect based on user role
+           
             switch (user.Role)
             {
                 case "patient":

@@ -153,5 +153,29 @@ namespace WindowsFormsApp1.Forms.Doctor
             profileForm.Show();
             this.Hide();
         }
+
+        private void LogoutButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                var res = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res != DialogResult.Yes) return;
+
+
+               
+
+
+                var login = new WindowsFormsApp1.Forms.Auth.LoginForm();
+                login.Show();
+
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Logout error: " + ex.Message);
+            }
+        }
     }
 }

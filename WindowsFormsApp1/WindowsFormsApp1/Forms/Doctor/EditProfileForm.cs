@@ -1,5 +1,4 @@
-﻿
-using ClinicalBookingSystem.Services;
+﻿using ClinicalBookingSystem.Services;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
@@ -51,6 +50,11 @@ namespace WindowsFormsApp1.Forms.Doctor
             PopulateData();
         }
 
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            DoctorDashboardForm form = new DoctorDashboardForm(_doctor);
+            var result = form.ShowDialog();
+        }
 
         private void SetupUI()
         {

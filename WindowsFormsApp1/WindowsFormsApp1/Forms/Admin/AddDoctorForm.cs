@@ -12,6 +12,7 @@ namespace WindowsFormsApp1.Forms.Admin
     public partial class AddDoctorForm : Form
     {
         private readonly MongoDBService _db;
+        private Models.Admin _admin;
 
         public AddDoctorForm()
         {
@@ -236,8 +237,20 @@ namespace WindowsFormsApp1.Forms.Admin
         private void ClinicLabel_Click(object sender, EventArgs e) { }
         private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e) { }
 
-        
+        private void ConsultationFeeTextBox_TextChanged_1(object sender, EventArgs e)
+        {
 
-       
+        }
+
+        private void PasswordLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            AdminDashboardForm form = new AdminDashboardForm(_admin);
+            var result = form.ShowDialog();
+        }
     }
 }
