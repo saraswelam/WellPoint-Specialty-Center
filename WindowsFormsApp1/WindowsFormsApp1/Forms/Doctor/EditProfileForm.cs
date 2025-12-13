@@ -32,124 +32,149 @@ namespace WindowsFormsApp1.Forms.Doctor
         public EditProfileForm()
         {
             InitializeComponent();
-
             if (LicenseManager.UsageMode == LicenseUsageMode.Designtime)
             {
-                SetupUI(); // Allows Designer to display UI
+                SetupUI();
             }
         }
 
         public EditProfileForm(Models.Doctor doctor)
         {
             InitializeComponent();
-
             _doctor = doctor;
             _dbService = new MongoDBService();
-
             SetupUI();
             PopulateData();
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
+            this.Hide();
             DoctorDashboardForm form = new DoctorDashboardForm(_doctor);
-            var result = form.ShowDialog();
+            form.ShowDialog();
+            this.Close();
         }
 
         private void SetupUI()
         {
+            // --- CRITICAL FIX: Clear existing controls to prevent overlap ---
+            this.Controls.Clear();
+
             this.Text = "Edit Profile";
-            this.Size = new Size(500, 800); // Increased height for certifications
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
             this.BackColor = Color.White;
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
 
             int y = 20;
-            int x = 40;
-            int width = 380;
+            int x = 50; // Increased left margin slightly
+            int width = 400;
 
-            // Title
-            Label lblTitle = new Label { Text = "Edit Your Details", Font = new Font("Segoe UI", 16, FontStyle.Bold), Location = new Point(x, y), AutoSize = true };
+            // --- 1. BACK BUTTON ---
+            Button btnBack = new Button
+            {
+                Text = "← Back",
+                Location = new Point(20, 20), // Top Left
+                Size = new Size(80, 35),
+                BackColor = Color.LightGray,
+                FlatStyle = FlatStyle.Flat
+            };
+            btnBack.Click += BackButton_Click;
+            this.Controls.Add(btnBack);
+
+            // Move y down so Title doesn't overlap Back button
+            y += 60;
+
+            // --- 2. TITLE ---
+            Label lblTitle = new Label
+            {
+                Text = "Edit Your Details",
+                Font = new Font("Segoe UI", 18, FontStyle.Bold),
+                Location = new Point(x, y),
+                AutoSize = true
+            };
             this.Controls.Add(lblTitle);
-            y += 50;
+            y += 60;
+
+            // --- 3. FORM FIELDS ---
 
             // Phone
-            Label lblPhone = new Label { Text = "Phone Number", Location = new Point(x, y), AutoSize = true };
+            Label lblPhone = new Label { Text = "Phone Number", Location = new Point(x, y), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold) };
             this.Controls.Add(lblPhone);
             txtPhone = new TextBox { Location = new Point(x, y + 25), Size = new Size(width, 30), Font = new Font("Segoe UI", 10) };
             this.Controls.Add(txtPhone);
-            y += 70;
+            y += 80;
 
             // Fee
-            Label lblFee = new Label { Text = "Consultation Fee", Location = new Point(x, y), AutoSize = true };
+            Label lblFee = new Label { Text = "Consultation Fee", Location = new Point(x, y), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold) };
             this.Controls.Add(lblFee);
             numFee = new NumericUpDown { Location = new Point(x, y + 25), Size = new Size(width, 30), Maximum = 10000, Font = new Font("Segoe UI", 10) };
             this.Controls.Add(numFee);
-            y += 70;
+            y += 80;
 
             // Hours
-            Label lblHours = new Label { Text = "Working Hours (Start - End)", Location = new Point(x, y), AutoSize = true };
+            Label lblHours = new Label { Text = "Working Hours (Start - End)", Location = new Point(x, y), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold) };
             this.Controls.Add(lblHours);
-            dtpStartTime = new DateTimePicker { Format = DateTimePickerFormat.Time, ShowUpDown = true, Location = new Point(x, y + 25), Size = new Size(120, 30) };
-            dtpEndTime = new DateTimePicker { Format = DateTimePickerFormat.Time, ShowUpDown = true, Location = new Point(x + 150, y + 25), Size = new Size(120, 30) };
+            dtpStartTime = new DateTimePicker { Format = DateTimePickerFormat.Time, ShowUpDown = true, Location = new Point(x, y + 25), Size = new Size(150, 30), Font = new Font("Segoe UI", 10) };
+            dtpEndTime = new DateTimePicker { Format = DateTimePickerFormat.Time, ShowUpDown = true, Location = new Point(x + 180, y + 25), Size = new Size(150, 30), Font = new Font("Segoe UI", 10) };
             this.Controls.Add(dtpStartTime);
             this.Controls.Add(dtpEndTime);
-            y += 70;
+            y += 80;
 
-            // Days Selection
-            Label lblDays = new Label { Text = "Available Days", Location = new Point(x, y), AutoSize = true };
+            // Days
+            Label lblDays = new Label { Text = "Available Days", Location = new Point(x, y), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold) };
             this.Controls.Add(lblDays);
             y += 30;
 
             cbMon = CreateCheck("Monday", x, y);
-            cbTue = CreateCheck("Tuesday", x + 100, y);
-            cbWed = CreateCheck("Wednesday", x + 200, y);
-            y += 30;
+            cbTue = CreateCheck("Tuesday", x + 110, y);
+            cbWed = CreateCheck("Wednesday", x + 220, y);
+            y += 35;
             cbThu = CreateCheck("Thursday", x, y);
-            cbFri = CreateCheck("Friday", x + 100, y);
-            cbSat = CreateCheck("Saturday", x + 200, y);
-            y += 30;
+            cbFri = CreateCheck("Friday", x + 110, y);
+            cbSat = CreateCheck("Saturday", x + 220, y);
+            y += 35;
             cbSun = CreateCheck("Sunday", x, y);
+            y += 60;
 
-            y += 50;
-
-            // --- NEW SECTION: CERTIFICATIONS ---
+            // --- 4. CERTIFICATIONS ---
             Label lblCert = new Label { Text = "Certifications", Location = new Point(x, y), AutoSize = true, Font = new Font("Segoe UI", 10, FontStyle.Bold) };
             this.Controls.Add(lblCert);
-            y += 25;
+            y += 30;
 
-            // ListBox to show existing
-            lstCerts = new ListBox { Location = new Point(x, y), Size = new Size(width, 80), Font = new Font("Segoe UI", 9) };
+            // ListBox
+            lstCerts = new ListBox { Location = new Point(x, y), Size = new Size(width, 100), Font = new Font("Segoe UI", 10) };
             this.Controls.Add(lstCerts);
-            y += 90;
+            y += 110;
 
             // Textbox for New Cert
             txtNewCert = new TextBox { Location = new Point(x, y), Size = new Size(240, 30), Font = new Font("Segoe UI", 10) };
             this.Controls.Add(txtNewCert);
 
             // Add Button
-            btnAddCert = new Button { Text = "+ Add", BackColor = Color.SteelBlue, ForeColor = Color.White, FlatStyle = FlatStyle.Flat, Size = new Size(60, 30), Location = new Point(x + 250, y - 2) };
+            btnAddCert = new Button { Text = "+ Add", BackColor = Color.SteelBlue, ForeColor = Color.White, FlatStyle = FlatStyle.Flat, Size = new Size(70, 32), Location = new Point(x + 250, y - 2) };
             btnAddCert.Click += BtnAddCert_Click;
             this.Controls.Add(btnAddCert);
 
             // Remove Button
-            btnRemoveCert = new Button { Text = "Remove", BackColor = Color.IndianRed, ForeColor = Color.White, FlatStyle = FlatStyle.Flat, Size = new Size(70, 30), Location = new Point(x + 320, y - 2) };
+            btnRemoveCert = new Button { Text = "Remove", BackColor = Color.IndianRed, ForeColor = Color.White, FlatStyle = FlatStyle.Flat, Size = new Size(70, 32), Location = new Point(x + 330, y - 2) };
             btnRemoveCert.Click += (s, e) => {
                 if (lstCerts.SelectedIndex != -1) lstCerts.Items.RemoveAt(lstCerts.SelectedIndex);
             };
             this.Controls.Add(btnRemoveCert);
 
-            y += 50; // Space for Save buttons
+            y += 80; // Gap before Save buttons
 
-            // Buttons
-            Button btnSave = new Button { Text = "Save Changes", BackColor = Color.SeaGreen, ForeColor = Color.White, FlatStyle = FlatStyle.Flat, Size = new Size(150, 40), Location = new Point(x + 230, y) };
+            // --- 5. ACTION BUTTONS ---
+
+            // Cancel Button
+            Button btnCancel = new Button { Text = "Cancel", BackColor = Color.LightGray, FlatStyle = FlatStyle.Flat, Size = new Size(120, 45), Location = new Point(x, y) };
+            btnCancel.Click += BackButton_Click;
+            this.Controls.Add(btnCancel);
+
+            // Save Button (Placed next to Cancel)
+            Button btnSave = new Button { Text = "Save Changes", BackColor = Color.SeaGreen, ForeColor = Color.White, FlatStyle = FlatStyle.Flat, Size = new Size(180, 45), Location = new Point(x + 140, y) };
             btnSave.Click += BtnSave_Click;
             this.Controls.Add(btnSave);
-
-            Button btnCancel = new Button { Text = "Cancel", BackColor = Color.LightGray, FlatStyle = FlatStyle.Flat, Size = new Size(100, 40), Location = new Point(x + 120, y) };
-            btnCancel.Click += (s, ev) => { new DoctorProfileForm(_doctor).Show(); this.Close(); };
-            this.Controls.Add(btnCancel);
         }
 
         private void BtnAddCert_Click(object sender, EventArgs e)
@@ -164,26 +189,25 @@ namespace WindowsFormsApp1.Forms.Doctor
 
         private CheckBox CreateCheck(string text, int x, int y)
         {
-            CheckBox cb = new CheckBox { Text = text, Location = new Point(x, y), AutoSize = true, Font = new Font("Segoe UI", 9) };
+            CheckBox cb = new CheckBox { Text = text, Location = new Point(x, y), AutoSize = true, Font = new Font("Segoe UI", 10) };
             this.Controls.Add(cb);
             return cb;
         }
 
         private void PopulateData()
         {
+            if (_doctor == null) return;
+
             txtPhone.Text = _doctor.PhoneNumber;
             numFee.Value = (decimal)(_doctor.ConsultationFee ?? 0);
 
-            // Parse Time
             if (_doctor.WorkingHours != null)
             {
-                DateTime t;
-                if (DateTime.TryParse(_doctor.WorkingHours.StartTime, out t)) dtpStartTime.Value = t;
-                if (DateTime.TryParse(_doctor.WorkingHours.EndTime, out t)) dtpEndTime.Value = t;
+                if (DateTime.TryParse(_doctor.WorkingHours.StartTime, out DateTime tStart)) dtpStartTime.Value = tStart;
+                if (DateTime.TryParse(_doctor.WorkingHours.EndTime, out DateTime tEnd)) dtpEndTime.Value = tEnd;
             }
 
-            // Check Days
-            if (_doctor.Schedule != null && _doctor.Schedule.AvailableDays != null)
+            if (_doctor.Schedule?.AvailableDays != null)
             {
                 var days = _doctor.Schedule.AvailableDays;
                 if (days.Contains("Monday")) cbMon.Checked = true;
@@ -195,7 +219,6 @@ namespace WindowsFormsApp1.Forms.Doctor
                 if (days.Contains("Sunday")) cbSun.Checked = true;
             }
 
-            // Populate Certifications
             if (_doctor.Certification != null)
             {
                 foreach (var cert in _doctor.Certification)
@@ -209,7 +232,6 @@ namespace WindowsFormsApp1.Forms.Doctor
         {
             try
             {
-                // Collect Days
                 List<string> selectedDays = new List<string>();
                 if (cbMon.Checked) selectedDays.Add("Monday");
                 if (cbTue.Checked) selectedDays.Add("Tuesday");
@@ -219,14 +241,9 @@ namespace WindowsFormsApp1.Forms.Doctor
                 if (cbSat.Checked) selectedDays.Add("Saturday");
                 if (cbSun.Checked) selectedDays.Add("Sunday");
 
-                // Collect Certifications
                 List<string> updatedCerts = new List<string>();
-                foreach (var item in lstCerts.Items)
-                {
-                    updatedCerts.Add(item.ToString());
-                }
+                foreach (var item in lstCerts.Items) updatedCerts.Add(item.ToString());
 
-                // MongoDB Update
                 var collection = _dbService.GetCollection<BsonDocument>("doctors");
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(_doctor.Id));
                 var update = Builders<BsonDocument>.Update
@@ -235,25 +252,24 @@ namespace WindowsFormsApp1.Forms.Doctor
                     .Set("working_hours.start_time", dtpStartTime.Value.ToString("HH:mm"))
                     .Set("working_hours.end_time", dtpEndTime.Value.ToString("HH:mm"))
                     .Set("schedule.available_days", selectedDays)
-                    .Set("certification", updatedCerts); // Update Certs
+                    .Set("certification", updatedCerts);
 
                 collection.UpdateOne(filter, update);
 
                 // Update Local Object
                 _doctor.PhoneNumber = txtPhone.Text;
                 _doctor.ConsultationFee = (double)numFee.Value;
-
                 if (_doctor.WorkingHours == null) _doctor.WorkingHours = new Models.WorkingHours();
                 _doctor.WorkingHours.StartTime = dtpStartTime.Value.ToString("HH:mm");
                 _doctor.WorkingHours.EndTime = dtpEndTime.Value.ToString("HH:mm");
-
                 if (_doctor.Schedule == null) _doctor.Schedule = new Models.Schedule();
                 _doctor.Schedule.AvailableDays = selectedDays;
-
-                _doctor.Certification = updatedCerts; // Update Local Certs
+                _doctor.Certification = updatedCerts;
 
                 MessageBox.Show("Saved!");
-                new DoctorProfileForm(_doctor).Show();
+
+                this.Hide();
+                new DoctorDashboardForm(_doctor).ShowDialog();
                 this.Close();
             }
             catch (Exception ex)

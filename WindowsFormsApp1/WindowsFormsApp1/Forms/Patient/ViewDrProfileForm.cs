@@ -102,7 +102,7 @@ namespace WindowsFormsApp1.Forms.Patient
                 flpReviews.Controls.Add(new Label
                 {
                     Text = "No reviews yet.",
-                    ForeColor = Color.Gray,
+                    ForeColor = Color.White,
                     AutoSize = true
                 });
                 return;
@@ -170,7 +170,7 @@ namespace WindowsFormsApp1.Forms.Patient
                 flpTimeSlots.Controls.Add(new Label
                 {
                     Text = "No available slots.",
-                    ForeColor = Color.Gray,
+                    ForeColor = Color.White,
                     AutoSize = true
                 });
                 return;
@@ -187,7 +187,7 @@ namespace WindowsFormsApp1.Forms.Patient
                 flpTimeSlots.Controls.Add(new Label
                 {
                     Text = "No available time slots for this day.",
-                    ForeColor = Color.Gray,
+                    ForeColor = Color.White,
                     AutoSize = true
                 });
                 return;

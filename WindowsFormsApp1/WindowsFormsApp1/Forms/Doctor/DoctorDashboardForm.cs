@@ -16,6 +16,8 @@ namespace WindowsFormsApp1.Forms.Doctor
 
         // UI Controls
         private Button btnProfile;
+        private Button btnLogout;
+        private Button btnMarkCompleted; // NEW: Button to mark as completed
         private DataGridView dgvAppointments;
         private Label lblTitle;
 
@@ -31,12 +33,13 @@ namespace WindowsFormsApp1.Forms.Doctor
 
         private void SetupCustomUI()
         {
+            // 1. Form Settings (FULL SCREEN)
             this.Text = "Doctor Homepage";
-            this.Size = new Size(900, 600);
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
             this.BackColor = Color.WhiteSmoke;
 
-            // Profile Button
+            // 2. Profile Button (Top Left)
             btnProfile = new Button();
             string firstLetter = !string.IsNullOrEmpty(_currentDoctor.FirstName)
                                 ? _currentDoctor.FirstName.Substring(0, 1).ToUpper()
@@ -58,7 +61,7 @@ namespace WindowsFormsApp1.Forms.Doctor
             btnProfile.Click += BtnProfile_Click;
             this.Controls.Add(btnProfile);
 
-            // Welcome Label
+            // 3. Welcome Label
             lblTitle = new Label();
             lblTitle.Text = $"Welcome, Dr. {_currentDoctor.FirstName} {_currentDoctor.LastName}";
             lblTitle.AutoSize = true;
@@ -67,14 +70,36 @@ namespace WindowsFormsApp1.Forms.Doctor
             lblTitle.Location = new Point(110, 45);
             this.Controls.Add(lblTitle);
 
-            // Appointments Table
+            // 4. Logout Button (Top Right)
+            btnLogout = new Button();
+            btnLogout.Text = "Logout";
+            btnLogout.Size = new Size(100, 40);
+            btnLogout.Location = new Point(this.ClientSize.Width - 130, 40);
+            btnLogout.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnLogout.BackColor = Color.IndianRed;
+            btnLogout.ForeColor = Color.White;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Click += LogoutButton_Click;
+            this.Controls.Add(btnLogout);
+
+            // 5. Mark as Completed Button (Next to Logout)
+            btnMarkCompleted = new Button();
+            btnMarkCompleted.Text = "Mark as Completed";
+            btnMarkCompleted.Size = new Size(150, 40);
+            btnMarkCompleted.Location = new Point(this.ClientSize.Width - 290, 40);
+            btnMarkCompleted.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnMarkCompleted.BackColor = Color.SeaGreen;
+            btnMarkCompleted.ForeColor = Color.White;
+            btnMarkCompleted.FlatStyle = FlatStyle.Flat;
+            btnMarkCompleted.Click += BtnMarkCompleted_Click;
+            btnMarkCompleted.Enabled = false; // Disabled until a row is selected
+            this.Controls.Add(btnMarkCompleted);
+
+            // 6. Appointments Table
             dgvAppointments = new DataGridView();
-            dgvAppointments.Size = new Size(700, 350);
-
-            int x = (this.ClientSize.Width - dgvAppointments.Width) / 2;
-            int y = (this.ClientSize.Height - dgvAppointments.Height) / 2 + 40;
-            dgvAppointments.Location = new Point(x, y);
-
+            dgvAppointments.Location = new Point(30, 120);
+            dgvAppointments.Size = new Size(this.ClientSize.Width - 60, this.ClientSize.Height - 160);
+            dgvAppointments.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvAppointments.BackgroundColor = Color.White;
             dgvAppointments.BorderStyle = BorderStyle.None;
             dgvAppointments.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -83,17 +108,30 @@ namespace WindowsFormsApp1.Forms.Doctor
             dgvAppointments.ReadOnly = true;
             dgvAppointments.RowHeadersVisible = false;
             dgvAppointments.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
             dgvAppointments.DefaultCellStyle.Font = new Font("Arial", 10);
             dgvAppointments.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 11, FontStyle.Bold);
+
+            // Add event for row selection
+            dgvAppointments.SelectionChanged += DgvAppointments_SelectionChanged;
 
             this.Controls.Add(dgvAppointments);
         }
 
-        // ✔ Only ONE Load event handler
-        private void DoctorDashboardForm_Load(object sender, EventArgs e)
+        private void DgvAppointments_SelectionChanged(object sender, EventArgs e)
         {
-            // You can add logic here if needed
+            // Enable/disable the "Mark as Completed" button based on selection
+            if (dgvAppointments.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvAppointments.SelectedRows[0];
+                string status = selectedRow.Cells["Status"].Value?.ToString() ?? "";
+
+                // Only enable if appointment is "scheduled" (not cancelled or already completed)
+                btnMarkCompleted.Enabled = (status == "scheduled" || status == "confirmed");
+            }
+            else
+            {
+                btnMarkCompleted.Enabled = false;
+            }
         }
 
         private void LoadAppointmentsFromMongoDB()
@@ -109,6 +147,7 @@ namespace WindowsFormsApp1.Forms.Doctor
                 var appointmentList = appointmentsCollection.Find(filter).ToList();
 
                 DataTable dt = new DataTable();
+                dt.Columns.Add("Appointment ID"); // Hidden column for the ID
                 dt.Columns.Add("Date");
                 dt.Columns.Add("Time");
                 dt.Columns.Add("Patient Name");
@@ -116,12 +155,12 @@ namespace WindowsFormsApp1.Forms.Doctor
 
                 foreach (var app in appointmentList)
                 {
+                    string id = app.GetValue("_id", "").AsObjectId.ToString();
                     string date = app.GetValue("app_date", "N/A").AsString;
                     string time = app.GetValue("app_time", "N/A").AsString;
                     string status = app.GetValue("status", "N/A").AsString;
 
                     string patientName = "Unknown";
-
                     if (app.Contains("patient_id") && !app["patient_id"].IsBsonNull)
                     {
                         var patientId = app["patient_id"].AsObjectId;
@@ -136,14 +175,120 @@ namespace WindowsFormsApp1.Forms.Doctor
                         }
                     }
 
-                    dt.Rows.Add(date, time, patientName, status);
+                    dt.Rows.Add(id, date, time, patientName, status);
                 }
 
                 dgvAppointments.DataSource = dt;
+
+                // Hide the Appointment ID column (it's just for reference)
+                if (dgvAppointments.Columns.Contains("Appointment ID"))
+                {
+                    dgvAppointments.Columns["Appointment ID"].Visible = false;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error loading data: {ex.Message}");
+            }
+        }
+
+        private void BtnMarkCompleted_Click(object sender, EventArgs e)
+        {
+            if (dgvAppointments.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select an appointment to mark as completed.");
+                return;
+            }
+
+            var selectedRow = dgvAppointments.SelectedRows[0];
+            string appointmentId = selectedRow.Cells["Appointment ID"].Value?.ToString();
+            string patientName = selectedRow.Cells["Patient Name"].Value?.ToString();
+            string date = selectedRow.Cells["Date"].Value?.ToString();
+            string time = selectedRow.Cells["Time"].Value?.ToString();
+
+            if (string.IsNullOrEmpty(appointmentId))
+            {
+                MessageBox.Show("Could not find appointment ID.");
+                return;
+            }
+
+            // Ask for confirmation
+            var result = MessageBox.Show(
+                $"Mark appointment for {patientName} on {date} at {time} as completed?",
+                "Confirm Completion",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    // Update the appointment status in MongoDB
+                    var appointmentsCollection = _dbService.GetCollection<BsonDocument>("appointments");
+                    var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(appointmentId));
+                    var update = Builders<BsonDocument>.Update.Set("status", "completed");
+
+                    var resultUpdate = appointmentsCollection.UpdateOne(filter, update);
+
+                    if (resultUpdate.ModifiedCount > 0)
+                    {
+                        MessageBox.Show("Appointment marked as completed successfully!");
+
+                        // Also update the corresponding slot in doctor's slots if needed
+                        UpdateDoctorSlotStatus(appointmentId, "completed");
+
+                        // Refresh the data
+                        LoadAppointmentsFromMongoDB();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update appointment status.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error updating appointment: {ex.Message}");
+                }
+            }
+        }
+
+        private void UpdateDoctorSlotStatus(string appointmentId, string status)
+        {
+            try
+            {
+                // Find and update the doctor's slot that has this appointment ID
+                var doctorsCollection = _dbService.GetCollection<BsonDocument>("doctors");
+                var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(_currentDoctor.Id));
+                var doctor = doctorsCollection.Find(filter).FirstOrDefault();
+
+                if (doctor != null && doctor.Contains("slots"))
+                {
+                    var slots = doctor["slots"].AsBsonArray;
+                    bool updated = false;
+
+                    for (int i = 0; i < slots.Count; i++)
+                    {
+                        var slot = slots[i].AsBsonDocument;
+                        if (slot.Contains("app_id") && slot["app_id"].AsString == appointmentId)
+                        {
+                            // Update the slot status
+                            var update = Builders<BsonDocument>.Update.Set($"slots.{i}.status", status);
+                            doctorsCollection.UpdateOne(filter, update);
+                            updated = true;
+                            break;
+                        }
+                    }
+
+                    if (!updated)
+                    {
+                        Console.WriteLine("Slot not found for this appointment.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error updating slot: {ex.Message}");
             }
         }
 
@@ -158,18 +303,11 @@ namespace WindowsFormsApp1.Forms.Doctor
         {
             try
             {
-
                 var res = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (res != DialogResult.Yes) return;
 
-
-               
-
-
                 var login = new WindowsFormsApp1.Forms.Auth.LoginForm();
                 login.Show();
-
-
                 this.Close();
             }
             catch (Exception ex)
@@ -177,5 +315,7 @@ namespace WindowsFormsApp1.Forms.Doctor
                 MessageBox.Show("Logout error: " + ex.Message);
             }
         }
+
+        private void DoctorDashboardForm_Load_1(object sender, EventArgs e) { }
     }
 }
