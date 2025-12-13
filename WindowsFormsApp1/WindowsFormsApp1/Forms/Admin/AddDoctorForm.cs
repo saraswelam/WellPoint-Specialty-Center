@@ -4,6 +4,7 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using WindowsFormsApp1.Models;
 
@@ -159,7 +160,7 @@ namespace WindowsFormsApp1.Forms.Admin
             this.Close();
         }
 
-        
+        //some validations ashan inserting
         private bool ValidateForm()
         {
             if (string.IsNullOrWhiteSpace(FirstNameTextBox.Text))
@@ -193,6 +194,16 @@ namespace WindowsFormsApp1.Forms.Admin
                 MessageBox.Show("Phone number is required.");
                 return false;
             }
+            if (!ValidatePhoneNumber(PhoneTextBox.Text))
+            {
+                MessageBox.Show("Invalid phone number. Please enter a valid 11-digit Egyptian mobile number starting with 01 (e.g., 01012345678).", "Validation Error");
+                return false;
+            }
+            if (!ValidatePassword(PasswordTextBox.Text))
+            {
+                MessageBox.Show("Password must be at least 8 characters long and contain:\n• At least one uppercase letter\n• At least one lowercase letter\n• At least one digit", "Validation Error");
+                return false;
+            }
 
             if (!double.TryParse(ConsultationFeeTextBox.Text, out _))
             {
@@ -215,7 +226,34 @@ namespace WindowsFormsApp1.Forms.Admin
             return true;
         }
 
-        
+
+        private bool ValidatePassword(string password)
+        {
+            if (string.IsNullOrEmpty(password))
+                return false;
+
+
+            if (password.Length < 8)
+                return false;
+
+
+            if (!Regex.IsMatch(password, @"[A-Z]"))
+                return false;
+
+
+            if (!Regex.IsMatch(password, @"[a-z]"))
+                return false;
+
+
+            if (!Regex.IsMatch(password, @"[0-9]"))
+                return false;
+
+
+
+            return true;
+        }
+
+
         private void FirstNameTextBox_TextChanged(object sender, EventArgs e) { }
         private void LastNameTextBox_TextChanged(object sender, EventArgs e) { }
         private void EmailTextBox_TextChanged(object sender, EventArgs e) { }
@@ -251,6 +289,35 @@ namespace WindowsFormsApp1.Forms.Admin
         {
             AdminDashboardForm form = new AdminDashboardForm(_admin);
             var result = form.ShowDialog();
+        }
+
+        private bool ValidatePhoneNumber(string phone)
+        {
+            if (string.IsNullOrWhiteSpace(phone))
+                return false;
+
+
+            string cleanedPhone = Regex.Replace(phone, @"[\s\-\(\)]", "");
+
+            // Must be exactly 11 digits
+            if (cleanedPhone.Length != 11)
+                return false;
+
+            // Check if it's all digits
+            if (!Regex.IsMatch(cleanedPhone, @"^\d+$"))
+                return false;
+
+
+            if (Regex.IsMatch(cleanedPhone, @"^01[0-9]{9}$"))
+                return true;
+
+            return false;
+        }
+
+
+        private void PhoneTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

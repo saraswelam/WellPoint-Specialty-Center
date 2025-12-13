@@ -29,13 +29,12 @@ namespace WindowsFormsApp1.Forms.Auth
             GenderComboBox.SelectedIndex = 0;
         }
 
-        // Phone validation for Egyptian mobile numbers - ONLY 11 DIGITS STARTING WITH 01
         private bool ValidatePhoneNumber(string phone)
         {
             if (string.IsNullOrWhiteSpace(phone))
                 return false;
 
-            // Remove spaces, dashes, parentheses
+           
             string cleanedPhone = Regex.Replace(phone, @"[\s\-\(\)]", "");
 
             // Must be exactly 11 digits
@@ -46,33 +45,32 @@ namespace WindowsFormsApp1.Forms.Auth
             if (!Regex.IsMatch(cleanedPhone, @"^\d+$"))
                 return false;
 
-            // Egyptian mobile numbers: EXACTLY 11 digits starting with 01 (e.g., 01012345678)
+           
             if (Regex.IsMatch(cleanedPhone, @"^01[0-9]{9}$"))
                 return true;
 
             return false;
         }
 
-        // Strong password validation
+        
         private bool ValidatePassword(string password)
         {
             if (string.IsNullOrEmpty(password))
                 return false;
 
-            // Password requirements:
-            // 1. At least 8 characters
+            
             if (password.Length < 8)
                 return false;
 
-            // 2. At least one uppercase letter
+            
             if (!Regex.IsMatch(password, @"[A-Z]"))
                 return false;
 
-            // 3. At least one lowercase letter
+            
             if (!Regex.IsMatch(password, @"[a-z]"))
                 return false;
 
-            // 4. At least one digit
+          
             if (!Regex.IsMatch(password, @"[0-9]"))
                 return false;
 
@@ -131,14 +129,14 @@ namespace WindowsFormsApp1.Forms.Auth
                 return;
             }
 
-            // Phone validation - ONLY 11 DIGITS STARTING WITH 01
+            // Phone validation 
             if (!ValidatePhoneNumber(phone))
             {
                 MessageBox.Show("Invalid phone number. Please enter a valid 11-digit Egyptian mobile number starting with 01 (e.g., 01012345678).", "Validation Error");
                 return;
             }
 
-            // Emergency contact validation (if provided) - ONLY 11 DIGITS STARTING WITH 01
+            // Emergency contact validation
             if (!string.IsNullOrEmpty(emergencyContact) && !ValidatePhoneNumber(emergencyContact))
             {
                 MessageBox.Show("Invalid emergency contact number. Please enter a valid 11-digit Egyptian mobile number starting with 01.", "Validation Error");

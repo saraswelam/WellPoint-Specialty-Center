@@ -14,10 +14,9 @@ namespace WindowsFormsApp1.Forms.Doctor
         private Models.Doctor _currentDoctor;
         private MongoDBService _dbService;
 
-        // UI Controls
         private Button btnProfile;
         private Button btnLogout;
-        private Button btnMarkCompleted; // NEW: Button to mark as completed
+        private Button btnMarkCompleted; 
         private DataGridView dgvAppointments;
         private Label lblTitle;
 
@@ -33,13 +32,13 @@ namespace WindowsFormsApp1.Forms.Doctor
 
         private void SetupCustomUI()
         {
-            // 1. Form Settings (FULL SCREEN)
+           
             this.Text = "Doctor Homepage";
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.BackColor = Color.WhiteSmoke;
 
-            // 2. Profile Button (Top Left)
+            
             btnProfile = new Button();
             string firstLetter = !string.IsNullOrEmpty(_currentDoctor.FirstName)
                                 ? _currentDoctor.FirstName.Substring(0, 1).ToUpper()
@@ -61,7 +60,7 @@ namespace WindowsFormsApp1.Forms.Doctor
             btnProfile.Click += BtnProfile_Click;
             this.Controls.Add(btnProfile);
 
-            // 3. Welcome Label
+       
             lblTitle = new Label();
             lblTitle.Text = $"Welcome, Dr. {_currentDoctor.FirstName} {_currentDoctor.LastName}";
             lblTitle.AutoSize = true;
@@ -70,7 +69,7 @@ namespace WindowsFormsApp1.Forms.Doctor
             lblTitle.Location = new Point(110, 45);
             this.Controls.Add(lblTitle);
 
-            // 4. Logout Button (Top Right)
+            
             btnLogout = new Button();
             btnLogout.Text = "Logout";
             btnLogout.Size = new Size(100, 40);
@@ -82,7 +81,7 @@ namespace WindowsFormsApp1.Forms.Doctor
             btnLogout.Click += LogoutButton_Click;
             this.Controls.Add(btnLogout);
 
-            // 5. Mark as Completed Button (Next to Logout)
+            
             btnMarkCompleted = new Button();
             btnMarkCompleted.Text = "Mark as Completed";
             btnMarkCompleted.Size = new Size(150, 40);
@@ -92,10 +91,10 @@ namespace WindowsFormsApp1.Forms.Doctor
             btnMarkCompleted.ForeColor = Color.White;
             btnMarkCompleted.FlatStyle = FlatStyle.Flat;
             btnMarkCompleted.Click += BtnMarkCompleted_Click;
-            btnMarkCompleted.Enabled = false; // Disabled until a row is selected
+            btnMarkCompleted.Enabled = false; 
             this.Controls.Add(btnMarkCompleted);
 
-            // 6. Appointments Table
+          
             dgvAppointments = new DataGridView();
             dgvAppointments.Location = new Point(30, 120);
             dgvAppointments.Size = new Size(this.ClientSize.Width - 60, this.ClientSize.Height - 160);
@@ -111,7 +110,7 @@ namespace WindowsFormsApp1.Forms.Doctor
             dgvAppointments.DefaultCellStyle.Font = new Font("Arial", 10);
             dgvAppointments.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 11, FontStyle.Bold);
 
-            // Add event for row selection
+            
             dgvAppointments.SelectionChanged += DgvAppointments_SelectionChanged;
 
             this.Controls.Add(dgvAppointments);
@@ -119,13 +118,13 @@ namespace WindowsFormsApp1.Forms.Doctor
 
         private void DgvAppointments_SelectionChanged(object sender, EventArgs e)
         {
-            // Enable/disable the "Mark as Completed" button based on selection
+           
             if (dgvAppointments.SelectedRows.Count > 0)
             {
                 var selectedRow = dgvAppointments.SelectedRows[0];
                 string status = selectedRow.Cells["Status"].Value?.ToString() ?? "";
 
-                // Only enable if appointment is "scheduled" (not cancelled or already completed)
+              
                 btnMarkCompleted.Enabled = (status == "scheduled" || status == "confirmed");
             }
             else
@@ -147,7 +146,7 @@ namespace WindowsFormsApp1.Forms.Doctor
                 var appointmentList = appointmentsCollection.Find(filter).ToList();
 
                 DataTable dt = new DataTable();
-                dt.Columns.Add("Appointment ID"); // Hidden column for the ID
+                dt.Columns.Add("Appointment ID"); 
                 dt.Columns.Add("Date");
                 dt.Columns.Add("Time");
                 dt.Columns.Add("Patient Name");
@@ -180,7 +179,7 @@ namespace WindowsFormsApp1.Forms.Doctor
 
                 dgvAppointments.DataSource = dt;
 
-                // Hide the Appointment ID column (it's just for reference)
+                
                 if (dgvAppointments.Columns.Contains("Appointment ID"))
                 {
                     dgvAppointments.Columns["Appointment ID"].Visible = false;
@@ -224,7 +223,7 @@ namespace WindowsFormsApp1.Forms.Doctor
             {
                 try
                 {
-                    // Update the appointment status in MongoDB
+                    
                     var appointmentsCollection = _dbService.GetCollection<BsonDocument>("appointments");
                     var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(appointmentId));
                     var update = Builders<BsonDocument>.Update.Set("status", "completed");
@@ -235,10 +234,10 @@ namespace WindowsFormsApp1.Forms.Doctor
                     {
                         MessageBox.Show("Appointment marked as completed successfully!");
 
-                        // Also update the corresponding slot in doctor's slots if needed
+                      
                         UpdateDoctorSlotStatus(appointmentId, "completed");
 
-                        // Refresh the data
+                      
                         LoadAppointmentsFromMongoDB();
                     }
                     else
@@ -257,7 +256,7 @@ namespace WindowsFormsApp1.Forms.Doctor
         {
             try
             {
-                // Find and update the doctor's slot that has this appointment ID
+              
                 var doctorsCollection = _dbService.GetCollection<BsonDocument>("doctors");
                 var filter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(_currentDoctor.Id));
                 var doctor = doctorsCollection.Find(filter).FirstOrDefault();
@@ -272,7 +271,7 @@ namespace WindowsFormsApp1.Forms.Doctor
                         var slot = slots[i].AsBsonDocument;
                         if (slot.Contains("app_id") && slot["app_id"].AsString == appointmentId)
                         {
-                            // Update the slot status
+                            
                             var update = Builders<BsonDocument>.Update.Set($"slots.{i}.status", status);
                             doctorsCollection.UpdateOne(filter, update);
                             updated = true;

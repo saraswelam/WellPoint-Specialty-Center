@@ -89,7 +89,7 @@ namespace WindowsFormsApp1.Forms.Admin
             this.AppointmentsPerClinicButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AppointmentsPerClinicButton.Location = new System.Drawing.Point(15, 301);
             this.AppointmentsPerClinicButton.Name = "AppointmentsPerClinicButton";
-            this.AppointmentsPerClinicButton.Size = new System.Drawing.Size(232, 52);
+            this.AppointmentsPerClinicButton.Size = new System.Drawing.Size(232, 77);
             this.AppointmentsPerClinicButton.TabIndex = 4;
             this.AppointmentsPerClinicButton.Text = "Appointments Per Clinic";
             this.AppointmentsPerClinicButton.UseVisualStyleBackColor = false;
@@ -99,7 +99,7 @@ namespace WindowsFormsApp1.Forms.Admin
             // 
             this.DoctorRatingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.DoctorRatingsButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DoctorRatingsButton.Location = new System.Drawing.Point(15, 397);
+            this.DoctorRatingsButton.Location = new System.Drawing.Point(15, 448);
             this.DoctorRatingsButton.Name = "DoctorRatingsButton";
             this.DoctorRatingsButton.Size = new System.Drawing.Size(232, 42);
             this.DoctorRatingsButton.TabIndex = 3;
@@ -111,7 +111,7 @@ namespace WindowsFormsApp1.Forms.Admin
             // 
             this.DoctorWorkloadButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.DoctorWorkloadButton.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DoctorWorkloadButton.Location = new System.Drawing.Point(15, 494);
+            this.DoctorWorkloadButton.Location = new System.Drawing.Point(15, 551);
             this.DoctorWorkloadButton.Name = "DoctorWorkloadButton";
             this.DoctorWorkloadButton.Size = new System.Drawing.Size(232, 57);
             this.DoctorWorkloadButton.TabIndex = 2;

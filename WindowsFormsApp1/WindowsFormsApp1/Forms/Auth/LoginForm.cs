@@ -31,11 +31,7 @@ namespace WindowsFormsApp1.Forms.Auth
             //this.WindowState = FormWindowState.Maximized;
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
+      
 
 
         private void button1_Click(object sender, EventArgs e)
@@ -190,6 +186,10 @@ namespace WindowsFormsApp1.Forms.Auth
         }
 
 
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

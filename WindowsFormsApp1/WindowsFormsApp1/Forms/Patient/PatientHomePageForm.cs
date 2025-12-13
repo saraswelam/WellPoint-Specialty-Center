@@ -188,7 +188,7 @@ namespace WindowsFormsApp1.Forms.Patient
                 ForeColor = Color.FromArgb(90, 90, 90)
             };
 
-            // VIEW PROFILE BUTTON
+          
             Button btnView = new Button()
             {
                 Text = "View Profile",

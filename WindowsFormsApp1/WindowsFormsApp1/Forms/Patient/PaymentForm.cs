@@ -46,7 +46,7 @@ namespace WindowsFormsApp1.Forms.Patient
             _appointmentTime = appointmentTime;
             _fee = fee;
 
-            // Load UI labels safely
+           
             lblDoctor.Text = $"Doctor: {GetDoctorDisplayName()}";
             lblAppt.Text = $"When: {_appointmentDate} at {_appointmentTime}";
             lblFee.Text = $"Amount: {_fee:F0} EGP";
@@ -55,7 +55,7 @@ namespace WindowsFormsApp1.Forms.Patient
 
         private string GetDoctorDisplayName()
         {
-            // Basic: if you need full doctor object, call DoctorService
+            
             var ds = new DoctorService();
             var doc = ds.GetAllDoctors().Find(d => d.Id == _doctorId);
             return doc != null ? $"{doc.FirstName} {doc.LastName}" : "Doctor";
@@ -63,7 +63,7 @@ namespace WindowsFormsApp1.Forms.Patient
 
         private void btnPayNow_Click(object sender, EventArgs e)
         {
-            // ✅ require choosing a method
+            // require choosing a method
             if (cmbMethod.SelectedIndex < 0)
             {
                 MessageBox.Show("Please choose a payment method first.",
@@ -94,7 +94,7 @@ namespace WindowsFormsApp1.Forms.Patient
 
         private void PaymentForm_Load(object sender, EventArgs e)
         {
-            // force user to choose (nothing selected by default)
+            
             cmbMethod.SelectedIndex = -1;
         }
 

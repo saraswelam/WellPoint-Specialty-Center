@@ -45,7 +45,7 @@ namespace WindowsFormsApp1.Forms.Patient
             {
                 var apptId = appt["_id"].AsObjectId;
 
-                // ❌ skip if already reviewed
+                //  skip if already reviewed
                 bool reviewed = _reviewService.HasReviewForAppointment(apptId);
                 if (reviewed) continue;
 

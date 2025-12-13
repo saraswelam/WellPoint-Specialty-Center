@@ -148,6 +148,7 @@
             this.PhoneTextBox.Name = "PhoneTextBox";
             this.PhoneTextBox.Size = new System.Drawing.Size(180, 22);
             this.PhoneTextBox.TabIndex = 10;
+            this.PhoneTextBox.TextChanged += new System.EventHandler(this.PhoneTextBox_TextChanged_1);
             // 
             // ConsultationFeeLabel
             // 
