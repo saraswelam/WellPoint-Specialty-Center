@@ -76,9 +76,7 @@ namespace WindowsFormsApp1.Forms.Auth
             if (!Regex.IsMatch(password, @"[0-9]"))
                 return false;
 
-            // 5. At least one special character
-            if (!Regex.IsMatch(password, @"[!@#$%^&*()_+\-=\[\]{};':""\\|,.<>\/?]"))
-                return false;
+           
 
             return true;
         }
@@ -150,7 +148,7 @@ namespace WindowsFormsApp1.Forms.Auth
             // Password validation
             if (!ValidatePassword(password))
             {
-                MessageBox.Show("Password must be at least 8 characters long and contain:\n• At least one uppercase letter\n• At least one lowercase letter\n• At least one digit\n• At least one special character", "Validation Error");
+                MessageBox.Show("Password must be at least 8 characters long and contain:\n• At least one uppercase letter\n• At least one lowercase letter\n• At least one digit", "Validation Error");
                 return;
             }
 
