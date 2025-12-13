@@ -34,45 +34,49 @@ namespace WindowsFormsApp1.Forms.Patient
             LoadCompletedAppointments();
         }
 
-        
+
         private void LoadCompletedAppointments()
         {
             cmbAppointments.Items.Clear();
 
             var appts = _appointmentService.GetCompletedAppointmentsByPatient(_patient.Id);
 
-            if (appts == null || appts.Count == 0)
-            {
-                MessageBox.Show(
-                    "You have no completed appointments to review.",
-                    "No Completed Appointments",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-
-                return;
-            }
-
             foreach (var appt in appts)
             {
+                var apptId = appt["_id"].AsObjectId;
+
+                // ❌ skip if already reviewed
+                bool reviewed = _reviewService.HasReviewForAppointment(apptId);
+                if (reviewed) continue;
+
                 var doctorId = appt["dr_id"].AsObjectId;
                 var doctor = _doctorService.GetDoctorById(doctorId);
                 if (doctor == null) continue;
 
-                string text = $"{doctor.FirstName} {doctor.LastName} — {appt["app_date"]} at {appt["app_time"]}";
-
                 cmbAppointments.Items.Add(new AppointmentComboItem
                 {
-                    Text = text,
-                    AppointmentId = appt["_id"].ToString(),
+                    Text = $"{doctor.FirstName} {doctor.LastName} — {appt["app_date"]} at {appt["app_time"]}",
+                    AppointmentId = apptId.ToString(),
                     DoctorId = doctor.Id
                 });
             }
 
-            if (cmbAppointments.Items.Count > 0)
+            if (cmbAppointments.Items.Count == 0)
+            {
+                MessageBox.Show("All completed appointments already have reviews.",
+                                "Nothing to Review",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                this.Close();
+            }
+            else
+            {
                 cmbAppointments.SelectedIndex = 0;
+            }
         }
 
-        
+
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             if (cmbAppointments.SelectedIndex == -1)
@@ -92,10 +96,22 @@ namespace WindowsFormsApp1.Forms.Patient
             }
 
             bool success = _reviewService.AddReview(
+                appointmentId: selected.AppointmentId,
                 doctorId: selected.DoctorId,
                 patientId: _patient.Id,
                 rating: rating,
-                comment: comment);
+                comment: comment
+            );
+
+            if (!success)
+            {
+                MessageBox.Show("You already reviewed this appointment.",
+                                "Duplicate Review",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
 
             if (success)
             {

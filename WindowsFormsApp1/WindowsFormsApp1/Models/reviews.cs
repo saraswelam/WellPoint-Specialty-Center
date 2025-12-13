@@ -16,6 +16,11 @@ namespace WindowsFormsApp1.Models
         [BsonElement("patient_id")]
         public string PatientId { get; set; }
 
+        [BsonRepresentation(BsonType.ObjectId)]
+        [BsonElement("app_id")]
+        public string AppointmentId { get; set; }
+
+
         [BsonElement("rating")]
         public int Rating { get; set; }
 

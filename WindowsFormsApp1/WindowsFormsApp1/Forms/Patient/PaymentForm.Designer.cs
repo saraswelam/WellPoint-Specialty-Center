@@ -107,7 +107,7 @@ namespace WindowsFormsApp1.Forms.Patient
             this.btnPayNow.Name = "btnPayNow";
             this.btnPayNow.Size = new System.Drawing.Size(200, 45);
             this.btnPayNow.TabIndex = 6;
-            this.btnPayNow.Text = "Pay & Book";
+            this.btnPayNow.Text = "Book";
             this.btnPayNow.UseVisualStyleBackColor = false;
             this.btnPayNow.Click += new System.EventHandler(this.btnPayNow_Click);
             // 

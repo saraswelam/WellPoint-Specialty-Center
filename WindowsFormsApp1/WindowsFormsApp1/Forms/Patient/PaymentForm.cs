@@ -63,7 +63,17 @@ namespace WindowsFormsApp1.Forms.Patient
 
         private void btnPayNow_Click(object sender, EventArgs e)
         {
-            
+            // ✅ require choosing a method
+            if (cmbMethod.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please choose a payment method first.",
+                                "Missing Payment Method",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                cmbMethod.Focus();
+                return;
+            }
+
             var method = (cmbMethod.SelectedItem?.ToString() ?? "cash").ToLower();
 
             
@@ -84,7 +94,8 @@ namespace WindowsFormsApp1.Forms.Patient
 
         private void PaymentForm_Load(object sender, EventArgs e)
         {
-
+            // force user to choose (nothing selected by default)
+            cmbMethod.SelectedIndex = -1;
         }
 
     }

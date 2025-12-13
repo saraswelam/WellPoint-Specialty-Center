@@ -181,7 +181,10 @@ namespace WindowsFormsApp1.Forms.Patient
 
         }
 
-       
+        private void panelAppointments_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 

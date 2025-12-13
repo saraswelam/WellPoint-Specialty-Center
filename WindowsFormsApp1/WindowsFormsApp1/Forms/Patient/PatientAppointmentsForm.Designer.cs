@@ -74,6 +74,7 @@ namespace WindowsFormsApp1.Forms.Patient
             this.panelAppointments.Padding = new System.Windows.Forms.Padding(30);
             this.panelAppointments.Size = new System.Drawing.Size(1300, 820);
             this.panelAppointments.TabIndex = 1;
+            this.panelAppointments.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAppointments_Paint_1);
             // 
             // PatientAppointmentsForm
             // 

@@ -33,6 +33,7 @@ namespace WindowsFormsApp1.Forms.Admin
                                      r.Id,
                                      r.DoctorId,
                                      r.PatientId,
+                                     r.AppointmentId,
                                      r.Rating,
                                      r.Comment
                                  })

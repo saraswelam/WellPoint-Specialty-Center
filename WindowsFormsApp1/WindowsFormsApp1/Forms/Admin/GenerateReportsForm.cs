@@ -264,5 +264,10 @@ namespace WindowsFormsApp1.Forms.Admin
             var results = col.Aggregate<BsonDocument>(pipeline).ToList();
             dataGridView.DataSource = ConvertToTable(results);
         }
+
+        private void MainPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
