@@ -19,7 +19,7 @@ namespace WindowsFormsApp1.Forms.Admin
             _db = new MongoDBService();
         }
         
-        // Utility: Convert aggregation results into DataTable for grid
+        // da ashan y convert aggregation results into DataTable for grid
         
         private DataTable ConvertToTable(List<BsonDocument> docs)
         {
@@ -54,11 +54,11 @@ namespace WindowsFormsApp1.Forms.Admin
                 new BsonDocument("$match",
                     new BsonDocument("status", "completed")),
 
-                new BsonDocument("$addFields",
-                    new BsonDocument("paidAt",
-                        new BsonDocument("$dateFromString",
-                            new BsonDocument("dateString", "$payment_date")
-                        ))),
+                //new BsonDocument("$addFields",
+                //    new BsonDocument("paidAt",
+                //        new BsonDocument("$dateFromString",
+                //            new BsonDocument("dateString", "$payment_date")
+                //        ))),
 
                 new BsonDocument("$group",
                     new BsonDocument

@@ -27,7 +27,7 @@ namespace WindowsFormsApp1.Forms.Admin
             LoadAvailableDays();
         }
 
-        
+     
         private void LoadDoctorData()
         {
             var doctorCol = _db.GetCollection<WindowsFormsApp1.Models.Doctor>("doctors");
@@ -62,7 +62,6 @@ namespace WindowsFormsApp1.Forms.Admin
             ClinicComboBox.DataSource = clinics;
             ClinicComboBox.DisplayMember = "ClinicName";
             ClinicComboBox.ValueMember = "Id";
-
             ClinicComboBox.SelectedValue = _doctorData.ClinicId;
         }
 
@@ -148,6 +147,7 @@ namespace WindowsFormsApp1.Forms.Admin
                 return;
             }
 
+            //akeno by set
             
             var finalUpdate = builder.Combine(updates);
             doctorCol.UpdateOne(d => d.Id == _doctorId, finalUpdate);

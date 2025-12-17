@@ -56,7 +56,6 @@ namespace WindowsFormsApp1.Forms.Admin
             ClinicComboBox.ValueMember = "Id";
         }
 
-       
         private void LoadSpecializations()
         {
             var clinics = _db.GetCollection<Clinic>("clinics")
