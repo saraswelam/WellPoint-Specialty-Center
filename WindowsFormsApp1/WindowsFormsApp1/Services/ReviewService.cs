@@ -1,77 +1,68 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MongoDB.Bson;
-using MongoDB.Driver;
+﻿    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using MongoDB.Bson;
+    using MongoDB.Driver;
 
-namespace ClinicalBookingSystem.Services
-{
-   
-    public class ReviewService
+    namespace ClinicalBookingSystem.Services
     {
-        private readonly IMongoCollection<BsonDocument> _reviews;
-
-        public ReviewService()
+   
+        public class ReviewService
         {
-            var client = new MongoClient("mongodb://localhost:27017");
-            var db = client.GetDatabase("ClinicalBookingSystem");
+            private readonly IMongoCollection<BsonDocument> _reviews;
 
-            _reviews = db.GetCollection<BsonDocument>("reviews");
-        }
-
-        public bool AddReview(string appointmentId, string doctorId, string patientId, int rating, string comment)
-        {
-            try
+            public ReviewService()
             {
-                var apptOid = ObjectId.Parse(appointmentId);
-                var docId = ObjectId.Parse(doctorId);
-                var patId = ObjectId.Parse(patientId);
+                var client = new MongoClient("mongodb://localhost:27017");
+                var db = client.GetDatabase("ClinicalBookingSystem");
 
-                // ❌ prevent duplicate review
-                var exists = _reviews.Find(
-                    Builders<BsonDocument>.Filter.Eq("app_id", apptOid)
-                ).Any();
+                _reviews = db.GetCollection<BsonDocument>("reviews");
+            }
 
-                if (exists)
+            public bool AddReview(string appointmentId, string doctorId, string patientId, int rating, string comment)
+            {
+                try
+                {
+                    var apptOid = ObjectId.Parse(appointmentId);
+                    var docId = ObjectId.Parse(doctorId);
+                    var patId = ObjectId.Parse(patientId);
+
+                    // ❌ prevent duplicate review
+                    var exists = _reviews.Find(
+                        Builders<BsonDocument>.Filter.Eq("app_id", apptOid)
+                    ).Any();
+
+                    if (exists)
+                        return false;
+
+                    BsonDocument review = new BsonDocument
+            {
+                { "app_id", apptOid },
+                { "dr_id", docId },
+                { "patient_id", patId },
+                { "rating", rating },
+                { "comment", comment ?? "" },
+                { "created_at", DateTime.UtcNow.ToString("yyyy-MM-dd") }
+            };
+
+                    _reviews.InsertOne(review);
+                    return true;
+                }
+                catch
+                {
                     return false;
-
-                BsonDocument review = new BsonDocument
-        {
-            { "app_id", apptOid },
-            { "dr_id", docId },
-            { "patient_id", patId },
-            { "rating", rating },
-            { "comment", comment ?? "" },
-            { "created_at", DateTime.UtcNow.ToString("yyyy-MM-dd") }
-        };
-
-                _reviews.InsertOne(review);
-                return true;
+                }
             }
-            catch
+
+            public bool HasReviewForAppointment(ObjectId appointmentId)
             {
-                return false;
+                return _reviews.Find(
+                    Builders<BsonDocument>.Filter.Eq("app_id", appointmentId)
+                ).Any();
             }
+
         }
 
-        public bool HasReviewForAppointment(ObjectId appointmentId)
-        {
-            return _reviews.Find(
-                Builders<BsonDocument>.Filter.Eq("app_id", appointmentId)
-            ).Any();
-        }
-
-
-        public List<BsonDocument> GetReviewsForDoctor(string doctorId)
-        {
-            var docId = ObjectId.Parse(doctorId);
-
-            return _reviews.Find(
-                Builders<BsonDocument>.Filter.Eq("dr_id", docId)
-            ).ToList();
-        }
     }
-
-}

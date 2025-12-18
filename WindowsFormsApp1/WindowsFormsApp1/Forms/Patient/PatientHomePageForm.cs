@@ -227,11 +227,6 @@ namespace WindowsFormsApp1.Forms.Patient
 
         }
 
-        private void panelDoctorsList_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void btnAppointments_Click(object sender, EventArgs e)
         {
             var f = new PatientAppointmentsForm(_patient);

@@ -39,10 +39,7 @@ namespace ClinicalBookingSystem.Services
 
             var filter = Builders<BsonDocument>.Filter.And(
                 Builders<BsonDocument>.Filter.Eq("patient_id", patOid),
-                Builders<BsonDocument>.Filter.Or(
-                    Builders<BsonDocument>.Filter.Eq("status", "completed"),
-                    Builders<BsonDocument>.Filter.Eq("status", "done")
-                )
+                Builders<BsonDocument>.Filter.Eq("status", "completed")     
             );
 
             return _appointments.Find(filter).ToList();
@@ -52,7 +49,7 @@ namespace ClinicalBookingSystem.Services
         {
             try
             {
-                Console.WriteLine("DEBUG: CancelAppointment called with ID: " + appointmentId);
+                
 
                 var appt = _appointments.Find(
                     Builders<BsonDocument>.Filter.Eq("_id", appointmentId)
@@ -60,11 +57,11 @@ namespace ClinicalBookingSystem.Services
 
                 if (appt == null)
                 {
-                    Console.WriteLine("DEBUG: Appointment NOT FOUND!");
+                    
                     return false;
                 }
 
-                Console.WriteLine("DEBUG: Loaded appointment: " + appt.ToJson());
+               
 
                 var doctorId = appt["dr_id"].AsObjectId;
                 string date = appt["app_date"].AsString;
@@ -76,7 +73,6 @@ namespace ClinicalBookingSystem.Services
                     Builders<BsonDocument>.Update.Set("status", "cancelled")
                 );
 
-                Console.WriteLine("DEBUG: Updated appointment status. ModifiedCount = " + result1.ModifiedCount);
 
                
                 var slotFilter = Builders<BsonDocument>.Filter.And(
@@ -98,7 +94,6 @@ namespace ClinicalBookingSystem.Services
 
                 var result2 = _doctors.UpdateOne(slotFilter, slotUpdate);
 
-                Console.WriteLine("DEBUG: Slot update ModifiedCount = " + result2.ModifiedCount);
 
                 
                 return result1.ModifiedCount > 0;

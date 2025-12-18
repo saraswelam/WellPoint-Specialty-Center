@@ -96,6 +96,7 @@ namespace WindowsFormsApp1.Forms.Patient
             this.panelCard.Padding = new System.Windows.Forms.Padding(30);
             this.panelCard.Size = new System.Drawing.Size(700, 500);
             this.panelCard.TabIndex = 1;
+            this.panelCard.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCard_Paint);
             // 
             // lblSelectAppointment
             // 

@@ -144,5 +144,10 @@ namespace WindowsFormsApp1.Forms.Patient
 
             public override string ToString() => Text;
         }
+
+        private void panelCard_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

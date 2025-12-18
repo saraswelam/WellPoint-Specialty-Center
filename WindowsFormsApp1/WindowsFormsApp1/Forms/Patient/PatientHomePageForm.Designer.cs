@@ -158,7 +158,7 @@ namespace WindowsFormsApp1.Forms.Patient
             this.panelDoctorsList.Padding = new System.Windows.Forms.Padding(20);
             this.panelDoctorsList.Size = new System.Drawing.Size(1135, 407);
             this.panelDoctorsList.TabIndex = 0;
-            this.panelDoctorsList.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDoctorsList_Paint_1);
+            this.panelDoctorsList.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDoctorsList_Paint);
             // 
             // PatientHomePageForm
             // 

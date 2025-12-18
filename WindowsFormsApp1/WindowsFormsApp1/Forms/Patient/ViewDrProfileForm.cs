@@ -290,16 +290,5 @@ namespace WindowsFormsApp1.Forms.Patient
             this.Close();
         }
 
-
-
-        private void panelRight_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void flpReviews_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

@@ -51,6 +51,7 @@
             this.panelContainer.Name = "panelContainer";
             this.panelContainer.Size = new System.Drawing.Size(527, 500);
             this.panelContainer.TabIndex = 0;
+            this.panelContainer.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContainer_Paint);
             // 
             // EmailTextBox
             // 

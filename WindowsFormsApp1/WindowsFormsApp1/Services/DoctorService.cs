@@ -30,11 +30,14 @@ namespace ClinicalBookingSystem.Services
 
         public Doctor GetDoctorById(ObjectId doctorId)
         {
-            return _doctors.Find(d => d.Id == doctorId.ToString() || d.Id == doctorId.ToString()).FirstOrDefault();
+            return _doctors.Find(
+                d => d.Id == doctorId.ToString()
+            ).FirstOrDefault();
         }
 
 
-        
+
+
         public List<string> GetSpecializations()
         {
             return _doctors.AsQueryable()
@@ -58,18 +61,6 @@ namespace ClinicalBookingSystem.Services
           
         }
 
-       
-        public List<string> GetDepartments()
-        {
-            var clinics = GetClinics();
-            return clinics
-                .SelectMany(c => c.Departments ?? new List<Department>())
-                .Select(d => d.DepartmentName)
-                .Where(n => !string.IsNullOrWhiteSpace(n))
-                .Distinct()
-                .OrderBy(n => n)
-                .ToList();
-        }
 
         public double GetDoctorRating(string doctorId)
         {

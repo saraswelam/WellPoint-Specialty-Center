@@ -203,5 +203,10 @@ namespace WindowsFormsApp1.Forms.Auth
         {
 
         }
+
+        private void panelContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
